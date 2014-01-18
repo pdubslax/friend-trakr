@@ -39,7 +39,7 @@
     
     
     CustomPFLoginViewController *logInController = [[CustomPFLoginViewController alloc] init];
-    logInController.fields = PFLogInFieldsUsernameAndPassword | PFLogInFieldsLogInButton  | PFLogInFieldsSignUpButton | PFLogInFieldsFacebook;
+    logInController.fields = PFLogInFieldsFacebook;
     logInController.delegate = self;
     logInController.signUpController.delegate = self;
     if (test==0) {

@@ -28,6 +28,10 @@
 		8B5D02CE188AEC58001BED73 /* Icon~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B5D02CC188AEC58001BED73 /* Icon~iphone.png */; };
 		8B5D02D0188AEC98001BED73 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B5D02CF188AEC98001BED73 /* Images.xcassets */; };
 		8B5D02D3188AF2EC001BED73 /* AMGProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B5D02D2188AF2EC001BED73 /* AMGProgressView.m */; };
+		8B5D02DE188B0930001BED73 /* BButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B5D02D7188B0930001BED73 /* BButton.m */; };
+		8B5D02DF188B0930001BED73 /* NSString+FontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B5D02D9188B0930001BED73 /* NSString+FontAwesome.m */; };
+		8B5D02E0188B0930001BED73 /* UIColor+BButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B5D02DB188B0930001BED73 /* UIColor+BButton.m */; };
+		8B5D02E1188B0930001BED73 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8B5D02DD188B0930001BED73 /* FontAwesome.ttf */; };
 		8B6D9AB3188A2FD50091A16C /* CustomPFLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B6D9AB2188A2FD50091A16C /* CustomPFLoginViewController.m */; };
 		8B6D9AB5188A30A50091A16C /* bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8B6D9AB4188A30A50091A16C /* bg.jpg */; };
 		8B6D9AB7188A33070091A16C /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B6D9AB6188A33070091A16C /* logo.png */; };
@@ -372,6 +376,13 @@
 		8B5D02CF188AEC98001BED73 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8B5D02D1188AF2EC001BED73 /* AMGProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMGProgressView.h; sourceTree = "<group>"; };
 		8B5D02D2188AF2EC001BED73 /* AMGProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMGProgressView.m; sourceTree = "<group>"; };
+		8B5D02D6188B0930001BED73 /* BButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BButton.h; sourceTree = "<group>"; };
+		8B5D02D7188B0930001BED73 /* BButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BButton.m; sourceTree = "<group>"; };
+		8B5D02D8188B0930001BED73 /* NSString+FontAwesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FontAwesome.h"; sourceTree = "<group>"; };
+		8B5D02D9188B0930001BED73 /* NSString+FontAwesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+FontAwesome.m"; sourceTree = "<group>"; };
+		8B5D02DA188B0930001BED73 /* UIColor+BButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+BButton.h"; sourceTree = "<group>"; };
+		8B5D02DB188B0930001BED73 /* UIColor+BButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+BButton.m"; sourceTree = "<group>"; };
+		8B5D02DD188B0930001BED73 /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.ttf; sourceTree = "<group>"; };
 		8B6D9AB1188A2FD50091A16C /* CustomPFLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomPFLoginViewController.h; sourceTree = "<group>"; };
 		8B6D9AB2188A2FD50091A16C /* CustomPFLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomPFLoginViewController.m; sourceTree = "<group>"; };
 		8B6D9AB4188A30A50091A16C /* bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg.jpg; sourceTree = "<group>"; };
@@ -713,6 +724,7 @@
 		09ABC06213A1D52D009C3FCF = {
 			isa = PBXGroup;
 			children = (
+				8B5D02D4188B0930001BED73 /* BButton */,
 				8B5D02D1188AF2EC001BED73 /* AMGProgressView.h */,
 				8B5D02D2188AF2EC001BED73 /* AMGProgressView.m */,
 				8B5D02CB188AEC58001BED73 /* Icon.png */,
@@ -791,6 +803,36 @@
 				09ABC07E13A1D52D009C3FCF /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8B5D02D4188B0930001BED73 /* BButton */ = {
+			isa = PBXGroup;
+			children = (
+				8B5D02D5188B0930001BED73 /* Classes */,
+				8B5D02DC188B0930001BED73 /* resources */,
+			);
+			path = BButton;
+			sourceTree = "<group>";
+		};
+		8B5D02D5188B0930001BED73 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				8B5D02D6188B0930001BED73 /* BButton.h */,
+				8B5D02D7188B0930001BED73 /* BButton.m */,
+				8B5D02D8188B0930001BED73 /* NSString+FontAwesome.h */,
+				8B5D02D9188B0930001BED73 /* NSString+FontAwesome.m */,
+				8B5D02DA188B0930001BED73 /* UIColor+BButton.h */,
+				8B5D02DB188B0930001BED73 /* UIColor+BButton.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		8B5D02DC188B0930001BED73 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				8B5D02DD188B0930001BED73 /* FontAwesome.ttf */,
+			);
+			path = resources;
 			sourceTree = "<group>";
 		};
 		8B6D9ABD188A44460091A16C /* iconbeast lite - png */ = {
@@ -1338,6 +1380,7 @@
 				8B6D9CCF188A44470091A16C /* shield-round.png in Resources */,
 				8B6D9C3C188A44470091A16C /* crown.png in Resources */,
 				8B6D9CFA188A44470091A16C /* torch-light.png in Resources */,
+				8B5D02E1188B0930001BED73 /* FontAwesome.ttf in Resources */,
 				8B6D9CC1188A44470091A16C /* route-sign.png in Resources */,
 				8B6D9C47188A44470091A16C /* dress-hanger.png in Resources */,
 				8B6D9C06188A44470091A16C /* backpack.png in Resources */,
@@ -1481,9 +1524,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B5D02E0188B0930001BED73 /* UIColor+BButton.m in Sources */,
 				09ABC07F13A1D52D009C3FCF /* main.m in Sources */,
 				8B6D9AB3188A2FD50091A16C /* CustomPFLoginViewController.m in Sources */,
 				09ABC08213A1D52D009C3FCF /* ParseStarterProjectAppDelegate.m in Sources */,
+				8B5D02DE188B0930001BED73 /* BButton.m in Sources */,
+				8B5D02DF188B0930001BED73 /* NSString+FontAwesome.m in Sources */,
 				8B5D02D3188AF2EC001BED73 /* AMGProgressView.m in Sources */,
 				09ABC08813A1D52E009C3FCF /* ParseStarterProjectViewController.m in Sources */,
 				8B6D9D1B188A5DA30091A16C /* MeViewController.m in Sources */,

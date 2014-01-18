@@ -10,5 +10,6 @@
 
 @interface MeViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UILabel *name_label;
+@property (strong, nonatomic) IBOutlet UILabel *friend_percentage_label;
 @property (strong, nonatomic) IBOutlet UIImageView *profile_picture;
 @end

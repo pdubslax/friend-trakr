@@ -10,6 +10,7 @@
 #import <Parse/Parse.h>
 #import <QuartzCore/QuartzCore.h>
 #import "AMGProgressView.h"
+#import "BButton.h"
 
 
 @interface MeViewController ()
@@ -20,7 +21,7 @@
 
 
 @implementation MeViewController
-@synthesize profile_picture,name_label;
+@synthesize profile_picture,name_label,friend_percentage_label;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -36,10 +37,15 @@
     [super viewDidLoad];
     
     
-    self.prog = [[AMGProgressView alloc] initWithFrame:CGRectMake(20, 300, 280, 50)];
+    self.prog = [[AMGProgressView alloc] initWithFrame:CGRectMake(20, 295, 280, 50)];
     self.prog.gradientColors = @[[UIColor colorWithRed:0.1f green:0.7f blue:0.1f alpha:1.0f],
                                 [UIColor colorWithRed:0.6f green:0.9f blue:0.6f alpha:1.0f]];
     self.prog.progress = 0.75f;
+    //self.prog.outsideBorder = [UIColor blackColor];
+    int percent = self.prog.progress*100;
+    //[friend_percentage_label setText:[NSString stringWithFormat:@"Friendship Score of %d/100", percent]];
+    [friend_percentage_label setText:@""];
+    
     [self.view addSubview:self.prog];
     CALayer *roundtest = [self.prog layer];
     [roundtest setMasksToBounds:YES];
@@ -69,6 +75,25 @@
              
          }
      }];
+    
+    [[BButton appearance] setButtonCornerRadius:@10.0f];
+    
+    CGRect frame = CGRectMake(20, 460, 280, 50);
+    BButton *btn = [[BButton alloc] initWithFrame:frame type:BButtonTypeDanger style:BButtonStyleBootstrapV3];
+    [btn setTitle:@"Logout" forState:UIControlStateNormal];
+    [self.view addSubview:btn];
+    
+    CGRect frame2 = CGRectMake(20, 405, 280, 50);
+    BButton *btn2 = [[BButton alloc] initWithFrame:frame2 type:BButtonTypeInverse style:BButtonStyleBootstrapV3];
+    [btn2 setTitle:@"General Settings" forState:UIControlStateNormal];
+    [self.view addSubview:btn2];
+    
+    CGRect frame3 = CGRectMake(20, 350, 280, 50);
+    BButton *btn3 = [[BButton alloc] initWithFrame:frame3 type:BButtonTypePrimary style:BButtonStyleBootstrapV3];
+    [btn3 setTitle:@"Link Other Accounts" forState:UIControlStateNormal];
+    [self.view addSubview:btn3];
+
+    
     
 	// Do any additional setup after loading the view.
 }
