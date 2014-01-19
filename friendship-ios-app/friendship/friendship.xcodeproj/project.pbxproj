@@ -342,6 +342,8 @@
 		8B5D05AD188B38F1001BED73 /* Comms.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B5D05AC188B38F1001BED73 /* Comms.m */; };
 		8B5D05B9188B6ABA001BED73 /* FriendshipTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B5D05B8188B6ABA001BED73 /* FriendshipTableViewController.m */; };
 		8B5D05BC188B71EA001BED73 /* AddFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B5D05BB188B71EA001BED73 /* AddFriendViewController.m */; };
+		8B5D05BF188B81FF001BED73 /* FriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B5D05BE188B81FF001BED73 /* FriendCell.m */; };
+		8B5D05C1188B821F001BED73 /* FriendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B5D05C0188B821F001BED73 /* FriendCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -703,6 +705,9 @@
 		8B5D05B8188B6ABA001BED73 /* FriendshipTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendshipTableViewController.m; sourceTree = "<group>"; };
 		8B5D05BA188B71EA001BED73 /* AddFriendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddFriendViewController.h; sourceTree = "<group>"; };
 		8B5D05BB188B71EA001BED73 /* AddFriendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddFriendViewController.m; sourceTree = "<group>"; };
+		8B5D05BD188B81FF001BED73 /* FriendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendCell.h; sourceTree = "<group>"; };
+		8B5D05BE188B81FF001BED73 /* FriendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendCell.m; sourceTree = "<group>"; };
+		8B5D05C0188B821F001BED73 /* FriendCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -743,6 +748,9 @@
 		8B5D02E4188B2918001BED73 = {
 			isa = PBXGroup;
 			children = (
+				8B5D05BD188B81FF001BED73 /* FriendCell.h */,
+				8B5D05BE188B81FF001BED73 /* FriendCell.m */,
+				8B5D05C0188B821F001BED73 /* FriendCell.xib */,
 				8B5D05B7188B6ABA001BED73 /* FriendshipTableViewController.h */,
 				8B5D05B8188B6ABA001BED73 /* FriendshipTableViewController.m */,
 				8B5D05AB188B38F1001BED73 /* Comms.h */,
@@ -1290,6 +1298,7 @@
 				8B5D0575188B35D7001BED73 /* speaker-electric.png in Resources */,
 				8B5D0326188B2B87001BED73 /* logo.png in Resources */,
 				8B5D052B188B35D7001BED73 /* new.png in Resources */,
+				8B5D05C1188B821F001BED73 /* FriendCell.xib in Resources */,
 				8B5D0563188B35D7001BED73 /* server.png in Resources */,
 				8B5D0550188B35D7001BED73 /* quote.png in Resources */,
 				8B5D04A1188B35D7001BED73 /* battery-full.png in Resources */,
@@ -1585,6 +1594,7 @@
 				8B5D034A188B3121001BED73 /* UIColor+BButton.m in Sources */,
 				8B5D0349188B3121001BED73 /* NSString+FontAwesome.m in Sources */,
 				8B5D0307188B2918001BED73 /* ViewController.m in Sources */,
+				8B5D05BF188B81FF001BED73 /* FriendCell.m in Sources */,
 				8B5D0352188B33EB001BED73 /* AMGProgressView.m in Sources */,
 				8B5D0301188B2918001BED73 /* AppDelegate.m in Sources */,
 				8B5D05BC188B71EA001BED73 /* AddFriendViewController.m in Sources */,

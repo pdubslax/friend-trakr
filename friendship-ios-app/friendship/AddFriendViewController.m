@@ -9,6 +9,7 @@
 #import "AddFriendViewController.h"
 #import <FacebookSDK/FacebookSDK.h>
 #import <Parse/Parse.h>
+#import "FriendCell.h"
 
 @interface AddFriendViewController ()
 
@@ -45,22 +46,47 @@
 {
 #warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 2;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 3;
+    return [self.friend_array count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [[UITableViewCell alloc] init];
-    cell.text = @"Test";
+    
+    
+    
+    static NSString *simpleTableIdentifier = @"FriendCell";
+    
+    FriendCell *cell = (FriendCell *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    if (cell == nil)
+    {
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"FriendCell" owner:self options:nil];
+        cell = [nib objectAtIndex:0];
+    }
+    
+    
+    
+    cell.name_label.text = [self.friend_array objectAtIndex:indexPath.row];
+    cell.profile_image.image = [self.profile_picture_array objectAtIndex:indexPath.row];
+    
+    CALayer *roundtest = [cell.profile_image layer];
+    [roundtest setMasksToBounds:YES];
+    [roundtest setCornerRadius:25.0];
+
     
     return cell;
+
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 60;
 }
 
 /*
@@ -114,4 +140,7 @@
 
  */
 
+- (IBAction)back_button:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
 @end

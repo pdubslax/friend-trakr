@@ -8,6 +8,7 @@
 
 #import "FriendshipTableViewController.h"
 #import <FacebookSDK/FacebookSDK.h>
+#import "AddFriendViewController.h"
 
 @interface FriendshipTableViewController ()
 
@@ -16,6 +17,7 @@
 @implementation FriendshipTableViewController
 
 NSMutableArray *friendArray;
+NSMutableArray *pictureArray;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -40,6 +42,7 @@ NSMutableArray *friendArray;
     self.add_friend_button.tintColor = [UIColor colorWithRed:0.91 green:0.91 blue:0.91 alpha:1];
     
     friendArray=[[NSMutableArray alloc] init];
+    pictureArray=[[NSMutableArray alloc] init ];
     
     FBRequest* friendsRequest = [FBRequest requestForMyFriends];
     [friendsRequest startWithCompletionHandler: ^(FBRequestConnection *connection,
@@ -49,10 +52,27 @@ NSMutableArray *friendArray;
         //NSArray* pictures = [result objectForKey:@"picture"];
         NSLog(@"Found: %i friends", friends.count);
         int i=0;
+        
         for (NSDictionary<FBGraphUser>* friend in friends) {
             NSString *friendName = friend.name;
             int friendID = [friend.id integerValue];
+            
+            
+            
+            
             [friendArray addObject:friendName];
+            
+            [FBRequestConnection
+             startForMeWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+                 if (!error) {
+                     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%d/picture?type=small", friendID]];
+                     NSData *data = [NSData dataWithContentsOfURL:url];
+                     UIImage *profilePic = [[UIImage alloc] initWithData:data] ;
+                     [pictureArray addObject:profilePic];
+                     
+                     
+                 }
+             }];
             
             
             
@@ -103,4 +123,12 @@ NSMutableArray *friendArray;
 }
 
 
+- (IBAction)findmefriends_button_pressed:(id)sender {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    AddFriendViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"friend_add"];
+    vc.friend_array = friendArray;
+    vc.profile_picture_array = pictureArray;
+    [self.navigationController pushViewController:vc animated:NO];
+    
+}
 @end

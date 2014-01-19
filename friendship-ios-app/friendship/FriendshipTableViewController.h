@@ -12,5 +12,6 @@
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *add_friend_button;
 
 @property (strong, nonatomic) IBOutlet UITableView *friendship_tableView;
+- (IBAction)findmefriends_button_pressed:(id)sender;
 
 @end

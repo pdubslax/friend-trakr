@@ -115,7 +115,7 @@
                         <barButtonItem key="rightBarButtonItem" image="smiley-smile.png" id="X3F-2I-WKV">
                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <segue destination="AJm-4n-4Lr" kind="push" id="Fuc-xw-bNP"/>
+                                <action selector="findmefriends_button_pressed:" destination="Ujj-jb-U9u" id="bto-Yq-59U"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -128,34 +128,31 @@
             </objects>
             <point key="canvasLocation" x="604" y="2126"/>
         </scene>
-        <!--Add Friend View Controller-->
+        <!--Add Friend View Controller - Add Your Friends-->
         <scene sceneID="VpF-zy-Biv">
             <objects>
-                <tableViewController id="AJm-4n-4Lr" customClass="AddFriendViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="j9g-gD-s1s">
+                <tableViewController storyboardIdentifier="friend_add" id="AJm-4n-4Lr" customClass="AddFriendViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="j9g-gD-s1s">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="aiX-CN-n5m">
-                                <rect key="frame" x="0.0" y="119" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aiX-CN-n5m" id="vQa-Vh-37L">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <connections>
                             <outlet property="dataSource" destination="AJm-4n-4Lr" id="Ome-tT-YEA"/>
                             <outlet property="delegate" destination="AJm-4n-4Lr" id="ps3-Gq-VT7"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="oa3-Jv-zsM"/>
+                    <navigationItem key="navigationItem" title="Add Your Friends" id="oa3-Jv-zsM">
+                        <barButtonItem key="leftBarButtonItem" image="arrow-big-01.png" id="dGj-gt-mhD">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="back_button:" destination="AJm-4n-4Lr" id="CKE-DR-J8a"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FTb-Cv-9SE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="604" y="2806"/>
+            <point key="canvasLocation" x="604" y="3464"/>
         </scene>
         <!--View Controller - Recent-->
         <scene sceneID="S1r-rk-BP8">
@@ -214,8 +211,27 @@
             </objects>
             <point key="canvasLocation" x="604" y="1446"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Wx2-K0-dkz">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rz3-gl-rHI" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="uOD-AX-t7E">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="AJm-4n-4Lr" kind="relationship" relationship="rootViewController" id="8dC-ae-gko"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ugl-PW-vXK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="604" y="2796"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="arrow-big-01.png" width="30" height="30"/>
         <image name="gear.png" width="30" height="30"/>
         <image name="heart-rate.png" width="29" height="30"/>
         <image name="love.png" width="30" height="30"/>
