@@ -77,7 +77,7 @@
     
     CALayer *roundtest = [cell.profile_image layer];
     [roundtest setMasksToBounds:YES];
-    [roundtest setCornerRadius:25.0];
+    [roundtest setCornerRadius:27.0];
 
     
     return cell;

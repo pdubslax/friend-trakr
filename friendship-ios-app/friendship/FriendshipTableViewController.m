@@ -60,7 +60,7 @@ NSMutableArray *pictureArray;
             
             
             
-            [friendArray addObject:friendName];
+            
             
             [FBRequestConnection
              startForMeWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
@@ -69,6 +69,7 @@ NSMutableArray *pictureArray;
                      NSData *data = [NSData dataWithContentsOfURL:url];
                      UIImage *profilePic = [[UIImage alloc] initWithData:data] ;
                      [pictureArray addObject:profilePic];
+                     [friendArray addObject:friendName];
                      
                      
                  }

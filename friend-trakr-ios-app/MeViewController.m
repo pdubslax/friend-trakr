@@ -52,7 +52,7 @@
     }
     
     UILabel *friendometer_label = [[UILabel alloc] initWithFrame:CGRectMake(0, self.prog.frame.origin.y-40, 320, 40)];
-    friendometer_label.text = @"Friendometer";
+    friendometer_label.text = @"FRIENDOMETER";
     friendometer_label.textAlignment = UITextAlignmentCenter;
     [self.view addSubview:friendometer_label];
     
