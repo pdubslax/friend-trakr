@@ -21,7 +21,7 @@
 
 
 @implementation MeViewController
-@synthesize profile_picture,name_label,friend_percentage_label;
+@synthesize profile_picture;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -37,14 +37,34 @@
     [super viewDidLoad];
     
     
-    self.prog = [[AMGProgressView alloc] initWithFrame:CGRectMake(20, 295, 280, 50)];
+    
+    
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.122 green:0.149 blue:0.232 alpha:1];
+
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor colorWithRed:0.91 green:0.91 blue:0.91 alpha:1]};
+        
+    self.settings.tintColor = [UIColor colorWithRed:0.91 green:0.91 blue:0.91 alpha:1];
+    
+    if (self.view.bounds.size.height == 568) {
+        self.prog = [[AMGProgressView alloc] initWithFrame:CGRectMake(20, 400, 280, 50)];
+    } else {
+        self.prog = [[AMGProgressView alloc] initWithFrame:CGRectMake(20, 350, 280, 50)];
+    }
+    
+    UILabel *friendometer_label = [[UILabel alloc] initWithFrame:CGRectMake(0, self.prog.frame.origin.y-40, 320, 40)];
+    friendometer_label.text = @"Friendometer";
+    friendometer_label.textAlignment = UITextAlignmentCenter;
+    [self.view addSubview:friendometer_label];
+    
+    
+    
     self.prog.gradientColors = @[[UIColor colorWithRed:0.1f green:0.7f blue:0.1f alpha:1.0f],
                                 [UIColor colorWithRed:0.6f green:0.9f blue:0.6f alpha:1.0f]];
     self.prog.progress = 0.75f;
     //self.prog.outsideBorder = [UIColor blackColor];
     int percent = self.prog.progress*100;
     //[friend_percentage_label setText:[NSString stringWithFormat:@"Friendship Score of %d/100", percent]];
-    [friend_percentage_label setText:@""];
+    
     
     [self.view addSubview:self.prog];
     CALayer *roundtest = [self.prog layer];
@@ -71,14 +91,14 @@
              
              UIImage *profilePic = [[UIImage alloc] initWithData:data] ;
              [profile_picture setImage:profilePic];
-             [name_label setText:profile_name];
+             self.navigationController.navigationBar.topItem.title=profile_name;
              
          }
      }];
-    
+    /*
     [[BButton appearance] setButtonCornerRadius:@10.0f];
     
-    CGRect frame = CGRectMake(20, 460, 280, 50);
+    CGRect frame = CGRectMake(20, 460, 135, 50);
     BButton *btn = [[BButton alloc] initWithFrame:frame type:BButtonTypeDanger style:BButtonStyleBootstrapV3];
     [btn setTitle:@"Logout" forState:UIControlStateNormal];
     [self.view addSubview:btn];
@@ -88,11 +108,11 @@
     [btn2 setTitle:@"General Settings" forState:UIControlStateNormal];
     [self.view addSubview:btn2];
     
-    CGRect frame3 = CGRectMake(20, 350, 280, 50);
+    CGRect frame3 = CGRectMake(165, 460, 135, 50);
     BButton *btn3 = [[BButton alloc] initWithFrame:frame3 type:BButtonTypePrimary style:BButtonStyleBootstrapV3];
-    [btn3 setTitle:@"Link Other Accounts" forState:UIControlStateNormal];
+    [btn3 setTitle:@"Connect" forState:UIControlStateNormal];
     [self.view addSubview:btn3];
-
+*/
     
     
 	// Do any additional setup after loading the view.
@@ -105,4 +125,8 @@
 }
 
 
+
+
+- (IBAction)settings_button:(id)sender {
+}
 @end
