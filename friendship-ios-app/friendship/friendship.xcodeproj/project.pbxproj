@@ -344,6 +344,7 @@
 		8B5D05BC188B71EA001BED73 /* AddFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B5D05BB188B71EA001BED73 /* AddFriendViewController.m */; };
 		8B5D05BF188B81FF001BED73 /* FriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B5D05BE188B81FF001BED73 /* FriendCell.m */; };
 		8B5D05C1188B821F001BED73 /* FriendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B5D05C0188B821F001BED73 /* FriendCell.xib */; };
+		8BA7B4B8188C5C4900C72F65 /* MyManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA7B4B7188C5C4900C72F65 /* MyManger.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -708,6 +709,8 @@
 		8B5D05BD188B81FF001BED73 /* FriendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendCell.h; sourceTree = "<group>"; };
 		8B5D05BE188B81FF001BED73 /* FriendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendCell.m; sourceTree = "<group>"; };
 		8B5D05C0188B821F001BED73 /* FriendCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendCell.xib; sourceTree = "<group>"; };
+		8BA7B4B6188C5C4900C72F65 /* MyManger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyManger.h; sourceTree = "<group>"; };
+		8BA7B4B7188C5C4900C72F65 /* MyManger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyManger.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -748,6 +751,8 @@
 		8B5D02E4188B2918001BED73 = {
 			isa = PBXGroup;
 			children = (
+				8BA7B4B6188C5C4900C72F65 /* MyManger.h */,
+				8BA7B4B7188C5C4900C72F65 /* MyManger.m */,
 				8B5D05BD188B81FF001BED73 /* FriendCell.h */,
 				8B5D05BE188B81FF001BED73 /* FriendCell.m */,
 				8B5D05C0188B821F001BED73 /* FriendCell.xib */,
@@ -1598,6 +1603,7 @@
 				8B5D0352188B33EB001BED73 /* AMGProgressView.m in Sources */,
 				8B5D0301188B2918001BED73 /* AppDelegate.m in Sources */,
 				8B5D05BC188B71EA001BED73 /* AddFriendViewController.m in Sources */,
+				8BA7B4B8188C5C4900C72F65 /* MyManger.m in Sources */,
 				8B5D05B9188B6ABA001BED73 /* FriendshipTableViewController.m in Sources */,
 				8B5D0348188B3121001BED73 /* BButton.m in Sources */,
 				8B5D05AD188B38F1001BED73 /* Comms.m in Sources */,
@@ -1819,6 +1825,7 @@
 				8B5D0321188B2918001BED73 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8B5D0322188B2918001BED73 /* Build configuration list for PBXNativeTarget "friendshipTests" */ = {
 			isa = XCConfigurationList;
@@ -1827,6 +1834,7 @@
 				8B5D0324188B2918001BED73 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

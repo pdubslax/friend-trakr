@@ -59,25 +59,25 @@ NSMutableArray *pictureArray;
             
             
             
+                [FBRequestConnection
+                 startForMeWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+                     if (!error) {
+                         NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%d/picture?type=small", friendID]];
+                         NSData *data = [NSData dataWithContentsOfURL:url];
+                         UIImage *profilePic = [[UIImage alloc] initWithData:data] ;
+                         [pictureArray addObject:profilePic];
+                         [friendArray addObject:friendName];
+                         
+                         
+                     }
+                 }];
+            
+        
+        
             
             
             
-            [FBRequestConnection
-             startForMeWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
-                 if (!error) {
-                     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%d/picture?type=small", friendID]];
-                     NSData *data = [NSData dataWithContentsOfURL:url];
-                     UIImage *profilePic = [[UIImage alloc] initWithData:data] ;
-                     [pictureArray addObject:profilePic];
-                     [friendArray addObject:friendName];
-                     
-                     
-                 }
-             }];
-            
-            
-            
-            if (i>10) {
+            if (i>20) {
                 break;
             }
             

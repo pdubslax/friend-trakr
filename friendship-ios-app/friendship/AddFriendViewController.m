@@ -73,6 +73,8 @@
     
     
     cell.name_label.text = [self.friend_array objectAtIndex:indexPath.row];
+    
+    
     cell.profile_image.image = [self.profile_picture_array objectAtIndex:indexPath.row];
     
     CALayer *roundtest = [cell.profile_image layer];

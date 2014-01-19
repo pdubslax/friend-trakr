@@ -11,6 +11,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "AMGProgressView.h"
 #import "BButton.h"
+#import "MyManger.h"
 
 
 @interface MeViewController ()
@@ -36,6 +37,26 @@
 {
     [super viewDidLoad];
     
+    dispatch_async( dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        // Add code here to do background processing
+        //
+        //
+        MyManager *sharedManager = [MyManager sharedManager];
+        
+        
+        
+        
+        
+        
+        
+        
+        dispatch_async( dispatch_get_main_queue(), ^{
+            // Add code here to update the UI/send notifications based on the
+            // results of the background processing
+            NSLog(@"done loading");
+        });
+    });
+    
     
     
     
@@ -52,7 +73,7 @@
     }
     
     UILabel *friendometer_label = [[UILabel alloc] initWithFrame:CGRectMake(0, self.prog.frame.origin.y-40, 320, 40)];
-    friendometer_label.text = @"FRIENDOMETER";
+    friendometer_label.text = @"FriendOMeter";
     friendometer_label.textAlignment = UITextAlignmentCenter;
     [self.view addSubview:friendometer_label];
     
