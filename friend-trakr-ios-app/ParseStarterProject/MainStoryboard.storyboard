@@ -71,7 +71,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="y3k-Mu-0aK">
-                        <barButtonItem key="rightBarButtonItem" image="gear.png" id="fOL-rT-elt">
+                        <barButtonItem key="rightBarButtonItem" image="forbidden.png" id="fOL-rT-elt">
                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="settings_button:" destination="r6T-xv-5UJ" id="LVI-z2-wqx"/>
@@ -147,6 +147,12 @@
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="back_button:" destination="AJm-4n-4Lr" id="CKE-DR-J8a"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="search.png" id="Q9t-rg-PiL">
+                            <color key="tintColor" red="0.9707843773" green="0.98982900610000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="search_button:" destination="AJm-4n-4Lr" id="RsS-sz-kjh"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -233,11 +239,12 @@
     </scenes>
     <resources>
         <image name="arrow-big-01.png" width="30" height="30"/>
-        <image name="gear.png" width="30" height="30"/>
+        <image name="forbidden.png" width="30" height="30"/>
         <image name="heart-rate.png" width="29" height="30"/>
         <image name="love.png" width="30" height="30"/>
         <image name="man.png" width="30" height="30"/>
         <image name="map-pin.png" width="30" height="30"/>
+        <image name="search.png" width="30" height="30"/>
         <image name="smiley-smile.png" width="30" height="30"/>
     </resources>
     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

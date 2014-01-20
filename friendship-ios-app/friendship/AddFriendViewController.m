@@ -95,58 +95,57 @@
     return 60;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a story board-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-
- */
 
 - (IBAction)back_button:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
+}
+- (IBAction)search_button:(id)sender {
+    
+    
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    MyManager *sharedManager = [MyManager sharedManager];
+
+    NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
+    [f setNumberStyle:NSNumberFormatterDecimalStyle];
+    
+    NSNumber * user = [f numberFromString:sharedManager.my_id_array[0]];
+    
+    NSNumber * friend =  [f numberFromString:[sharedManager.friend_id_array objectAtIndex:indexPath.row]];
+                       
+                       
+    PFObject *addfriend = [PFObject objectWithClassName:@"Friendships"];
+    addfriend[@"username"]=[[PFUser currentUser] username];
+    addfriend[@"User"]=user;
+    addfriend[@"Friend"]=friend;
+    addfriend[@"Score"]=[NSNumber numberWithInt:100];
+    [addfriend saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (!error){
+            [FBRequestConnection
+             startForMeWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+                 if (!error) {
+                     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=small", friend]];
+                     NSURL *url2 = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@",friend]];
+                     NSData *data = [NSData dataWithContentsOfURL:url];
+                     NSData *data2 = [NSData dataWithContentsOfURL:url2];
+                     id jsonObjects = [NSJSONSerialization JSONObjectWithData:data2 options:NSJSONReadingMutableContainers error:nil];
+                     NSString *profile_name = [jsonObjects objectForKey:@"name"];
+
+                     UIImage *profilePic = [[UIImage alloc] initWithData:data];
+                     [sharedManager.array3 addObject:profile_name];
+                     [sharedManager.array4 addObject:profilePic];
+                     [sharedManager.score addObject:[NSNumber numberWithInt:100]];
+                 }
+             }];
+            
+            
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+    }];
+    
+    
 }
 @end

@@ -155,6 +155,8 @@
     [PFUser logOut];
     [PFFacebookUtils unlinkUserInBackground:[PFUser currentUser]];
     
+    MyManager *sharedManager = [MyManager sharedManager];
+    [sharedManager reset];
     
     
     UIStoryboard*  sb = [UIStoryboard storyboardWithName:@"Main"
@@ -175,6 +177,7 @@
     
     NSMutableArray* friendArray=[[NSMutableArray alloc] init];
     NSMutableArray* pictureArray=[[NSMutableArray alloc] init ];
+    NSMutableArray* friend_id_array=[[NSMutableArray alloc] init ];
     
     FBRequest* friendsRequest = [FBRequest requestForMyFriends];
     
@@ -198,6 +201,8 @@
                      UIImage *profilePic = [[UIImage alloc] initWithData:data] ;
                      [pictureArray addObject:profilePic];
                      [friendArray addObject:friendName];
+                     [friend_id_array addObject:friendID];
+                     
                      
                      
                  }
@@ -218,8 +223,21 @@
         
     }];
     
+    FBRequest* meRequest = [FBRequest requestForMe];
+    
+    [meRequest startWithCompletionHandler: ^(FBRequestConnection *connection,
+                                                  NSDictionary* result,
+                                                  NSError *error) {
+        
+        [sharedManager.my_id_array addObject:[result objectForKey:@"id"]];
+
+    }];
+    
+    
+    
     sharedManager.array1 = friendArray;
     sharedManager.array2 = pictureArray;
+    sharedManager.friend_id_array = friend_id_array;
     
     
     

@@ -10,7 +10,7 @@
 
 @implementation MyManager
 
-@synthesize array1,array2,array3,array4,score;
+@synthesize array1,array2,array3,array4,score,friend_id_array,my_id_array;
 
 #pragma mark Singleton Methods
 
@@ -30,6 +30,8 @@
         array3 = [[NSMutableArray alloc] init];
         array4 = [[NSMutableArray alloc] init];
         score = [[NSMutableArray alloc] init];
+        friend_id_array = [[NSMutableArray alloc] init];
+        my_id_array = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -42,6 +44,8 @@
     [array3 removeAllObjects];
     [array4 removeAllObjects];
     [score removeAllObjects];
+    [friend_id_array removeAllObjects];
+    [my_id_array removeAllObjects];
 }
 
 @end

@@ -32,6 +32,9 @@ NSMutableArray *scoreArray;
     }
     return self;
 }
+- (void)viewDidAppear:(BOOL)animated{
+    [self.friendship_tableView reloadData];
+}
 
 - (void)viewDidLoad
 {

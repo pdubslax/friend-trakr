@@ -12,6 +12,11 @@
 
 @property (nonatomic, retain) NSMutableArray *array1;
 @property (nonatomic,retain) NSMutableArray *array2;
+@property (nonatomic,retain) NSMutableArray *friend_id_array;
+@property (nonatomic,retain) NSMutableArray *my_id_array;
+
+
+
 @property (nonatomic,retain) NSMutableArray *array3;
 @property (nonatomic,retain) NSMutableArray *array4;
 @property (nonatomic,retain) NSMutableArray *score;
