@@ -121,7 +121,8 @@
     addfriend[@"username"]=[[PFUser currentUser] username];
     addfriend[@"User"]=user;
     addfriend[@"Friend"]=friend;
-    addfriend[@"Score"]=[NSNumber numberWithInt:100];
+    NSNumber *score = [NSNumber numberWithInteger:arc4random()%100];
+    addfriend[@"Score"]=score;
     [addfriend saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (!error){
             [FBRequestConnection
@@ -137,7 +138,7 @@
                      UIImage *profilePic = [[UIImage alloc] initWithData:data];
                      [sharedManager.array3 addObject:profile_name];
                      [sharedManager.array4 addObject:profilePic];
-                     [sharedManager.score addObject:[NSNumber numberWithInt:100]];
+                     [sharedManager.score addObject:score];
                  }
              }];
             

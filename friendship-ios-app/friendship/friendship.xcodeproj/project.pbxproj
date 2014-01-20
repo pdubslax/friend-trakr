@@ -346,6 +346,22 @@
 		8B5D05C1188B821F001BED73 /* FriendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B5D05C0188B821F001BED73 /* FriendCell.xib */; };
 		8BA7B4B8188C5C4900C72F65 /* MyManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA7B4B7188C5C4900C72F65 /* MyManger.m */; };
 		8BA7B4BB188C973500C72F65 /* NSOperationQueue+SharedQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA7B4BA188C973500C72F65 /* NSOperationQueue+SharedQueue.m */; };
+		8BA7B4D1188D01BC00C72F65 /* 32_holdinghands.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BA7B4C1188D01BC00C72F65 /* 32_holdinghands.png */; };
+		8BA7B4D2188D01BC00C72F65 /* 64_holdinghands.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BA7B4C2188D01BC00C72F65 /* 64_holdinghands.png */; };
+		8BA7B4D3188D01BC00C72F65 /* apple-touch-icon-114x114.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BA7B4C3188D01BC00C72F65 /* apple-touch-icon-114x114.png */; };
+		8BA7B4D4188D01BC00C72F65 /* apple-touch-icon-120x120.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BA7B4C4188D01BC00C72F65 /* apple-touch-icon-120x120.png */; };
+		8BA7B4D5188D01BC00C72F65 /* apple-touch-icon-144x144.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BA7B4C5188D01BC00C72F65 /* apple-touch-icon-144x144.png */; };
+		8BA7B4D6188D01BC00C72F65 /* apple-touch-icon-152x152.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BA7B4C6188D01BC00C72F65 /* apple-touch-icon-152x152.png */; };
+		8BA7B4D7188D01BC00C72F65 /* apple-touch-icon-57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BA7B4C7188D01BC00C72F65 /* apple-touch-icon-57x57.png */; };
+		8BA7B4D8188D01BC00C72F65 /* apple-touch-icon-60x60.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BA7B4C8188D01BC00C72F65 /* apple-touch-icon-60x60.png */; };
+		8BA7B4D9188D01BC00C72F65 /* apple-touch-icon-72x72.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BA7B4C9188D01BC00C72F65 /* apple-touch-icon-72x72.png */; };
+		8BA7B4DA188D01BC00C72F65 /* apple-touch-icon-76x76.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BA7B4CA188D01BC00C72F65 /* apple-touch-icon-76x76.png */; };
+		8BA7B4DB188D01BC00C72F65 /* apple-touch-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BA7B4CB188D01BC00C72F65 /* apple-touch-icon.png */; };
+		8BA7B4DC188D01BC00C72F65 /* favicon.ico in Resources */ = {isa = PBXBuildFile; fileRef = 8BA7B4CC188D01BC00C72F65 /* favicon.ico */; };
+		8BA7B4DD188D01BC00C72F65 /* largetile.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BA7B4CD188D01BC00C72F65 /* largetile.png */; };
+		8BA7B4DE188D01BC00C72F65 /* mediumtile.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BA7B4CE188D01BC00C72F65 /* mediumtile.png */; };
+		8BA7B4DF188D01BC00C72F65 /* smalltile.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BA7B4CF188D01BC00C72F65 /* smalltile.png */; };
+		8BA7B4E0188D01BC00C72F65 /* widetile.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BA7B4D0188D01BC00C72F65 /* widetile.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -714,6 +730,22 @@
 		8BA7B4B7188C5C4900C72F65 /* MyManger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyManger.m; sourceTree = "<group>"; };
 		8BA7B4B9188C973500C72F65 /* NSOperationQueue+SharedQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSOperationQueue+SharedQueue.h"; sourceTree = "<group>"; };
 		8BA7B4BA188C973500C72F65 /* NSOperationQueue+SharedQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSOperationQueue+SharedQueue.m"; sourceTree = "<group>"; };
+		8BA7B4C1188D01BC00C72F65 /* 32_holdinghands.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 32_holdinghands.png; sourceTree = "<group>"; };
+		8BA7B4C2188D01BC00C72F65 /* 64_holdinghands.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 64_holdinghands.png; sourceTree = "<group>"; };
+		8BA7B4C3188D01BC00C72F65 /* apple-touch-icon-114x114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "apple-touch-icon-114x114.png"; sourceTree = "<group>"; };
+		8BA7B4C4188D01BC00C72F65 /* apple-touch-icon-120x120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "apple-touch-icon-120x120.png"; sourceTree = "<group>"; };
+		8BA7B4C5188D01BC00C72F65 /* apple-touch-icon-144x144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "apple-touch-icon-144x144.png"; sourceTree = "<group>"; };
+		8BA7B4C6188D01BC00C72F65 /* apple-touch-icon-152x152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "apple-touch-icon-152x152.png"; sourceTree = "<group>"; };
+		8BA7B4C7188D01BC00C72F65 /* apple-touch-icon-57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "apple-touch-icon-57x57.png"; sourceTree = "<group>"; };
+		8BA7B4C8188D01BC00C72F65 /* apple-touch-icon-60x60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "apple-touch-icon-60x60.png"; sourceTree = "<group>"; };
+		8BA7B4C9188D01BC00C72F65 /* apple-touch-icon-72x72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "apple-touch-icon-72x72.png"; sourceTree = "<group>"; };
+		8BA7B4CA188D01BC00C72F65 /* apple-touch-icon-76x76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "apple-touch-icon-76x76.png"; sourceTree = "<group>"; };
+		8BA7B4CB188D01BC00C72F65 /* apple-touch-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "apple-touch-icon.png"; sourceTree = "<group>"; };
+		8BA7B4CC188D01BC00C72F65 /* favicon.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = favicon.ico; sourceTree = "<group>"; };
+		8BA7B4CD188D01BC00C72F65 /* largetile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = largetile.png; sourceTree = "<group>"; };
+		8BA7B4CE188D01BC00C72F65 /* mediumtile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mediumtile.png; sourceTree = "<group>"; };
+		8BA7B4CF188D01BC00C72F65 /* smalltile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smalltile.png; sourceTree = "<group>"; };
+		8BA7B4D0188D01BC00C72F65 /* widetile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = widetile.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -858,6 +890,7 @@
 		8B5D0327188B2B9E001BED73 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				8BA7B4C0188D01BC00C72F65 /* your_new_images */,
 				8B5D0354188B35D6001BED73 /* iconbeast lite - png */,
 				8B5D0325188B2B87001BED73 /* logo.png */,
 			);
@@ -1201,6 +1234,29 @@
 			path = "iconbeast lite - png";
 			sourceTree = "<group>";
 		};
+		8BA7B4C0188D01BC00C72F65 /* your_new_images */ = {
+			isa = PBXGroup;
+			children = (
+				8BA7B4C3188D01BC00C72F65 /* apple-touch-icon-114x114.png */,
+				8BA7B4C4188D01BC00C72F65 /* apple-touch-icon-120x120.png */,
+				8BA7B4C5188D01BC00C72F65 /* apple-touch-icon-144x144.png */,
+				8BA7B4C1188D01BC00C72F65 /* 32_holdinghands.png */,
+				8BA7B4C6188D01BC00C72F65 /* apple-touch-icon-152x152.png */,
+				8BA7B4C2188D01BC00C72F65 /* 64_holdinghands.png */,
+				8BA7B4C7188D01BC00C72F65 /* apple-touch-icon-57x57.png */,
+				8BA7B4C9188D01BC00C72F65 /* apple-touch-icon-72x72.png */,
+				8BA7B4C8188D01BC00C72F65 /* apple-touch-icon-60x60.png */,
+				8BA7B4CA188D01BC00C72F65 /* apple-touch-icon-76x76.png */,
+				8BA7B4CB188D01BC00C72F65 /* apple-touch-icon.png */,
+				8BA7B4CD188D01BC00C72F65 /* largetile.png */,
+				8BA7B4CC188D01BC00C72F65 /* favicon.ico */,
+				8BA7B4CE188D01BC00C72F65 /* mediumtile.png */,
+				8BA7B4CF188D01BC00C72F65 /* smalltile.png */,
+				8BA7B4D0188D01BC00C72F65 /* widetile.png */,
+			);
+			path = your_new_images;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1277,6 +1333,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BA7B4DF188D01BC00C72F65 /* smalltile.png in Resources */,
 				8B5D054E188B35D7001BED73 /* pyramid.png in Resources */,
 				8B5D04D9188B35D7001BED73 /* do-not-disturb.png in Resources */,
 				8B5D0541188B35D7001BED73 /* pipe.png in Resources */,
@@ -1285,6 +1342,7 @@
 				8B5D04A7188B35D7001BED73 /* box-3d.png in Resources */,
 				8B5D04D1188B35D7001BED73 /* cooking-utensil.png in Resources */,
 				8B5D0516188B35D7001BED73 /* link.png in Resources */,
+				8BA7B4DA188D01BC00C72F65 /* apple-touch-icon-76x76.png in Resources */,
 				8B5D0565188B35D7001BED73 /* share.png in Resources */,
 				8B5D0490188B35D7001BED73 /* arrow-big-12.png in Resources */,
 				8B5D04C6188B35D7001BED73 /* chocolate.png in Resources */,
@@ -1305,8 +1363,10 @@
 				8B5D04A0188B35D7001BED73 /* basketball.png in Resources */,
 				8B5D0566188B35D7001BED73 /* shield-round.png in Resources */,
 				8B5D04BE188B35D7001BED73 /* car.png in Resources */,
+				8BA7B4E0188D01BC00C72F65 /* widetile.png in Resources */,
 				8B5D0575188B35D7001BED73 /* speaker-electric.png in Resources */,
 				8B5D0326188B2B87001BED73 /* logo.png in Resources */,
+				8BA7B4D2188D01BC00C72F65 /* 64_holdinghands.png in Resources */,
 				8B5D052B188B35D7001BED73 /* new.png in Resources */,
 				8B5D05C1188B821F001BED73 /* FriendCell.xib in Resources */,
 				8B5D0563188B35D7001BED73 /* server.png in Resources */,
@@ -1344,6 +1404,8 @@
 				8B5D04CA188B35D7001BED73 /* coding.png in Resources */,
 				8B5D048D188B35D7001BED73 /* arrow-big-09.png in Resources */,
 				8B5D058A188B35D7001BED73 /* text-pic-left.png in Resources */,
+				8BA7B4D8188D01BC00C72F65 /* apple-touch-icon-60x60.png in Resources */,
+				8BA7B4D3188D01BC00C72F65 /* apple-touch-icon-114x114.png in Resources */,
 				8B5D04B2188B35D7001BED73 /* button-pause.png in Resources */,
 				8B5D04E2188B35D7001BED73 /* dumbbell.png in Resources */,
 				8B5D0510188B35D7001BED73 /* keyboard.png in Resources */,
@@ -1401,6 +1463,7 @@
 				8B5D050B188B35D7001BED73 /* id-card.png in Resources */,
 				8B5D051A188B35D7001BED73 /* magic.png in Resources */,
 				8B5D04A4188B35D7001BED73 /* biohazard.png in Resources */,
+				8BA7B4DC188D01BC00C72F65 /* favicon.ico in Resources */,
 				8B5D0498188B35D7001BED73 /* arrow-small-16.png in Resources */,
 				8B5D0494188B35D7001BED73 /* arrow-small-12.png in Resources */,
 				8B5D04BD188B35D7001BED73 /* car-side.png in Resources */,
@@ -1448,6 +1511,7 @@
 				8B5D0486188B35D7001BED73 /* arrow-big-02.png in Resources */,
 				8B5D05A0188B35D7001BED73 /* wheelbarrow.png in Resources */,
 				8B5D04E0188B35D7001BED73 /* dropper.png in Resources */,
+				8BA7B4DE188D01BC00C72F65 /* mediumtile.png in Resources */,
 				8B5D04C5188B35D7001BED73 /* chinese-lantern.png in Resources */,
 				8B5D0533188B35D7001BED73 /* paint-roller.png in Resources */,
 				8B5D04C1188B35D7001BED73 /* caution.png in Resources */,
@@ -1455,6 +1519,7 @@
 				8B5D0544188B35D7001BED73 /* plus-sign.png in Resources */,
 				8B5D059B188B35D7001BED73 /* water hose.png in Resources */,
 				8B5D049B188B35D7001BED73 /* awareness-ribbon.png in Resources */,
+				8BA7B4D6188D01BC00C72F65 /* apple-touch-icon-152x152.png in Resources */,
 				8B5D048A188B35D7001BED73 /* arrow-big-06.png in Resources */,
 				8B5D0503188B35D7001BED73 /* handcuff.png in Resources */,
 				8B5D04A8188B35D7001BED73 /* box-sealed.png in Resources */,
@@ -1478,6 +1543,7 @@
 				8B5D04BB188B35D7001BED73 /* camp.png in Resources */,
 				8B5D04C7188B35D7001BED73 /* circular-saw-blade.png in Resources */,
 				8B5D04CC188B35D7001BED73 /* comb.png in Resources */,
+				8BA7B4D7188D01BC00C72F65 /* apple-touch-icon-57x57.png in Resources */,
 				8B5D0557188B35D7001BED73 /* rooster.png in Resources */,
 				8B5D04F5188B35D7001BED73 /* folder.png in Resources */,
 				8B5D0561188B35D7001BED73 /* screwdriver.png in Resources */,
@@ -1496,6 +1562,7 @@
 				8B5D04FF188B35D7001BED73 /* guitar.png in Resources */,
 				8B5D052D188B35D7001BED73 /* no-cash.png in Resources */,
 				8B5D04AC188B35D7001BED73 /* bug.png in Resources */,
+				8BA7B4DD188D01BC00C72F65 /* largetile.png in Resources */,
 				8B5D050A188B35D7001BED73 /* house.png in Resources */,
 				8B5D051F188B35D7001BED73 /* medical-sign.png in Resources */,
 				8B5D0537188B35D7001BED73 /* paperwork.png in Resources */,
@@ -1503,10 +1570,13 @@
 				8B5D0569188B35D7001BED73 /* shopping-cart.png in Resources */,
 				8B5D0505188B35D7001BED73 /* hd.png in Resources */,
 				8B5D0509188B35D7001BED73 /* horse.png in Resources */,
+				8BA7B4D5188D01BC00C72F65 /* apple-touch-icon-144x144.png in Resources */,
+				8BA7B4DB188D01BC00C72F65 /* apple-touch-icon.png in Resources */,
 				8B5D04A3188B35D7001BED73 /* binocular.png in Resources */,
 				8B5D0491188B35D7001BED73 /* arrow-small-09.png in Resources */,
 				8B5D059E188B35D7001BED73 /* weight-scale.png in Resources */,
 				8B5D0526188B35D7001BED73 /* mountain.png in Resources */,
+				8BA7B4D1188D01BC00C72F65 /* 32_holdinghands.png in Resources */,
 				8B5D051E188B35D7001BED73 /* mathematical-instrument.png in Resources */,
 				8B5D04F8188B35D7001BED73 /* forklift.png in Resources */,
 				8B5D0532188B35D7001BED73 /* onion.png in Resources */,
@@ -1542,8 +1612,10 @@
 				8B5D04E6188B35D7001BED73 /* email.png in Resources */,
 				8B5D049F188B35D7001BED73 /* bar-chart.png in Resources */,
 				8B5D04E8188B35D7001BED73 /* emergency.png in Resources */,
+				8BA7B4D9188D01BC00C72F65 /* apple-touch-icon-72x72.png in Resources */,
 				8B5D05AA188B35D7001BED73 /* write.png in Resources */,
 				8B5D0578188B35D7001BED73 /* sport-shoes.png in Resources */,
+				8BA7B4D4188D01BC00C72F65 /* apple-touch-icon-120x120.png in Resources */,
 				8B5D0586188B35D7001BED73 /* tea.png in Resources */,
 				8B5D04CB188B35D7001BED73 /* color-swap.png in Resources */,
 				8B5D04DD188B35D7001BED73 /* drawer.png in Resources */,
@@ -1739,7 +1811,7 @@
 		8B5D0320188B2918001BED73 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1756,7 +1828,7 @@
 		8B5D0321188B2918001BED73 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
