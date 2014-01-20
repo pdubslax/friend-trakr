@@ -11,6 +11,7 @@
 #import <FacebookSDK/FacebookSDK.h>
 #import "Comms.h"
 #import "BButton.h"
+#import "ViewController.h"
 
 
 @interface ViewController ()

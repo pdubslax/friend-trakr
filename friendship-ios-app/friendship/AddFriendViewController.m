@@ -10,6 +10,7 @@
 #import <FacebookSDK/FacebookSDK.h>
 #import <Parse/Parse.h>
 #import "FriendCell.h"
+#import "MyManger.h"
 
 @interface AddFriendViewController ()
 
@@ -29,7 +30,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    MyManager *sharedManager = [MyManager sharedManager];
+    self.friend_array = sharedManager.array1;
+    self.profile_picture_array = sharedManager.array2;
+    
     
     
 }

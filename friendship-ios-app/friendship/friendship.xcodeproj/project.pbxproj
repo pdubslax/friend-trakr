@@ -345,6 +345,7 @@
 		8B5D05BF188B81FF001BED73 /* FriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B5D05BE188B81FF001BED73 /* FriendCell.m */; };
 		8B5D05C1188B821F001BED73 /* FriendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B5D05C0188B821F001BED73 /* FriendCell.xib */; };
 		8BA7B4B8188C5C4900C72F65 /* MyManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA7B4B7188C5C4900C72F65 /* MyManger.m */; };
+		8BA7B4BB188C973500C72F65 /* NSOperationQueue+SharedQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA7B4BA188C973500C72F65 /* NSOperationQueue+SharedQueue.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -396,7 +397,7 @@
 		8B5D0344188B3121001BED73 /* UIColor+BButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+BButton.h"; sourceTree = "<group>"; };
 		8B5D0345188B3121001BED73 /* UIColor+BButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+BButton.m"; sourceTree = "<group>"; };
 		8B5D0347188B3121001BED73 /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.ttf; sourceTree = "<group>"; };
-		8B5D034C188B32D7001BED73 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MainStoryboard.storyboard; path = "../../friend-trakr-ios-app/ParseStarterProject/MainStoryboard.storyboard"; sourceTree = "<group>"; };
+		8B5D034C188B32D7001BED73 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MainStoryboard.storyboard; path = "../../../friend-trakr-ios-app/ParseStarterProject/MainStoryboard.storyboard"; sourceTree = "<group>"; };
 		8B5D034E188B33EB001BED73 /* AMGProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMGProgressView.h; path = "../../friend-trakr-ios-app/AMGProgressView.h"; sourceTree = "<group>"; };
 		8B5D034F188B33EB001BED73 /* AMGProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMGProgressView.m; path = "../../friend-trakr-ios-app/AMGProgressView.m"; sourceTree = "<group>"; };
 		8B5D0350188B33EB001BED73 /* MeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeViewController.h; path = "../../friend-trakr-ios-app/MeViewController.h"; sourceTree = "<group>"; };
@@ -704,13 +705,15 @@
 		8B5D05AC188B38F1001BED73 /* Comms.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comms.m; sourceTree = "<group>"; };
 		8B5D05B7188B6ABA001BED73 /* FriendshipTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendshipTableViewController.h; sourceTree = "<group>"; };
 		8B5D05B8188B6ABA001BED73 /* FriendshipTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendshipTableViewController.m; sourceTree = "<group>"; };
-		8B5D05BA188B71EA001BED73 /* AddFriendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddFriendViewController.h; sourceTree = "<group>"; };
-		8B5D05BB188B71EA001BED73 /* AddFriendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddFriendViewController.m; sourceTree = "<group>"; };
+		8B5D05BA188B71EA001BED73 /* AddFriendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddFriendViewController.h; path = ../AddFriendViewController.h; sourceTree = "<group>"; };
+		8B5D05BB188B71EA001BED73 /* AddFriendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddFriendViewController.m; path = ../AddFriendViewController.m; sourceTree = "<group>"; };
 		8B5D05BD188B81FF001BED73 /* FriendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendCell.h; sourceTree = "<group>"; };
 		8B5D05BE188B81FF001BED73 /* FriendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendCell.m; sourceTree = "<group>"; };
 		8B5D05C0188B821F001BED73 /* FriendCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendCell.xib; sourceTree = "<group>"; };
 		8BA7B4B6188C5C4900C72F65 /* MyManger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyManger.h; sourceTree = "<group>"; };
 		8BA7B4B7188C5C4900C72F65 /* MyManger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyManger.m; sourceTree = "<group>"; };
+		8BA7B4B9188C973500C72F65 /* NSOperationQueue+SharedQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSOperationQueue+SharedQueue.h"; sourceTree = "<group>"; };
+		8BA7B4BA188C973500C72F65 /* NSOperationQueue+SharedQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSOperationQueue+SharedQueue.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -764,8 +767,8 @@
 				8B5D034F188B33EB001BED73 /* AMGProgressView.m */,
 				8B5D0350188B33EB001BED73 /* MeViewController.h */,
 				8B5D0351188B33EB001BED73 /* MeViewController.m */,
-				8B5D0327188B2B9E001BED73 /* Resources */,
 				8B5D02F6188B2918001BED73 /* friendship */,
+				8B5D0327188B2B9E001BED73 /* Resources */,
 				8B5D0315188B2918001BED73 /* friendshipTests */,
 				8B5D02EF188B2918001BED73 /* Frameworks */,
 				8B5D02EE188B2918001BED73 /* Products */,
@@ -784,9 +787,6 @@
 		8B5D02EF188B2918001BED73 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8B5D034C188B32D7001BED73 /* MainStoryboard.storyboard */,
-				8B5D05BA188B71EA001BED73 /* AddFriendViewController.h */,
-				8B5D05BB188B71EA001BED73 /* AddFriendViewController.m */,
 				8B5D033E188B3121001BED73 /* BButton */,
 				8B5D033C188B2F2B001BED73 /* SystemConfiguration.framework */,
 				8B5D033A188B2F23001BED73 /* StoreKit.framework */,
@@ -810,11 +810,16 @@
 		8B5D02F6188B2918001BED73 /* friendship */ = {
 			isa = PBXGroup;
 			children = (
+				8B5D0302188B2918001BED73 /* Main.storyboard */,
+				8B5D034C188B32D7001BED73 /* MainStoryboard.storyboard */,
 				8B5D02FF188B2918001BED73 /* AppDelegate.h */,
 				8B5D0300188B2918001BED73 /* AppDelegate.m */,
-				8B5D0302188B2918001BED73 /* Main.storyboard */,
+				8BA7B4B9188C973500C72F65 /* NSOperationQueue+SharedQueue.h */,
+				8BA7B4BA188C973500C72F65 /* NSOperationQueue+SharedQueue.m */,
 				8B5D0305188B2918001BED73 /* ViewController.h */,
 				8B5D0306188B2918001BED73 /* ViewController.m */,
+				8B5D05BA188B71EA001BED73 /* AddFriendViewController.h */,
+				8B5D05BB188B71EA001BED73 /* AddFriendViewController.m */,
 				8B5D0308188B2918001BED73 /* Images.xcassets */,
 				8B5D02F7188B2918001BED73 /* Supporting Files */,
 			);
@@ -1609,6 +1614,7 @@
 				8B5D05AD188B38F1001BED73 /* Comms.m in Sources */,
 				8B5D0353188B33EB001BED73 /* MeViewController.m in Sources */,
 				8B5D02FD188B2918001BED73 /* main.m in Sources */,
+				8BA7B4BB188C973500C72F65 /* NSOperationQueue+SharedQueue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

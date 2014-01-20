@@ -10,7 +10,7 @@
 
 @implementation MyManager
 
-@synthesize array;
+@synthesize array1,array2,array3,array4,score;
 
 #pragma mark Singleton Methods
 
@@ -25,13 +25,23 @@
 
 - (id)init {
     if (self = [super init]) {
-        array = [[NSMutableArray alloc] init];
+        array1 = [[NSMutableArray alloc] init];
+        array2 = [[NSMutableArray alloc] init];
+        array3 = [[NSMutableArray alloc] init];
+        array4 = [[NSMutableArray alloc] init];
+        score = [[NSMutableArray alloc] init];
     }
     return self;
 }
 
-- (void)dealloc {
-    // Should never be called, but just here for clarity really.
+
+- (void) reset
+{
+    [array1 removeAllObjects];
+    [array2 removeAllObjects];
+    [array3 removeAllObjects];
+    [array4 removeAllObjects];
+    [score removeAllObjects];
 }
 
 @end

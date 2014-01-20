@@ -12,6 +12,9 @@
 #import "AMGProgressView.h"
 #import "BButton.h"
 #import "MyManger.h"
+#import <FacebookSDK/FacebookSDK.h>
+#import "NSOperationQueue+SharedQueue.h"
+
 
 
 @interface MeViewController ()
@@ -41,23 +44,21 @@
         // Add code here to do background processing
         //
         //
-        MyManager *sharedManager = [MyManager sharedManager];
-        
-        
-        
-        
-        
-        
-        
         
         dispatch_async( dispatch_get_main_queue(), ^{
             // Add code here to update the UI/send notifications based on the
             // results of the background processing
+            
             NSLog(@"done loading");
         });
     });
     
+    [[NSOperationQueue pffileOperationQueue] addOperationWithBlock:^ {
+        //execute on another thread 
+    }];
     
+    [self add_friend_method];
+    [self find_current_follows];
     
     
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.122 green:0.149 blue:0.232 alpha:1];
@@ -83,7 +84,7 @@
                                 [UIColor colorWithRed:0.6f green:0.9f blue:0.6f alpha:1.0f]];
     self.prog.progress = 0.75f;
     //self.prog.outsideBorder = [UIColor blackColor];
-    int percent = self.prog.progress*100;
+    //int percent = self.prog.progress*100;
     //[friend_percentage_label setText:[NSString stringWithFormat:@"Friendship Score of %d/100", percent]];
     
     
@@ -98,6 +99,7 @@
     CALayer *round = [profile_picture layer];
     [round setMasksToBounds:YES];
     [round setCornerRadius:10.0];
+    
     [FBRequestConnection
      startForMeWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
          if (!error) {
@@ -116,6 +118,7 @@
              
          }
      }];
+    
     /*
     [[BButton appearance] setButtonCornerRadius:@10.0f];
     
@@ -149,5 +152,133 @@
 
 
 - (IBAction)settings_button:(id)sender {
+    [PFUser logOut];
+    [PFFacebookUtils unlinkUserInBackground:[PFUser currentUser]];
+    
+    
+    
+    UIStoryboard*  sb = [UIStoryboard storyboardWithName:@"Main"
+                                                  bundle:nil];
+    UIViewController* vc = [sb instantiateViewControllerWithIdentifier:@"logscrn"];
+    vc.modalTransitionStyle=UIModalTransitionStyleFlipHorizontal;
+    
+    
+    [self presentViewController:vc animated:YES completion:nil];
 }
+
+
+- (void)add_friend_method{
+    
+    //www.facebook.com/ajax/typeahead/search/facebar/bootstrap/?viewer=1317841444&__a=1
+    
+    MyManager *sharedManager = [MyManager sharedManager];
+    
+    NSMutableArray* friendArray=[[NSMutableArray alloc] init];
+    NSMutableArray* pictureArray=[[NSMutableArray alloc] init ];
+    
+    FBRequest* friendsRequest = [FBRequest requestForMyFriends];
+    
+    [friendsRequest startWithCompletionHandler: ^(FBRequestConnection *connection,
+                                                  NSDictionary* result,
+                                                  NSError *error) {
+        NSArray* friends = [result objectForKey:@"data"];
+        NSLog(@"Found: %i friends", friends.count);
+        int i=0;
+        
+        for (NSDictionary<FBGraphUser>* friend in friends) {
+            NSString *friendName = friend.name;
+            NSString *friendID = friend.id;
+            
+            
+            [FBRequestConnection
+             startForMeWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+                 if (!error) {
+                     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=small", friendID]];
+                     NSData *data = [NSData dataWithContentsOfURL:url];
+                     UIImage *profilePic = [[UIImage alloc] initWithData:data] ;
+                     [pictureArray addObject:profilePic];
+                     [friendArray addObject:friendName];
+                     
+                     
+                 }
+             }];
+            
+            
+            
+            
+            
+            
+            if (i>20) {
+                break;
+            }
+            
+            i++;
+        }
+        
+        
+    }];
+    
+    sharedManager.array1 = friendArray;
+    sharedManager.array2 = pictureArray;
+    
+    
+    
+    
+}
+
+- (void)find_current_follows{
+    NSMutableArray* friendArray=[[NSMutableArray alloc] init];
+    NSMutableArray* pictureArray=[[NSMutableArray alloc] init ];
+    NSMutableArray* scoreArray=[[NSMutableArray alloc] init ];
+    MyManager *sharedManager = [MyManager sharedManager];
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"Friendships"];
+    //[query whereKey:@"username" equalTo:[[PFUser currentUser] username]];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            // The find succeeded. The first 100 objects are available in objects
+            for (PFObject *test in objects){
+            
+            
+            //int usernumber = [[test objectForKey:@"User"] intValue];
+            NSString *friendnumber = [test objectForKey:@"Friend"];
+                int score = [[test objectForKey:@"Score"]intValue];
+             
+                [FBRequestConnection
+                 startForMeWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+                     if (!error) {
+                         NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=small", friendnumber]];
+                         NSURL *url2 = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@",friendnumber]];
+                         NSData *data = [NSData dataWithContentsOfURL:url];
+                         NSData *data2 = [NSData dataWithContentsOfURL:url2];
+                         UIImage *profilePic = [[UIImage alloc] initWithData:data] ;
+                         
+                         NSDictionary* jsonObjects = [NSJSONSerialization JSONObjectWithData:data2 options:NSJSONReadingMutableContainers error:nil];
+                         NSString *name = [jsonObjects objectForKey:@"name"];
+                         [pictureArray addObject:profilePic];
+                         [friendArray addObject:name];
+                         [scoreArray addObject:[NSNumber numberWithInt:score]];
+                         
+                         
+                     }
+                 }];
+                
+            
+            }
+            sharedManager.array3 = friendArray;
+            sharedManager.array4 = pictureArray;
+            sharedManager.score = scoreArray;
+            
+            
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
+    
+    
+    
+    
+}
+
 @end

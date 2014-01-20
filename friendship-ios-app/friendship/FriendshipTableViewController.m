@@ -9,6 +9,9 @@
 #import "FriendshipTableViewController.h"
 #import <FacebookSDK/FacebookSDK.h>
 #import "AddFriendViewController.h"
+#import "FriendCell.h"
+#import "MyManger.h"
+#import "AMGProgressView.h"
 
 @interface FriendshipTableViewController ()
 
@@ -18,6 +21,7 @@
 
 NSMutableArray *friendArray;
 NSMutableArray *pictureArray;
+NSMutableArray *scoreArray;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -33,6 +37,11 @@ NSMutableArray *pictureArray;
 {
     [super viewDidLoad];
     
+    MyManager *sharedManager = [MyManager sharedManager];
+    friendArray = sharedManager.array3;
+    pictureArray = sharedManager.array4;
+    scoreArray = sharedManager.score;
+    
     
     
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.122 green:0.149 blue:0.232 alpha:1];
@@ -41,51 +50,7 @@ NSMutableArray *pictureArray;
     
     self.add_friend_button.tintColor = [UIColor colorWithRed:0.91 green:0.91 blue:0.91 alpha:1];
     
-    friendArray=[[NSMutableArray alloc] init];
-    pictureArray=[[NSMutableArray alloc] init ];
     
-    FBRequest* friendsRequest = [FBRequest requestForMyFriends];
-    [friendsRequest startWithCompletionHandler: ^(FBRequestConnection *connection,
-                                                  NSDictionary* result,
-                                                  NSError *error) {
-        NSArray* friends = [result objectForKey:@"data"];
-        //NSArray* pictures = [result objectForKey:@"picture"];
-        NSLog(@"Found: %i friends", friends.count);
-        int i=0;
-        
-        for (NSDictionary<FBGraphUser>* friend in friends) {
-            NSString *friendName = friend.name;
-            int friendID = [friend.id integerValue];
-            
-            
-            
-                [FBRequestConnection
-                 startForMeWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
-                     if (!error) {
-                         NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%d/picture?type=small", friendID]];
-                         NSData *data = [NSData dataWithContentsOfURL:url];
-                         UIImage *profilePic = [[UIImage alloc] initWithData:data] ;
-                         [pictureArray addObject:profilePic];
-                         [friendArray addObject:friendName];
-                         
-                         
-                     }
-                 }];
-            
-        
-        
-            
-            
-            
-            if (i>20) {
-                break;
-            }
-            
-            i++;
-        }
-        
-        
-    }];
 
     
 	// Do any additional setup after loading the view.
@@ -100,16 +65,12 @@ NSMutableArray *pictureArray;
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    if (section==1) {
-        return 3;
-    }else{
-        return 4;
-    }
+    return [friendArray count];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;    //count of section
+    return 1;    //count of section
 }
 
 
@@ -118,8 +79,44 @@ NSMutableArray *pictureArray;
 // Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [[UITableViewCell alloc] init];
-    cell.text = @"Test";
+    
+    static NSString *simpleTableIdentifier = @"FriendCell";
+    
+    FriendCell *cell = (FriendCell *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    if (cell == nil)
+    {
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"FriendCell" owner:self options:nil];
+        cell = [nib objectAtIndex:0];
+    }
+    
+    int score = [[scoreArray objectAtIndex:indexPath.row] intValue];
+    
+    cell.name_label.text = [friendArray objectAtIndex:indexPath.row];
+    
+    
+    cell.profile_image.image = [pictureArray objectAtIndex:indexPath.row];
+    
+    CALayer *roundtest = [cell.profile_image layer];
+    [roundtest setMasksToBounds:YES];
+    [roundtest setCornerRadius:27.0];
+    
+    AMGProgressView * prog = [[AMGProgressView alloc] initWithFrame:CGRectMake(0, 5, 320, 50)];
+    if (score>50) {
+        prog.gradientColors = @[[UIColor colorWithRed:0.1f green:0.7f blue:0.1f alpha:1.0f],
+                                [UIColor colorWithRed:0.6f green:0.9f blue:0.6f alpha:1.0f]];
+    }else{
+        prog.gradientColors = @[[UIColor colorWithRed:0.7f green:0.1f blue:0.1f alpha:1.0f],
+                                    [UIColor colorWithRed:0.9f green:0.6f blue:0.6f alpha:1.0f]];
+    }
+    
+    float num = score;
+    num/=100;
+    
+    prog.progress = num;
+    [cell.contentView insertSubview:prog atIndex:0];
+    
+    
+    
     return cell;
 }
 
@@ -127,9 +124,19 @@ NSMutableArray *pictureArray;
 - (IBAction)findmefriends_button_pressed:(id)sender {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     AddFriendViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"friend_add"];
-    vc.friend_array = friendArray;
-    vc.profile_picture_array = pictureArray;
+    //vc.friend_array = friendArray;
+    //vc.profile_picture_array = pictureArray;
     [self.navigationController pushViewController:vc animated:NO];
     
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 60;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"dsfdsf");
 }
 @end

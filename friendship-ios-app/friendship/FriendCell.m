@@ -7,8 +7,10 @@
 //
 
 #import "FriendCell.h"
+#import "AMGProgressView.h"
 
 @implementation FriendCell
+
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -16,6 +18,9 @@
     if (self) {
         // Initialization code
     }
+    
+    
+    
     
     return self;
 }

@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AMGProgressView.h"
 
 @interface FriendCell : UITableViewCell
 @property (strong, nonatomic) IBOutlet UILabel *name_label;
 @property (strong, nonatomic) IBOutlet UIImageView *profile_image;
+
 
 @end
