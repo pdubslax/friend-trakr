@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface MeViewController : UIViewController
+
 @property (strong, nonatomic) IBOutlet UIImageView *profile_picture;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *settings;
 - (IBAction)settings_button:(id)sender;

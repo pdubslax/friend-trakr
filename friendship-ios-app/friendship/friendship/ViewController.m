@@ -76,11 +76,18 @@
 		// Seque to the Image Wall
         
         
-        [self add_friend_method];
-        [self find_current_follows];
-        NSTimer* myTimer = [NSTimer scheduledTimerWithTimeInterval: 3.0 target: self
-                                                          selector: @selector(callAfterSixtySecond:) userInfo: nil repeats: YES];
+        [self add_friend_method]; // generates array of people you might want to follow
         
+        [self find_current_follows]; //
+        
+        
+ //NSTimer* myTimer = [NSTimer scheduledTimerWithTimeInterval: 3.0 target: self
+                                                          //selector: @selector(callAfterSixtySecond:) userInfo: nil repeats: YES];
+        [self.activity_indicator stopAnimating];
+        
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+        UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"mainview"];
+        [self presentViewController:vc animated:NO completion:nil];
         
         
         
@@ -97,10 +104,9 @@
 
 -(void) callAfterSixtySecond:(NSTimer*) t
 {
-    [self.activity_indicator stopAnimating];
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-    UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"mainview"];
-    [self presentViewController:vc animated:NO completion:nil];
+    
+    
+    
 }
 
 - (void)add_friend_method{
@@ -185,7 +191,7 @@
     MyManager *sharedManager = [MyManager sharedManager];
     
     PFQuery *query = [PFQuery queryWithClassName:@"Friendships"];
-    //[query whereKey:@"username" equalTo:[[PFUser currentUser] username]];
+    [query whereKey:@"username" equalTo:[[PFUser currentUser] username]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             // The find succeeded. The first 100 objects are available in objects
