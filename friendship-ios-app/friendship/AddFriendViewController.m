@@ -116,7 +116,8 @@
     
     NSNumber * friend =  [f numberFromString:[sharedManager.friend_id_array objectAtIndex:indexPath.row]];
                        
-                       
+    
+    
     PFObject *addfriend = [PFObject objectWithClassName:@"Friendships"];
     addfriend[@"username"]=[[PFUser currentUser] username];
     addfriend[@"User"]=user;

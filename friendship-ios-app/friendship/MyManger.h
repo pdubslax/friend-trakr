@@ -20,6 +20,7 @@
 @property (nonatomic,retain) NSMutableArray *array3;
 @property (nonatomic,retain) NSMutableArray *array4;
 @property (nonatomic,retain) NSMutableArray *score;
+@property (nonatomic,retain) NSMutableArray *cur_friend_id;
 
 
 + (id)sharedManager;

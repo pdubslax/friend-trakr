@@ -12,6 +12,7 @@
 #import "FriendCell.h"
 #import "MyManger.h"
 #import "AMGProgressView.h"
+#import <Parse/Parse.h>
 
 @interface FriendshipTableViewController ()
 
@@ -140,6 +141,51 @@ NSMutableArray *scoreArray;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"dsfdsf");
+    
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Return YES if you want the specified item to be editable.
+    return YES;
+}
+
+// Override to support editing the table view.
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        MyManager *sharedManager = [MyManager sharedManager];
+        [sharedManager.array1 addObject:[friendArray objectAtIndex:indexPath.row]];
+        [sharedManager.array2 addObject:[pictureArray objectAtIndex:indexPath.row]];
+        
+        NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
+        [f setNumberStyle:NSNumberFormatterDecimalStyle];
+        
+        PFQuery *query = [PFQuery queryWithClassName:@"Friendships"];
+        [query whereKey:@"username" equalTo:[[PFUser currentUser] username]];
+        [query whereKey:@"Friend" equalTo:[f numberFromString:[sharedManager.cur_friend_id objectAtIndex:indexPath.row]]];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            PFObject *byebye = [objects objectAtIndex:0];
+            [byebye deleteEventually];
+        }
+        else {
+                // Log details of the failure
+                NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+        }];
+            
+        
+        [sharedManager.array3 removeObjectAtIndex:indexPath.row];
+        [sharedManager.array4 removeObjectAtIndex:indexPath.row];
+        [sharedManager.score removeObjectAtIndex:indexPath.row];
+        [sharedManager.cur_friend_id removeObjectAtIndex:indexPath.row];
+        
+        
+        
+        
+        
+        [self.friendship_tableView reloadData];
+        //add code here for when you hit delete
+    }
 }
 @end
