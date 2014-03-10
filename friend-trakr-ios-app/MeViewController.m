@@ -94,7 +94,7 @@
     
     
     
-    [profile_picture setContentMode:UIViewContentModeScaleAspectFit];
+    [profile_picture setContentMode:UIViewContentModeScaleAspectFill];
     CALayer *round = [profile_picture layer];
     [round setMasksToBounds:YES];
     [round setCornerRadius:10.0];
