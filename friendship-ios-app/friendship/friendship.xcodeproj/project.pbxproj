@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B19592018C4E56E00B6F701 /* MainViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B19591F18C4E56E00B6F701 /* MainViewController2.m */; };
+		8B19592518C4E65300B6F701 /* MainViewController2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B19592218C4E65300B6F701 /* MainViewController2.xib */; };
+		8B19592618C4E65300B6F701 /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B19592418C4E65300B6F701 /* Product.m */; };
+		8B19592918C4E97A00B6F701 /* CustomFacebookFriendSearchVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B19592818C4E97A00B6F701 /* CustomFacebookFriendSearchVC.m */; };
 		8B5D02F1188B2918001BED73 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5D02F0188B2918001BED73 /* Foundation.framework */; };
 		8B5D02F3188B2918001BED73 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5D02F2188B2918001BED73 /* CoreGraphics.framework */; };
 		8B5D02F5188B2918001BED73 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5D02F4188B2918001BED73 /* UIKit.framework */; };
@@ -375,6 +379,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8B19591E18C4E56E00B6F701 /* MainViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController2.h; sourceTree = "<group>"; };
+		8B19591F18C4E56E00B6F701 /* MainViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController2.m; sourceTree = "<group>"; };
+		8B19592218C4E65300B6F701 /* MainViewController2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController2.xib; sourceTree = "<group>"; };
+		8B19592318C4E65300B6F701 /* Product.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Product.h; sourceTree = "<group>"; };
+		8B19592418C4E65300B6F701 /* Product.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Product.m; sourceTree = "<group>"; };
+		8B19592718C4E97A00B6F701 /* CustomFacebookFriendSearchVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomFacebookFriendSearchVC.h; sourceTree = "<group>"; };
+		8B19592818C4E97A00B6F701 /* CustomFacebookFriendSearchVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomFacebookFriendSearchVC.m; sourceTree = "<group>"; };
 		8B5D02ED188B2918001BED73 /* Friendship.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Friendship.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B5D02F0188B2918001BED73 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8B5D02F2188B2918001BED73 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -783,9 +794,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8B19592118C4E62500B6F701 /* Searchable View */ = {
+			isa = PBXGroup;
+			children = (
+				8B19592218C4E65300B6F701 /* MainViewController2.xib */,
+				8B19592318C4E65300B6F701 /* Product.h */,
+				8B19592418C4E65300B6F701 /* Product.m */,
+				8B19591F18C4E56E00B6F701 /* MainViewController2.m */,
+				8B19591E18C4E56E00B6F701 /* MainViewController2.h */,
+			);
+			name = "Searchable View";
+			sourceTree = "<group>";
+		};
 		8B5D02E4188B2918001BED73 = {
 			isa = PBXGroup;
 			children = (
+				8B19592118C4E62500B6F701 /* Searchable View */,
 				8BA7B4B6188C5C4900C72F65 /* MyManger.h */,
 				8BA7B4B7188C5C4900C72F65 /* MyManger.m */,
 				8B5D05BD188B81FF001BED73 /* FriendCell.h */,
@@ -844,6 +868,8 @@
 			children = (
 				8B5D0302188B2918001BED73 /* Main.storyboard */,
 				8B5D034C188B32D7001BED73 /* MainStoryboard.storyboard */,
+				8B19592718C4E97A00B6F701 /* CustomFacebookFriendSearchVC.h */,
+				8B19592818C4E97A00B6F701 /* CustomFacebookFriendSearchVC.m */,
 				8B5D02FF188B2918001BED73 /* AppDelegate.h */,
 				8B5D0300188B2918001BED73 /* AppDelegate.m */,
 				8BA7B4B9188C973500C72F65 /* NSOperationQueue+SharedQueue.h */,
@@ -1409,6 +1435,7 @@
 				8B5D04B2188B35D7001BED73 /* button-pause.png in Resources */,
 				8B5D04E2188B35D7001BED73 /* dumbbell.png in Resources */,
 				8B5D0510188B35D7001BED73 /* keyboard.png in Resources */,
+				8B19592518C4E65300B6F701 /* MainViewController2.xib in Resources */,
 				8B5D04C2188B35D7001BED73 /* cctv.png in Resources */,
 				8B5D0554188B35D7001BED73 /* recycle-bin.png in Resources */,
 				8B5D04EB188B35D7001BED73 /* factory-pollution.png in Resources */,
@@ -1678,8 +1705,11 @@
 				8B5D0307188B2918001BED73 /* ViewController.m in Sources */,
 				8B5D05BF188B81FF001BED73 /* FriendCell.m in Sources */,
 				8B5D0352188B33EB001BED73 /* AMGProgressView.m in Sources */,
+				8B19592618C4E65300B6F701 /* Product.m in Sources */,
 				8B5D0301188B2918001BED73 /* AppDelegate.m in Sources */,
 				8B5D05BC188B71EA001BED73 /* AddFriendViewController.m in Sources */,
+				8B19592918C4E97A00B6F701 /* CustomFacebookFriendSearchVC.m in Sources */,
+				8B19592018C4E56E00B6F701 /* MainViewController2.m in Sources */,
 				8BA7B4B8188C5C4900C72F65 /* MyManger.m in Sources */,
 				8B5D05B9188B6ABA001BED73 /* FriendshipTableViewController.m in Sources */,
 				8B5D0348188B3121001BED73 /* BButton.m in Sources */,

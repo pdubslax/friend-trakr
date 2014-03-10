@@ -13,6 +13,9 @@
 #import "MyManger.h"
 #import "AMGProgressView.h"
 #import <Parse/Parse.h>
+#import "MainViewController2.h"
+#import "Product.h"
+#import "CustomFacebookFriendSearchVC.h"
 
 @interface FriendshipTableViewController ()
 
@@ -130,6 +133,24 @@ NSMutableArray *scoreArray;
     AddFriendViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"friend_add"];
     //vc.friend_array = friendArray;
     //vc.profile_picture_array = pictureArray;
+   /*
+    MainViewController2 *mvc = [[MainViewController2 alloc] initWithNibName: @"MainViewController2" bundle: nil];
+    NSArray *listContent = [NSArray arrayWithObjects:
+                            [Product productWithType:@"Device" name:@"iPhone"],
+                            [Product productWithType:@"Device" name:@"iPod"],
+                            [Product productWithType:@"Device" name:@"iPod touch"],
+                            [Product productWithType:@"Desktop" name:@"iMac"],
+                            [Product productWithType:@"Desktop" name:@"Mac Pro"],
+                            [Product productWithType:@"Portable" name:@"iBook"],
+                            [Product productWithType:@"Portable" name:@"MacBook"],
+                            [Product productWithType:@"Portable" name:@"MacBook Pro"],
+                            [Product productWithType:@"Portable" name:@"PowerBook"], nil];
+    mvc.listContent = listContent;
+    mvc.delegate = self;
+    NSLog(@"MainViewController2 desc: %@", [mvc description]);
+    */
+    //[self presentModalViewController: vc animated: YES];
+    
     [self.navigationController pushViewController:vc animated:NO];
     
 }

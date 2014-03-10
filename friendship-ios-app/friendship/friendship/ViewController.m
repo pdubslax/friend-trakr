@@ -141,6 +141,10 @@
                                                           NSError *error) {
                 NSArray* friends = [result objectForKey:@"data"];
                 NSLog(@"Found: %i friends", friends.count);
+                
+                //following is the logic concerning the initial adding of a full facebook friends list
+                
+                
                 int i=0;
                 
                 for (NSDictionary<FBGraphUser>* friend in friends) {

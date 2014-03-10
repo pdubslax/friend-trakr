@@ -38,6 +38,12 @@
     
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+    [self.tableView beginUpdates];
+    [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationLeft];
+    [self.tableView endUpdates];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -59,6 +65,7 @@
     // Return the number of rows in the section.
     return [self.friend_array count];
 }
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -150,4 +157,6 @@
     
     
 }
+
+
 @end
