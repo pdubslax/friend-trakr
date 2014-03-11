@@ -22,6 +22,9 @@
 @property (nonatomic,retain) NSMutableArray *score;
 @property (nonatomic,retain) NSMutableArray *cur_friend_id;
 
+@property (nonatomic,retain) NSString *meviewName;
+@property (nonatomic,retain) UIImage *meviewImage;
+
 
 + (id)sharedManager;
 - (void) reset;

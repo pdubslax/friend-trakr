@@ -78,16 +78,12 @@
         
         [self add_friend_method]; // generates array of people you might want to follow
         
-        [self find_current_follows]; //
+        //
         
         
  //NSTimer* myTimer = [NSTimer scheduledTimerWithTimeInterval: 3.0 target: self
                                                           //selector: @selector(callAfterSixtySecond:) userInfo: nil repeats: YES];
-        [self.activity_indicator stopAnimating];
         
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-        UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"mainview"];
-        [self presentViewController:vc animated:NO completion:nil];
         
         
         
@@ -197,7 +193,9 @@
             sharedManager.array2 = pictureArray;
             sharedManager.friend_id_array = friend_id_array;
             
-            
+            dispatch_async(dispatch_get_main_queue(), ^ {
+                [self find_current_follows];
+            });
 
             
             
@@ -257,6 +255,9 @@
             sharedManager.score = scoreArray;
             sharedManager.cur_friend_id = curfriendID;
             
+            dispatch_async(dispatch_get_main_queue(), ^ {
+                [self move_on];
+            });
             
             
             
@@ -270,6 +271,47 @@
     
     
 }
+
+
+- (void)move_on{
+    
+    [FBRequestConnection
+     startForMeWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+         if (!error) {
+             NSString *facebookId = [result objectForKey:@"id"];
+             NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?width=200&height=200", facebookId]];
+             NSData *data = [NSData dataWithContentsOfURL:url];
+             NSURL *url2 = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@", facebookId]];
+             NSData *data2 = [NSData dataWithContentsOfURL:url2];
+             
+             id jsonObjects = [NSJSONSerialization JSONObjectWithData:data2 options:NSJSONReadingMutableContainers error:nil];
+             NSString *profile_name = [jsonObjects objectForKey:@"name"];
+             
+             UIImage *profilePic = [[UIImage alloc] initWithData:data] ;
+             
+             MyManager *sharedManager = [MyManager sharedManager];
+             sharedManager.meviewImage = profilePic;
+             sharedManager.meviewName = profile_name;
+             
+             dispatch_async(dispatch_get_main_queue(), ^ {
+                 [self all_done];
+             });
+             
+         }
+     }];
+    
+    
+}
+
+- (void)all_done{
+    [self.activity_indicator stopAnimating];
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"mainview"];
+    [self presentViewController:vc animated:NO completion:nil];
+}
+
+
 
 
 @end

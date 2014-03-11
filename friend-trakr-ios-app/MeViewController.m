@@ -40,22 +40,9 @@
 {
     [super viewDidLoad];
     
-    dispatch_async( dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        // Add code here to do background processing
-        //
-        //
-        
-        dispatch_async( dispatch_get_main_queue(), ^{
-            // Add code here to update the UI/send notifications based on the
-            // results of the background processing
-            
-            NSLog(@"done loading");
-        });
-    });
     
-    [[NSOperationQueue pffileOperationQueue] addOperationWithBlock:^ {
-        //execute on another thread 
-    }];
+    
+    
     
     
     
@@ -95,28 +82,17 @@
     
     
     [profile_picture setContentMode:UIViewContentModeScaleAspectFill];
+    
     CALayer *round = [profile_picture layer];
     [round setMasksToBounds:YES];
     [round setCornerRadius:10.0];
     
-    [FBRequestConnection
-     startForMeWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
-         if (!error) {
-             NSString *facebookId = [result objectForKey:@"id"];
-             NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large", facebookId]];
-             NSData *data = [NSData dataWithContentsOfURL:url];
-             NSURL *url2 = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@", facebookId]];
-             NSData *data2 = [NSData dataWithContentsOfURL:url2];
-
-             id jsonObjects = [NSJSONSerialization JSONObjectWithData:data2 options:NSJSONReadingMutableContainers error:nil];
-             NSString *profile_name = [jsonObjects objectForKey:@"name"];
-             
-             UIImage *profilePic = [[UIImage alloc] initWithData:data] ;
-             [profile_picture setImage:profilePic];
-             self.navigationController.navigationBar.topItem.title=profile_name;
-             
-         }
-     }];
+    MyManager *sharedManager = [MyManager sharedManager];
+    
+    [profile_picture setImage:sharedManager.meviewImage];
+    self.navigationController.navigationBar.topItem.title=sharedManager.meviewName;
+    
+    
     
     /*
     [[BButton appearance] setButtonCornerRadius:@10.0f];
