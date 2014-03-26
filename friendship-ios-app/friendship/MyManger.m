@@ -10,7 +10,7 @@
 
 @implementation MyManager
 
-@synthesize array1,array2,array3,array4,score,friend_id_array,my_id_array,cur_friend_id,meviewImage,meviewName;
+@synthesize array1,array2,array3,array4,score,friend_id_array,my_id_array,cur_friend_id,meviewImage,meviewName,avgScore;
 
 #pragma mark Singleton Methods
 
@@ -35,6 +35,7 @@
         cur_friend_id = [[NSMutableArray alloc]init];
         meviewName = [[NSString alloc] init];
         meviewImage = [[UIImage alloc] init];
+        avgScore = [[NSNumber alloc] init];
         
         
     }

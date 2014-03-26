@@ -12,6 +12,5 @@
 - (IBAction)back_button:(id)sender;
 @property (strong,nonatomic) NSMutableArray *friend_array;
 @property (strong,nonatomic) NSMutableArray *profile_picture_array;
-- (IBAction)search_button:(id)sender;
 
 @end

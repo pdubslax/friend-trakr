@@ -141,21 +141,23 @@
                 //following is the logic concerning the initial adding of a full facebook friends list
                 
                 
-                int i=0;
+                //int i=0;
                 
                 for (NSDictionary<FBGraphUser>* friend in friends) {
                     NSString *friendName = friend.name;
                     NSString *friendID = friend.id;
+                    /*
                     if (![alreadyFriends containsObject:friendID]) {
                         [FBRequestConnection
                          startForMeWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
                              if (!error) {
+                                 
                                  NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=small", friendID]];
                                  NSData *data = [NSData dataWithContentsOfURL:url];
                                  UIImage *profilePic = [[UIImage alloc] initWithData:data] ;
                                  [pictureArray addObject:profilePic];
-                                 [friendArray addObject:friendName];
-                                 [friend_id_array addObject:friendID];
+                     
+                                 
                                  
                                  
                                  
@@ -165,11 +167,12 @@
                         i++;
                         
                     }
+                    */
+                    [friendArray addObject:friendName];
+                    [friend_id_array addObject:friendID];
                     
                     
-                    if (i>30) {
-                        break;
-                    }
+                    
                     
                     
                 }
@@ -217,7 +220,6 @@
     NSMutableArray* scoreArray=[[NSMutableArray alloc] init ];
     NSMutableArray* curfriendID=[[NSMutableArray alloc]init];
     MyManager *sharedManager = [MyManager sharedManager];
-    
     PFQuery *query = [PFQuery queryWithClassName:@"Friendships"];
     [query whereKey:@"username" equalTo:[[PFUser currentUser] username]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
@@ -244,6 +246,7 @@
                          [pictureArray addObject:profilePic];
                          [friendArray addObject:name];
                          [scoreArray addObject:[NSNumber numberWithInt:score]];
+                         
                          [curfriendID addObject:[NSString stringWithFormat:@"%@",friendnumber]];
                      }
                  }];
@@ -254,6 +257,8 @@
             sharedManager.array4 = pictureArray;
             sharedManager.score = scoreArray;
             sharedManager.cur_friend_id = curfriendID;
+            
+            
             
             dispatch_async(dispatch_get_main_queue(), ^ {
                 [self move_on];
@@ -270,6 +275,9 @@
     
     
     
+    
+    
+    
 }
 
 
@@ -279,7 +287,7 @@
      startForMeWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
          if (!error) {
              NSString *facebookId = [result objectForKey:@"id"];
-             NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?width=200&height=200", facebookId]];
+             NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?width=400&height=400", facebookId]];
              NSData *data = [NSData dataWithContentsOfURL:url];
              NSURL *url2 = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@", facebookId]];
              NSData *data2 = [NSData dataWithContentsOfURL:url2];
@@ -305,6 +313,8 @@
 
 - (void)all_done{
     [self.activity_indicator stopAnimating];
+    
+    
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"mainview"];

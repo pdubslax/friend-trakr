@@ -13,9 +13,8 @@
 #import "MyManger.h"
 #import "AMGProgressView.h"
 #import <Parse/Parse.h>
-#import "MainViewController2.h"
-#import "Product.h"
 #import "CustomFacebookFriendSearchVC.h"
+#import "FriendshipViewController.h"
 
 @interface FriendshipTableViewController ()
 
@@ -37,6 +36,7 @@ NSMutableArray *scoreArray;
     return self;
 }
 - (void)viewDidAppear:(BOOL)animated{
+    
     [self.friendship_tableView reloadData];
 }
 
@@ -131,25 +131,6 @@ NSMutableArray *scoreArray;
 - (IBAction)findmefriends_button_pressed:(id)sender {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     AddFriendViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"friend_add"];
-    //vc.friend_array = friendArray;
-    //vc.profile_picture_array = pictureArray;
-   /*
-    MainViewController2 *mvc = [[MainViewController2 alloc] initWithNibName: @"MainViewController2" bundle: nil];
-    NSArray *listContent = [NSArray arrayWithObjects:
-                            [Product productWithType:@"Device" name:@"iPhone"],
-                            [Product productWithType:@"Device" name:@"iPod"],
-                            [Product productWithType:@"Device" name:@"iPod touch"],
-                            [Product productWithType:@"Desktop" name:@"iMac"],
-                            [Product productWithType:@"Desktop" name:@"Mac Pro"],
-                            [Product productWithType:@"Portable" name:@"iBook"],
-                            [Product productWithType:@"Portable" name:@"MacBook"],
-                            [Product productWithType:@"Portable" name:@"MacBook Pro"],
-                            [Product productWithType:@"Portable" name:@"PowerBook"], nil];
-    mvc.listContent = listContent;
-    mvc.delegate = self;
-    NSLog(@"MainViewController2 desc: %@", [mvc description]);
-    */
-    //[self presentModalViewController: vc animated: YES];
     
     [self.navigationController pushViewController:vc animated:NO];
     
@@ -163,6 +144,15 @@ NSMutableArray *scoreArray;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    FriendshipViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"checkmeout"];
+    MyManager *sharedManager = [MyManager sharedManager];
+    vc.name = [friendArray objectAtIndex:indexPath.row];
+    vc.score = [scoreArray objectAtIndex:indexPath.row];
+    vc.facebookId = [sharedManager.cur_friend_id objectAtIndex:indexPath.row];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [self.navigationController pushViewController:vc animated:NO];
+    
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -175,9 +165,10 @@ NSMutableArray *scoreArray;
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         
         MyManager *sharedManager = [MyManager sharedManager];
+        /*
         [sharedManager.array1 addObject:[friendArray objectAtIndex:indexPath.row]];
         [sharedManager.array2 addObject:[pictureArray objectAtIndex:indexPath.row]];
-        
+        */
         NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
         [f setNumberStyle:NSNumberFormatterDecimalStyle];
         

@@ -25,6 +25,8 @@
 @property (nonatomic,retain) NSString *meviewName;
 @property (nonatomic,retain) UIImage *meviewImage;
 
+@property (nonatomic,retain) NSNumber *avgScore;
+
 
 + (id)sharedManager;
 - (void) reset;

@@ -7,6 +7,7 @@
 //
 
 #import "AddFriendViewController.h"
+#import "FriendshipTableViewController.h"
 #import <FacebookSDK/FacebookSDK.h>
 #import <Parse/Parse.h>
 #import "FriendCell.h"
@@ -16,7 +17,12 @@
 
 @end
 
-@implementation AddFriendViewController
+@implementation AddFriendViewController{
+    NSArray *names;
+    NSArray *searchResults;
+}
+
+
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -33,15 +39,15 @@
     MyManager *sharedManager = [MyManager sharedManager];
     self.friend_array = sharedManager.array1;
     self.profile_picture_array = sharedManager.array2;
+    names = self.friend_array;
+    
     
     
     
 }
 
 -(void)viewDidAppear:(BOOL)animated{
-    [self.tableView beginUpdates];
-    [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationLeft];
-    [self.tableView endUpdates];
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -54,23 +60,27 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return [self.friend_array count];
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return [searchResults count];
+        
+    } else {
+        return [names count];
+    }
 }
+
+
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    
+    /*
     
     static NSString *simpleTableIdentifier = @"FriendCell";
     
@@ -91,37 +101,80 @@
     CALayer *roundtest = [cell.profile_image layer];
     [roundtest setMasksToBounds:YES];
     [roundtest setCornerRadius:27.0];
-
+    */
     
-    return cell;
+    static NSString *tableId = @"swagswag";
+    UITableViewCell *newcell = [tableView dequeueReusableCellWithIdentifier:tableId];
+    if (newcell==nil){
+        newcell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:tableId];
+    }
+    
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        newcell.textLabel.text = [searchResults objectAtIndex:indexPath.row];
+    } else {
+        newcell.textLabel.text = [names objectAtIndex:indexPath.row];
+    }
+
+  
+    
+    return newcell;
 
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+
+- (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope
 {
-    return 60;
+    NSString *searchString = searchText;
+    NSArray *words = [searchString componentsSeparatedByString:@" "];
+    NSMutableArray *predicateList = [NSMutableArray array];
+    for (NSString *word in words) {
+        if ([word length] > 0) {
+            NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF CONTAINS[c] %@ OR SELF CONTAINS[c] %@", word, word];
+            [predicateList addObject:pred];
+        }
+    }
+    NSPredicate *predicate = [NSCompoundPredicate andPredicateWithSubpredicates:predicateList];
+    NSLog(@"%@", predicate);
+    //NSPredicate *resultPredicate = [NSPredicate predicateWithFormat:@"SELF CONTAINS[c] %@", searchText];
+    
+    searchResults = [names filteredArrayUsingPredicate:predicate];
+    
 }
 
+-(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
+{
+    
+    [self filterContentForSearchText:searchString scope:nil];
+    
+    return YES;
+}
 
 
 - (IBAction)back_button:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
+    [self.navigationController popViewControllerAnimated:NO];
 }
-- (IBAction)search_button:(id)sender {
-    
-    
-}
+
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    
     MyManager *sharedManager = [MyManager sharedManager];
 
     NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
     [f setNumberStyle:NSNumberFormatterDecimalStyle];
     
     NSNumber * user = [f numberFromString:sharedManager.my_id_array[0]];
+    NSUInteger fooIndex = 0;
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        NSString * friendname =  [searchResults objectAtIndex:indexPath.row];
+         fooIndex = [names indexOfObject: friendname];
+    } else {
+        NSString * friendname = [names objectAtIndex:indexPath.row];
+        fooIndex = [names indexOfObject: friendname];
+    }
     
-    NSNumber * friend =  [f numberFromString:[sharedManager.friend_id_array objectAtIndex:indexPath.row]];
+    NSNumber * friend =  [f numberFromString:[sharedManager.friend_id_array objectAtIndex:fooIndex]];
                        
     
     
@@ -129,7 +182,7 @@
     addfriend[@"username"]=[[PFUser currentUser] username];
     addfriend[@"User"]=user;
     addfriend[@"Friend"]=friend;
-    NSNumber *score = [NSNumber numberWithInteger:arc4random()%100];
+    NSNumber *score = [NSNumber numberWithInteger:100];
     addfriend[@"Score"]=score;
     [addfriend saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (!error){
@@ -147,16 +200,23 @@
                      [sharedManager.array3 addObject:profile_name];
                      [sharedManager.array4 addObject:profilePic];
                      [sharedManager.score addObject:score];
+                     [sharedManager.cur_friend_id addObject:[friend stringValue]];
+                     
+                     
+                     [self.navigationController popViewControllerAnimated:YES];
+                     
                  }
              }];
             
             
-            [self.navigationController popViewControllerAnimated:YES];
+            
         }
     }];
     
     
 }
+
+
 
 
 @end

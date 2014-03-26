@@ -36,6 +36,20 @@
     return self;
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+    MyManager *sharedManager = [MyManager sharedManager];
+    self.friendometer_label.text = [NSString stringWithFormat:@"%.d", [[sharedManager.score valueForKeyPath:@"@avg.self"] intValue] ];
+    
+    self.prog.progress = [[sharedManager.score valueForKeyPath:@"@avg.self"] floatValue]/100;
+    if ([[sharedManager.score valueForKeyPath:@"@avg.self"] intValue]>50) {
+        self.prog.gradientColors = @[[UIColor colorWithRed:0.1f green:0.7f blue:0.1f alpha:1.0f],
+                                     [UIColor colorWithRed:0.6f green:0.9f blue:0.6f alpha:1.0f]];
+    }else{
+        self.prog.gradientColors = @[[UIColor colorWithRed:0.7f green:0.1f blue:0.1f alpha:1.0f],
+                                     [UIColor colorWithRed:0.9f green:0.6f blue:0.6f alpha:1.0f]];
+    }
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -46,7 +60,7 @@
     
     
     
-    
+    [self.tabBarController.tabBar setTintColor:[UIColor whiteColor]];
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.122 green:0.149 blue:0.232 alpha:1];
 
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor colorWithRed:0.91 green:0.91 blue:0.91 alpha:1]};
@@ -54,24 +68,47 @@
     self.settings.tintColor = [UIColor colorWithRed:0.91 green:0.91 blue:0.91 alpha:1];
     
     if (self.view.bounds.size.height == 568) {
-        self.prog = [[AMGProgressView alloc] initWithFrame:CGRectMake(20, 400, 280, 50)];
+        self.prog = [[AMGProgressView alloc] initWithFrame:CGRectMake(20, self.profile_picture.frame.origin.y+self.profile_picture.frame.size.height+10, 280, 50)];
     } else {
-        self.prog = [[AMGProgressView alloc] initWithFrame:CGRectMake(20, 350, 280, 50)];
+        self.prog = [[AMGProgressView alloc] initWithFrame:CGRectMake(20, 245, 280, 50)];
     }
+    MyManager *sharedManager = [MyManager sharedManager];
+    /*
+    self.friendometer_label = [[UILabel alloc] initWithFrame:CGRectMake(0, self.prog.frame.origin.y-50, 320, 40)];
     
-    UILabel *friendometer_label = [[UILabel alloc] initWithFrame:CGRectMake(0, self.prog.frame.origin.y-40, 320, 40)];
-    friendometer_label.text = @"FriendOMeter";
-    friendometer_label.textAlignment = UITextAlignmentCenter;
-    [self.view addSubview:friendometer_label];
+
+    self.friendometer_label.text = [NSString stringWithFormat:@"FriendOMeter:  %d", [[sharedManager.score valueForKeyPath:@"@avg.self"] intValue] ];
+    [self.friendometer_label setFont:[UIFont fontWithName:@"Helvetica-Bold" size:17]];
+    //[friendometer_label setFont:[UIFont fontWithName:@"Helvetica-Bold" size:20]];
+    self.friendometer_label.textAlignment = NSTextAlignmentCenter;
+    */
+     /*
+    UILabel *number_label = [[UILabel alloc] initWithFrame:CGRectMake(0, self.prog.frame.origin.y+50, 320, 50)];
+
+    number_label.text = [NSString stringWithFormat:@"%.02f", [[sharedManager.score valueForKeyPath:@"@avg.self"] floatValue]];
+    number_label.textAlignment = NSTextAlignmentCenter;
+    */
+   // [self.view addSubview:self.friendometer_label];
+    
     
     
     
     self.prog.gradientColors = @[[UIColor colorWithRed:0.1f green:0.7f blue:0.1f alpha:1.0f],
                                 [UIColor colorWithRed:0.6f green:0.9f blue:0.6f alpha:1.0f]];
-    self.prog.progress = 0.75f;
-    //self.prog.outsideBorder = [UIColor blackColor];
-    //int percent = self.prog.progress*100;
-    //[friend_percentage_label setText:[NSString stringWithFormat:@"Friendship Score of %d/100", percent]];
+    
+    if ([[sharedManager.score valueForKeyPath:@"@avg.self"] intValue]>50) {
+        self.prog.gradientColors = @[[UIColor colorWithRed:0.1f green:0.7f blue:0.1f alpha:1.0f],
+                                [UIColor colorWithRed:0.6f green:0.9f blue:0.6f alpha:1.0f]];
+    }else{
+        self.prog.gradientColors = @[[UIColor colorWithRed:0.7f green:0.1f blue:0.1f alpha:1.0f],
+                                [UIColor colorWithRed:0.9f green:0.6f blue:0.6f alpha:1.0f]];
+    }
+    
+    
+    self.prog.progress = [[sharedManager.score valueForKeyPath:@"@avg.self"] floatValue]/100;
+  
+    
+    
     
     
     [self.view addSubview:self.prog];
@@ -79,15 +116,24 @@
     [roundtest setMasksToBounds:YES];
     [roundtest setCornerRadius:10.0];
     
+    UILabel *scoreLabel = [[UILabel alloc]initWithFrame:CGRectMake(240, self.prog.frame.origin.y, 60, 50)];
+    scoreLabel.text = [NSString stringWithFormat:@"%.d", [[sharedManager.score valueForKeyPath:@"@avg.self"] intValue] ];
+    scoreLabel.textColor = [UIColor blackColor];
+    scoreLabel.font = [UIFont fontWithName:@"HelveticaNeue-UltraLight" size:30];
+    [self.view addSubview:scoreLabel];
+    self.friendometer_label = scoreLabel;
+    
+    //[self.view addSubview:number_label];
+    
     
     
     [profile_picture setContentMode:UIViewContentModeScaleAspectFill];
     
     CALayer *round = [profile_picture layer];
     [round setMasksToBounds:YES];
-    [round setCornerRadius:10.0];
+    [round setCornerRadius:62.5];
     
-    MyManager *sharedManager = [MyManager sharedManager];
+    
     
     [profile_picture setImage:sharedManager.meviewImage];
     self.navigationController.navigationBar.topItem.title=sharedManager.meviewName;
@@ -115,7 +161,21 @@
     
     
 	// Do any additional setup after loading the view.
+    
+    JBLineChartView *lineChartView = [[JBLineChartView alloc] init];
+    lineChartView.delegate = self;
+    lineChartView.dataSource = self;
+    //lineChartView.headerView = headerView;
+    
+    lineChartView.frame = CGRectMake(0, 320, 320, 200);
+    [lineChartView reloadData];
+    
+    [self.view addSubview:lineChartView];
+    lineChartView.backgroundColor = [UIColor colorWithRed:0.122 green:0.149 blue:0.232 alpha:1];
+    
+    
 }
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -146,6 +206,44 @@
     
     [self presentViewController:vc animated:YES completion:nil];
 }
+
+
+- (UIColor *)lineChartView:(JBLineChartView *)lineChartView colorForLineAtLineIndex:(NSUInteger)lineIndex
+{
+    return [UIColor whiteColor];
+}
+
+- (CGFloat)lineChartView:(JBLineChartView *)lineChartView widthForLineAtLineIndex:(NSUInteger)lineIndex
+{
+    return 2; // width of line in chart
+}
+
+- (JBLineChartViewLineStyle)lineChartView:(JBLineChartView *)lineChartView lineStyleForLineAtLineIndex:(NSUInteger)lineIndex
+{
+    return JBLineChartViewLineStyleSolid; // style of line in chart
+}
+
+- (NSUInteger)numberOfLinesInLineChartView:(JBLineChartView *)lineChartView
+{
+    return 1; // number of lines in chart
+}
+
+- (NSUInteger)lineChartView:(JBLineChartView *)lineChartView numberOfVerticalValuesAtLineIndex:(NSUInteger)lineIndex
+{
+    return 10; // number of values for a line
+}
+
+- (CGFloat)lineChartView:(JBLineChartView *)lineChartView verticalValueForHorizontalIndex:(NSUInteger)horizontalIndex atLineIndex:(NSUInteger)lineIndex
+{
+    if (horizontalIndex%2){
+        return horizontalIndex;
+    }else{
+        return 10-horizontalIndex;
+    }
+}
+
+
+
 
 
 

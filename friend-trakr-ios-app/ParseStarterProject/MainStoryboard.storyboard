@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="cho-58-z7D">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="cho-58-z7D">
     <dependencies>
         <deployment defaultVersion="1792" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
         <!--View Controller - Check In-->
@@ -22,7 +22,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZEN-QE-QUG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1558" y="2150"/>
+            <point key="canvasLocation" x="326" y="22"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="EBL-Uf-zlD">
@@ -33,8 +33,8 @@
                         <rect key="frame" x="129" y="330" width="163" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <color key="tintColor" red="0.9707843773" green="0.98982900610000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="barTintColor" red="0.1137254902" green="0.12941176469999999" blue="0.22352941179999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
                         <segue destination="OsQ-f7-O5e" kind="relationship" relationship="viewControllers" id="WPd-vH-lTf"/>
@@ -60,7 +60,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xvh-bK-w7P">
-                                <rect key="frame" x="45" y="73" width="230" height="230"/>
+                                <rect key="frame" x="98" y="73" width="125" height="125"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -109,7 +109,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Friendships" id="phv-7X-cpw">
-                        <barButtonItem key="rightBarButtonItem" image="smiley-smile.png" id="X3F-2I-WKV">
+                        <barButtonItem key="rightBarButtonItem" image="search.png" id="X3F-2I-WKV">
                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="findmefriends_button_pressed:" destination="Ujj-jb-U9u" id="bto-Yq-59U"/>
@@ -133,6 +133,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="X5X-g4-g8e">
+                            <rect key="frame" x="0.0" y="64" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="AJm-4n-4Lr" id="Kwb-ZV-5Du"/>
+                            </connections>
+                        </searchBar>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="Sud-gs-2oR" style="IBUITableViewCellStyleDefault" id="m3r-Mo-bMD">
+                                <rect key="frame" x="0.0" y="130" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="m3r-Mo-bMD" id="lU5-Rq-u6x">
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Sud-gs-2oR">
+                                            <rect key="frame" x="15" y="0.0" width="270" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="AJm-4n-4Lr" id="Ome-tT-YEA"/>
                             <outlet property="delegate" destination="AJm-4n-4Lr" id="ps3-Gq-VT7"/>
@@ -145,22 +173,28 @@
                                 <action selector="back_button:" destination="AJm-4n-4Lr" id="CKE-DR-J8a"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="search.png" id="Q9t-rg-PiL">
-                            <color key="tintColor" red="0.9707843773" green="0.98982900610000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            <connections>
-                                <action selector="search_button:" destination="AJm-4n-4Lr" id="RsS-sz-kjh"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="ZEj-Bg-qaX" id="iUJ-lO-PcB"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FTb-Cv-9SE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="ZEj-Bg-qaX">
+                    <connections>
+                        <outlet property="delegate" destination="AJm-4n-4Lr" id="hXc-VU-Sri"/>
+                        <outlet property="searchBar" destination="X5X-g4-g8e" id="79E-8j-1z8"/>
+                        <outlet property="searchContentsController" destination="AJm-4n-4Lr" id="idc-c5-huZ"/>
+                        <outlet property="searchResultsDataSource" destination="AJm-4n-4Lr" id="3Xx-FI-w3d"/>
+                        <outlet property="searchResultsDelegate" destination="AJm-4n-4Lr" id="6VJ-GZ-rJZ"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="604" y="3464"/>
+            <point key="canvasLocation" x="610" y="3536"/>
         </scene>
-        <!--View Controller - Recent-->
+        <!--Test View Controller - Recent-->
         <scene sceneID="S1r-rk-BP8">
             <objects>
-                <viewController id="FH5-vh-Zrl" sceneMemberID="viewController">
+                <viewController id="FH5-vh-Zrl" customClass="testViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="oC8-C1-maG"/>
                         <viewControllerLayoutGuide type="bottom" id="Xdf-BE-Kfa"/>
@@ -174,7 +208,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yaI-9U-ThW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1044" y="2150"/>
+            <point key="canvasLocation" x="-212" y="30"/>
         </scene>
         <!--Navigation Controller - Me-->
         <scene sceneID="bRc-df-F8R">
@@ -214,6 +248,41 @@
             </objects>
             <point key="canvasLocation" x="604" y="1446"/>
         </scene>
+        <!--Friendship View Controller-->
+        <scene sceneID="3jd-pD-l3U">
+            <objects>
+                <viewController storyboardIdentifier="checkmeout" id="Dly-lM-maR" customClass="FriendshipViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="IY5-6Q-zbu"/>
+                        <viewControllerLayoutGuide type="bottom" id="2T1-N5-Wyg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="f79-fA-KF0">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xof-xN-sft">
+                                <rect key="frame" x="98" y="73" width="125" height="125"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="IQr-Q9-rbD">
+                        <barButtonItem key="leftBarButtonItem" image="arrow-big-01.png" id="dsJ-Fd-O0s">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="backarrow:" destination="Dly-lM-maR" id="W9i-Fe-36z"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="profile_picture" destination="xof-xN-sft" id="UNP-dg-nVt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P8U-2X-lEh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1049" y="1446"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="Wx2-K0-dkz">
             <objects>
@@ -232,6 +301,24 @@
             </objects>
             <point key="canvasLocation" x="604" y="2796"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="mf0-2X-4JP">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="y83-DQ-a3i" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hOt-nc-6Nh">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Dly-lM-maR" kind="relationship" relationship="rootViewController" id="cP3-ch-Zop"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Iy-XO-aeL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1585" y="699"/>
+        </scene>
     </scenes>
     <resources>
         <image name="arrow-big-01.png" width="30" height="30"/>
@@ -241,7 +328,6 @@
         <image name="man.png" width="30" height="30"/>
         <image name="map-pin.png" width="30" height="30"/>
         <image name="search.png" width="30" height="30"/>
-        <image name="smiley-smile.png" width="30" height="30"/>
     </resources>
     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
