@@ -23,7 +23,6 @@
 		8B5D031A188B2918001BED73 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8B5D0318188B2918001BED73 /* InfoPlist.strings */; };
 		8B5D031C188B2918001BED73 /* friendshipTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B5D031B188B2918001BED73 /* friendshipTests.m */; };
 		8B5D0326188B2B87001BED73 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B5D0325188B2B87001BED73 /* logo.png */; };
-		8B5D032A188B2DF5001BED73 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5D0328188B2DF5001BED73 /* FacebookSDK.framework */; };
 		8B5D032B188B2DF5001BED73 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5D0329188B2DF5001BED73 /* Parse.framework */; };
 		8B5D032D188B2EE5001BED73 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5D032C188B2EE5001BED73 /* AudioToolbox.framework */; };
 		8B5D032F188B2EED001BED73 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5D032E188B2EED001BED73 /* CFNetwork.framework */; };
@@ -369,6 +368,7 @@
 		8BA7B4DE188D01BC00C72F65 /* mediumtile.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BA7B4CE188D01BC00C72F65 /* mediumtile.png */; };
 		8BA7B4DF188D01BC00C72F65 /* smalltile.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BA7B4CF188D01BC00C72F65 /* smalltile.png */; };
 		8BA7B4E0188D01BC00C72F65 /* widetile.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BA7B4D0188D01BC00C72F65 /* widetile.png */; };
+		8BCAE05018E3252F00C4912A /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BCAE04F18E3252F00C4912A /* FacebookSDK.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -404,8 +404,7 @@
 		8B5D0319188B2918001BED73 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8B5D031B188B2918001BED73 /* friendshipTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = friendshipTests.m; sourceTree = "<group>"; };
 		8B5D0325188B2B87001BED73 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = friendship/logo.png; sourceTree = "<group>"; };
-		8B5D0328188B2DF5001BED73 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = "../../friend-trakr-ios-app/FacebookSDK.framework"; sourceTree = "<group>"; };
-		8B5D0329188B2DF5001BED73 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = "../../friend-trakr-ios-app/Parse.framework"; sourceTree = "<group>"; };
+		8B5D0329188B2DF5001BED73 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		8B5D032C188B2EE5001BED73 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		8B5D032E188B2EED001BED73 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		8B5D0330188B2EFB001BED73 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -422,11 +421,11 @@
 		8B5D0344188B3121001BED73 /* UIColor+BButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+BButton.h"; sourceTree = "<group>"; };
 		8B5D0345188B3121001BED73 /* UIColor+BButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+BButton.m"; sourceTree = "<group>"; };
 		8B5D0347188B3121001BED73 /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.ttf; sourceTree = "<group>"; };
-		8B5D034C188B32D7001BED73 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MainStoryboard.storyboard; path = "../../../friend-trakr-ios-app/ParseStarterProject/MainStoryboard.storyboard"; sourceTree = "<group>"; };
-		8B5D034E188B33EB001BED73 /* AMGProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMGProgressView.h; path = "../../friend-trakr-ios-app/AMGProgressView.h"; sourceTree = "<group>"; };
-		8B5D034F188B33EB001BED73 /* AMGProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMGProgressView.m; path = "../../friend-trakr-ios-app/AMGProgressView.m"; sourceTree = "<group>"; };
-		8B5D0350188B33EB001BED73 /* MeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeViewController.h; path = "../../friend-trakr-ios-app/MeViewController.h"; sourceTree = "<group>"; };
-		8B5D0351188B33EB001BED73 /* MeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeViewController.m; path = "../../friend-trakr-ios-app/MeViewController.m"; sourceTree = "<group>"; };
+		8B5D034C188B32D7001BED73 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
+		8B5D034E188B33EB001BED73 /* AMGProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMGProgressView.h; sourceTree = "<group>"; };
+		8B5D034F188B33EB001BED73 /* AMGProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMGProgressView.m; sourceTree = "<group>"; };
+		8B5D0350188B33EB001BED73 /* MeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeViewController.h; sourceTree = "<group>"; };
+		8B5D0351188B33EB001BED73 /* MeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeViewController.m; sourceTree = "<group>"; };
 		8B5D0355188B35D6001BED73 /* 3d.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3d.png; sourceTree = "<group>"; };
 		8B5D0356188B35D6001BED73 /* abacus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = abacus.png; sourceTree = "<group>"; };
 		8B5D0357188B35D6001BED73 /* airplane.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = airplane.png; sourceTree = "<group>"; };
@@ -766,6 +765,7 @@
 		8BA7B4CE188D01BC00C72F65 /* mediumtile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mediumtile.png; sourceTree = "<group>"; };
 		8BA7B4CF188D01BC00C72F65 /* smalltile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smalltile.png; sourceTree = "<group>"; };
 		8BA7B4D0188D01BC00C72F65 /* widetile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = widetile.png; sourceTree = "<group>"; };
+		8BCAE04F18E3252F00C4912A /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -783,10 +783,10 @@
 				8B5D02F3188B2918001BED73 /* CoreGraphics.framework in Frameworks */,
 				8B5D032F188B2EED001BED73 /* CFNetwork.framework in Frameworks */,
 				8B5D032D188B2EE5001BED73 /* AudioToolbox.framework in Frameworks */,
-				8B5D032A188B2DF5001BED73 /* FacebookSDK.framework in Frameworks */,
 				8B5D032B188B2DF5001BED73 /* Parse.framework in Frameworks */,
 				8B5D02F5188B2918001BED73 /* UIKit.framework in Frameworks */,
 				8B5D02F1188B2918001BED73 /* Foundation.framework in Frameworks */,
+				8BCAE05018E3252F00C4912A /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -842,6 +842,7 @@
 		8B5D02EF188B2918001BED73 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8BCAE04F18E3252F00C4912A /* FacebookSDK.framework */,
 				8B5D033E188B3121001BED73 /* BButton */,
 				8B5D033C188B2F2B001BED73 /* SystemConfiguration.framework */,
 				8B5D033A188B2F23001BED73 /* StoreKit.framework */,
@@ -852,7 +853,6 @@
 				8B5D0330188B2EFB001BED73 /* CoreLocation.framework */,
 				8B5D032E188B2EED001BED73 /* CFNetwork.framework */,
 				8B5D032C188B2EE5001BED73 /* AudioToolbox.framework */,
-				8B5D0328188B2DF5001BED73 /* FacebookSDK.framework */,
 				8B5D0329188B2DF5001BED73 /* Parse.framework */,
 				8B5D02F0188B2918001BED73 /* Foundation.framework */,
 				8B5D02F2188B2918001BED73 /* CoreGraphics.framework */,
@@ -930,8 +930,7 @@
 				8B5D033F188B3121001BED73 /* Classes */,
 				8B5D0346188B3121001BED73 /* resources */,
 			);
-			name = BButton;
-			path = "../../friend-trakr-ios-app/BButton";
+			path = BButton;
 			sourceTree = "<group>";
 		};
 		8B5D033F188B3121001BED73 /* Classes */ = {
@@ -1342,7 +1341,7 @@
 		8B5D02E5188B2918001BED73 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Patrick Wilson";
 				TargetAttributes = {
 					8B5D030D188B2918001BED73 = {
@@ -1788,7 +1787,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -1827,7 +1825,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -1864,6 +1861,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/patrickwilson/Code/friend-trakr/friend-trakr-ios-app",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "friendship/friendship-Prefix.pch";
@@ -1881,6 +1879,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/patrickwilson/Code/friend-trakr/friend-trakr-ios-app",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "friendship/friendship-Prefix.pch";
@@ -1893,7 +1892,6 @@
 		8B5D0323188B2918001BED73 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/friendship.app/friendship";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -1916,7 +1914,6 @@
 		8B5D0324188B2918001BED73 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/friendship.app/friendship";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
