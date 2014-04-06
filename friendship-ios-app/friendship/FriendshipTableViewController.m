@@ -13,7 +13,6 @@
 #import "MyManger.h"
 #import "AMGProgressView.h"
 #import <Parse/Parse.h>
-#import "CustomFacebookFriendSearchVC.h"
 #import "FriendshipViewController.h"
 
 @interface FriendshipTableViewController ()
@@ -150,8 +149,11 @@ NSMutableArray *scoreArray;
     vc.name = [friendArray objectAtIndex:indexPath.row];
     vc.score = [scoreArray objectAtIndex:indexPath.row];
     vc.facebookId = [sharedManager.cur_friend_id objectAtIndex:indexPath.row];
+    vc.bigprofpic = [sharedManager.array4 objectAtIndex:indexPath.row];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
     [self.navigationController pushViewController:vc animated:NO];
+    // this line represents the change in view one level deeper in the navigation stack
     
 }
 

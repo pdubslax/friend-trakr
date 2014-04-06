@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8B19592918C4E97A00B6F701 /* CustomFacebookFriendSearchVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B19592818C4E97A00B6F701 /* CustomFacebookFriendSearchVC.m */; };
 		8B5D02F1188B2918001BED73 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5D02F0188B2918001BED73 /* Foundation.framework */; };
 		8B5D02F3188B2918001BED73 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5D02F2188B2918001BED73 /* CoreGraphics.framework */; };
 		8B5D02F5188B2918001BED73 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5D02F4188B2918001BED73 /* UIKit.framework */; };
@@ -345,13 +344,11 @@
 		8B5D05BF188B81FF001BED73 /* FriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B5D05BE188B81FF001BED73 /* FriendCell.m */; };
 		8B5D05C1188B821F001BED73 /* FriendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B5D05C0188B821F001BED73 /* FriendCell.xib */; };
 		8B8A00C518DE34CA006317C5 /* FriendshipViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8A00C418DE34CA006317C5 /* FriendshipViewController.m */; };
-		8B9C5AC818E0AE37000BA703 /* testViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C5AC718E0AE37000BA703 /* testViewController.m */; };
 		8B9C5AD118E0BC28000BA703 /* JBBarChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C5ACB18E0BC28000BA703 /* JBBarChartView.m */; };
 		8B9C5AD218E0BC28000BA703 /* JBChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C5ACD18E0BC28000BA703 /* JBChartView.m */; };
 		8B9C5AD318E0BC28000BA703 /* JBChartView.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 8B9C5ACE18E0BC28000BA703 /* JBChartView.podspec */; };
 		8B9C5AD418E0BC28000BA703 /* JBLineChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C5AD018E0BC28000BA703 /* JBLineChartView.m */; };
 		8BA7B4B8188C5C4900C72F65 /* MyManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA7B4B7188C5C4900C72F65 /* MyManger.m */; };
-		8BA7B4BB188C973500C72F65 /* NSOperationQueue+SharedQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA7B4BA188C973500C72F65 /* NSOperationQueue+SharedQueue.m */; };
 		8BA7B4D1188D01BC00C72F65 /* 32_holdinghands.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BA7B4C1188D01BC00C72F65 /* 32_holdinghands.png */; };
 		8BA7B4D2188D01BC00C72F65 /* 64_holdinghands.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BA7B4C2188D01BC00C72F65 /* 64_holdinghands.png */; };
 		8BA7B4D3188D01BC00C72F65 /* apple-touch-icon-114x114.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BA7B4C3188D01BC00C72F65 /* apple-touch-icon-114x114.png */; };
@@ -369,6 +366,12 @@
 		8BA7B4DF188D01BC00C72F65 /* smalltile.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BA7B4CF188D01BC00C72F65 /* smalltile.png */; };
 		8BA7B4E0188D01BC00C72F65 /* widetile.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BA7B4D0188D01BC00C72F65 /* widetile.png */; };
 		8BCAE05018E3252F00C4912A /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BCAE04F18E3252F00C4912A /* FacebookSDK.framework */; };
+		8BF211C318E6B17A003579C0 /* 1_wall.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BF211BD18E6B17A003579C0 /* 1_wall.png */; };
+		8BF211C418E6B17A003579C0 /* 2_wall.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BF211BE18E6B17A003579C0 /* 2_wall.png */; };
+		8BF211C518E6B17A003579C0 /* 3_wall.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BF211BF18E6B17A003579C0 /* 3_wall.png */; };
+		8BF211C618E6B17A003579C0 /* 4_wall.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BF211C018E6B17A003579C0 /* 4_wall.png */; };
+		8BF211C718E6B17A003579C0 /* 5_wall.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BF211C118E6B17A003579C0 /* 5_wall.png */; };
+		8BF211C818E6B17A003579C0 /* 6_wall.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BF211C218E6B17A003579C0 /* 6_wall.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -382,8 +385,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		8B19592718C4E97A00B6F701 /* CustomFacebookFriendSearchVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomFacebookFriendSearchVC.h; sourceTree = "<group>"; };
-		8B19592818C4E97A00B6F701 /* CustomFacebookFriendSearchVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomFacebookFriendSearchVC.m; sourceTree = "<group>"; };
 		8B5D02ED188B2918001BED73 /* Friendship.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Friendship.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B5D02F0188B2918001BED73 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8B5D02F2188B2918001BED73 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -736,8 +737,6 @@
 		8B5D05C0188B821F001BED73 /* FriendCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendCell.xib; sourceTree = "<group>"; };
 		8B8A00C318DE34CA006317C5 /* FriendshipViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendshipViewController.h; sourceTree = "<group>"; };
 		8B8A00C418DE34CA006317C5 /* FriendshipViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendshipViewController.m; sourceTree = "<group>"; };
-		8B9C5AC618E0AE37000BA703 /* testViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testViewController.h; sourceTree = "<group>"; };
-		8B9C5AC718E0AE37000BA703 /* testViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testViewController.m; sourceTree = "<group>"; };
 		8B9C5ACA18E0BC28000BA703 /* JBBarChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBBarChartView.h; sourceTree = "<group>"; };
 		8B9C5ACB18E0BC28000BA703 /* JBBarChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBBarChartView.m; sourceTree = "<group>"; };
 		8B9C5ACC18E0BC28000BA703 /* JBChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBChartView.h; sourceTree = "<group>"; };
@@ -747,8 +746,6 @@
 		8B9C5AD018E0BC28000BA703 /* JBLineChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBLineChartView.m; sourceTree = "<group>"; };
 		8BA7B4B6188C5C4900C72F65 /* MyManger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyManger.h; sourceTree = "<group>"; };
 		8BA7B4B7188C5C4900C72F65 /* MyManger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyManger.m; sourceTree = "<group>"; };
-		8BA7B4B9188C973500C72F65 /* NSOperationQueue+SharedQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSOperationQueue+SharedQueue.h"; sourceTree = "<group>"; };
-		8BA7B4BA188C973500C72F65 /* NSOperationQueue+SharedQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSOperationQueue+SharedQueue.m"; sourceTree = "<group>"; };
 		8BA7B4C1188D01BC00C72F65 /* 32_holdinghands.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 32_holdinghands.png; sourceTree = "<group>"; };
 		8BA7B4C2188D01BC00C72F65 /* 64_holdinghands.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 64_holdinghands.png; sourceTree = "<group>"; };
 		8BA7B4C3188D01BC00C72F65 /* apple-touch-icon-114x114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "apple-touch-icon-114x114.png"; sourceTree = "<group>"; };
@@ -766,6 +763,12 @@
 		8BA7B4CF188D01BC00C72F65 /* smalltile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smalltile.png; sourceTree = "<group>"; };
 		8BA7B4D0188D01BC00C72F65 /* widetile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = widetile.png; sourceTree = "<group>"; };
 		8BCAE04F18E3252F00C4912A /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		8BF211BD18E6B17A003579C0 /* 1_wall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1_wall.png; sourceTree = "<group>"; };
+		8BF211BE18E6B17A003579C0 /* 2_wall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2_wall.png; sourceTree = "<group>"; };
+		8BF211BF18E6B17A003579C0 /* 3_wall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3_wall.png; sourceTree = "<group>"; };
+		8BF211C018E6B17A003579C0 /* 4_wall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 4_wall.png; sourceTree = "<group>"; };
+		8BF211C118E6B17A003579C0 /* 5_wall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 5_wall.png; sourceTree = "<group>"; };
+		8BF211C218E6B17A003579C0 /* 6_wall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 6_wall.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -806,7 +809,8 @@
 		8B5D02E4188B2918001BED73 = {
 			isa = PBXGroup;
 			children = (
-				8B9C5AC918E0BC28000BA703 /* Classes */,
+				8BF211BC18E6B17A003579C0 /* BackgroundPhotos */,
+				8B9C5AC918E0BC28000BA703 /* JBChart */,
 				8B8A00C318DE34CA006317C5 /* FriendshipViewController.h */,
 				8B8A00C418DE34CA006317C5 /* FriendshipViewController.m */,
 				8BA7B4B6188C5C4900C72F65 /* MyManger.h */,
@@ -867,14 +871,8 @@
 			children = (
 				8B5D0302188B2918001BED73 /* Main.storyboard */,
 				8B5D034C188B32D7001BED73 /* MainStoryboard.storyboard */,
-				8B9C5AC618E0AE37000BA703 /* testViewController.h */,
-				8B9C5AC718E0AE37000BA703 /* testViewController.m */,
-				8B19592718C4E97A00B6F701 /* CustomFacebookFriendSearchVC.h */,
-				8B19592818C4E97A00B6F701 /* CustomFacebookFriendSearchVC.m */,
 				8B5D02FF188B2918001BED73 /* AppDelegate.h */,
 				8B5D0300188B2918001BED73 /* AppDelegate.m */,
-				8BA7B4B9188C973500C72F65 /* NSOperationQueue+SharedQueue.h */,
-				8BA7B4BA188C973500C72F65 /* NSOperationQueue+SharedQueue.m */,
 				8B5D0305188B2918001BED73 /* ViewController.h */,
 				8B5D0306188B2918001BED73 /* ViewController.m */,
 				8B5D05BA188B71EA001BED73 /* AddFriendViewController.h */,
@@ -1260,7 +1258,7 @@
 			path = "iconbeast lite - png";
 			sourceTree = "<group>";
 		};
-		8B9C5AC918E0BC28000BA703 /* Classes */ = {
+		8B9C5AC918E0BC28000BA703 /* JBChart */ = {
 			isa = PBXGroup;
 			children = (
 				8B9C5ACA18E0BC28000BA703 /* JBBarChartView.h */,
@@ -1271,6 +1269,7 @@
 				8B9C5ACF18E0BC28000BA703 /* JBLineChartView.h */,
 				8B9C5AD018E0BC28000BA703 /* JBLineChartView.m */,
 			);
+			name = JBChart;
 			path = Classes;
 			sourceTree = "<group>";
 		};
@@ -1295,6 +1294,19 @@
 				8BA7B4D0188D01BC00C72F65 /* widetile.png */,
 			);
 			path = your_new_images;
+			sourceTree = "<group>";
+		};
+		8BF211BC18E6B17A003579C0 /* BackgroundPhotos */ = {
+			isa = PBXGroup;
+			children = (
+				8BF211BD18E6B17A003579C0 /* 1_wall.png */,
+				8BF211BE18E6B17A003579C0 /* 2_wall.png */,
+				8BF211BF18E6B17A003579C0 /* 3_wall.png */,
+				8BF211C018E6B17A003579C0 /* 4_wall.png */,
+				8BF211C118E6B17A003579C0 /* 5_wall.png */,
+				8BF211C218E6B17A003579C0 /* 6_wall.png */,
+			);
+			path = BackgroundPhotos;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1430,12 +1442,14 @@
 				8B5D04E7188B35D7001BED73 /* embed.png in Resources */,
 				8B5D053C188B35D7001BED73 /* phone.png in Resources */,
 				8B5D04D8188B35D7001BED73 /* direction-path.png in Resources */,
+				8BF211C718E6B17A003579C0 /* 5_wall.png in Resources */,
 				8B5D04BC188B35D7001BED73 /* car-battery.png in Resources */,
 				8B5D0546188B35D7001BED73 /* poker.png in Resources */,
 				8B5D057D188B35D7001BED73 /* sun.png in Resources */,
 				8B5D0543188B35D7001BED73 /* plier.png in Resources */,
 				8B5D050E188B35D7001BED73 /* iphone.png in Resources */,
 				8B5D048E188B35D7001BED73 /* arrow-big-10.png in Resources */,
+				8BF211C818E6B17A003579C0 /* 6_wall.png in Resources */,
 				8B5D0579188B35D7001BED73 /* star.png in Resources */,
 				8B5D04F9188B35D7001BED73 /* gear.png in Resources */,
 				8B5D056F188B35D7001BED73 /* snow-flake.png in Resources */,
@@ -1501,6 +1515,7 @@
 				8B5D0482188B35D7001BED73 /* airplane.png in Resources */,
 				8B5D0567188B35D7001BED73 /* shirt.png in Resources */,
 				8B5D050B188B35D7001BED73 /* id-card.png in Resources */,
+				8BF211C618E6B17A003579C0 /* 4_wall.png in Resources */,
 				8B5D051A188B35D7001BED73 /* magic.png in Resources */,
 				8B5D04A4188B35D7001BED73 /* biohazard.png in Resources */,
 				8BA7B4DC188D01BC00C72F65 /* favicon.ico in Resources */,
@@ -1586,6 +1601,7 @@
 				8B5D04CC188B35D7001BED73 /* comb.png in Resources */,
 				8BA7B4D7188D01BC00C72F65 /* apple-touch-icon-57x57.png in Resources */,
 				8B5D0557188B35D7001BED73 /* rooster.png in Resources */,
+				8BF211C318E6B17A003579C0 /* 1_wall.png in Resources */,
 				8B5D04F5188B35D7001BED73 /* folder.png in Resources */,
 				8B5D0561188B35D7001BED73 /* screwdriver.png in Resources */,
 				8B5D0548188B35D7001BED73 /* power-button.png in Resources */,
@@ -1627,6 +1643,7 @@
 				8B5D0581188B35D7001BED73 /* switch.png in Resources */,
 				8B5D05A7188B35D7001BED73 /* woman-figure.png in Resources */,
 				8B5D04A2188B35D7001BED73 /* bell.png in Resources */,
+				8BF211C518E6B17A003579C0 /* 3_wall.png in Resources */,
 				8B5D05A8188B35D7001BED73 /* woman.png in Resources */,
 				8B5D052A188B35D7001BED73 /* music.png in Resources */,
 				8B5D0511188B35D7001BED73 /* knife.png in Resources */,
@@ -1676,6 +1693,7 @@
 				8B5D053D188B35D7001BED73 /* photo.png in Resources */,
 				8B5D057F188B35D7001BED73 /* swap.png in Resources */,
 				8B5D058F188B35D7001BED73 /* tick.png in Resources */,
+				8BF211C418E6B17A003579C0 /* 2_wall.png in Resources */,
 				8B5D0528188B35D7001BED73 /* multiple.png in Resources */,
 				8B5D05A9188B35D7001BED73 /* wooden-picket.png in Resources */,
 				8B5D0522188B35D7001BED73 /* microphone.png in Resources */,
@@ -1722,18 +1740,15 @@
 				8B9C5AD418E0BC28000BA703 /* JBLineChartView.m in Sources */,
 				8B5D0301188B2918001BED73 /* AppDelegate.m in Sources */,
 				8B5D05BC188B71EA001BED73 /* AddFriendViewController.m in Sources */,
-				8B19592918C4E97A00B6F701 /* CustomFacebookFriendSearchVC.m in Sources */,
 				8BA7B4B8188C5C4900C72F65 /* MyManger.m in Sources */,
 				8B5D05B9188B6ABA001BED73 /* FriendshipTableViewController.m in Sources */,
 				8B8A00C518DE34CA006317C5 /* FriendshipViewController.m in Sources */,
-				8B9C5AC818E0AE37000BA703 /* testViewController.m in Sources */,
 				8B5D0348188B3121001BED73 /* BButton.m in Sources */,
 				8B5D05AD188B38F1001BED73 /* Comms.m in Sources */,
 				8B9C5AD218E0BC28000BA703 /* JBChartView.m in Sources */,
 				8B5D0353188B33EB001BED73 /* MeViewController.m in Sources */,
 				8B9C5AD118E0BC28000BA703 /* JBBarChartView.m in Sources */,
 				8B5D02FD188B2918001BED73 /* main.m in Sources */,
-				8BA7B4BB188C973500C72F65 /* NSOperationQueue+SharedQueue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

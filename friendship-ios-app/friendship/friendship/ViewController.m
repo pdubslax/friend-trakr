@@ -235,7 +235,7 @@
                 [FBRequestConnection
                  startForMeWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
                      if (!error) {
-                         NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=small", friendnumber]];
+                         NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?width=400&height=400", friendnumber]];
                          NSURL *url2 = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@",friendnumber]];
                          NSData *data = [NSData dataWithContentsOfURL:url];
                          NSData *data2 = [NSData dataWithContentsOfURL:url2];

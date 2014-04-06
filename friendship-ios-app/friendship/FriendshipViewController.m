@@ -16,12 +16,7 @@
 #import "BButton.h"
 //#import "JBChartHeaderView.m"
 
-@interface FriendshipViewController ()
-@property (nonatomic, strong) AMGProgressView *prog;
-@property (nonatomic,strong) UILabel *friendometer_label;
-@property (nonatomic,strong) NSNumber *stoppoint;
 
-@end
 
 @implementation FriendshipViewController
 
@@ -105,6 +100,7 @@
     [round setMasksToBounds:YES];
     [round setCornerRadius:62.5];
     
+    /*
     [FBRequestConnection
      startForMeWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
          if (!error) {
@@ -118,6 +114,8 @@
              
          }
      }];
+    */
+    [self.profile_picture setImage:self.bigprofpic];
     
     /*
     JBChartHeaderView *headerView = [[JBChartHeaderView alloc] initWithFrame:CGRectMake(0,300,320,20)];
@@ -145,10 +143,11 @@
     //lineChartView.headerView = headerView;
     
     lineChartView.frame = CGRectMake(0, 320, 320, 200);
+    lineChartView.backgroundColor = [UIColor colorWithRed:0.122 green:0.149 blue:0.232 alpha:1];
     [lineChartView reloadData];
     
     [self.view addSubview:lineChartView];
-    lineChartView.backgroundColor = [UIColor colorWithRed:0.122 green:0.149 blue:0.232 alpha:1];
+    
     
     CGRect frame = CGRectMake(self.prog.frame.origin.x+10, self.prog.frame.origin.y+self.prog.frame.size.height+10, 80, 40);
     BButton *btn = [[BButton alloc] initWithFrame:frame type:BButtonTypeFacebook style:BButtonStyleBootstrapV3];
@@ -175,9 +174,27 @@
     [ummm3 setCornerRadius:10.0];
     
     [btn addTarget:self action:@selector(buttonPressedyea:) forControlEvents:UIControlEventTouchUpInside];
-
+    [btn3 addTarget:self action:@selector(hangout:) forControlEvents:UIControlEventTouchUpInside];
     
-
+    /*
+    
+    if (self.prog.progress>0&&self.prog.progress<=.2){
+        self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"1_wall.png"]];
+    }
+    if (self.prog.progress>.2&&self.prog.progress<=.4){
+        self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"2_wall.png"]];
+    }
+    if (self.prog.progress>.4&&self.prog.progress<=.6){
+        self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"4_wall.png"]];
+    }
+    if (self.prog.progress>.6&&self.prog.progress<=.8){
+        self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"4_wall.png"]];
+    }
+    if (self.prog.progress>.8&&self.prog.progress<=1){
+        self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"4_wall.png"]];
+    }
+    
+*/
     // Do any additional setup after loading the view.
 }
 - (UIColor *)lineChartView:(JBLineChartView *)lineChartView colorForLineAtLineIndex:(NSUInteger)lineIndex
@@ -221,6 +238,7 @@
 }
 - (void)lineChartView:(JBLineChartView *)lineChartView didSelectLineAtIndex:(NSUInteger)lineIndex horizontalIndex:(NSUInteger)horizontalIndex touchPoint:(CGPoint)touchPoint
 {
+    NSLog(@"%lu",(unsigned long)horizontalIndex);
     // Update view
 }
 
@@ -233,6 +251,51 @@
 
 - (IBAction)backarrow:(id)sender {
     [self.navigationController popViewControllerAnimated:NO];
+
+}
+
+- (void)hangout:(UIButton *)senderswag {
+    NSNumber *newScore;
+    if (self.prog.progress > 90) {
+        self.stoppoint = [NSNumber numberWithFloat:1];
+        MyManager *sharedManager = [MyManager sharedManager];
+        newScore = [NSNumber numberWithFloat:100];
+        [sharedManager.score setObject:newScore atIndexedSubscript:[sharedManager.cur_friend_id indexOfObject:self.facebookId]];
+        
+        
+        
+        
+    }else{
+        self.stoppoint = [NSNumber numberWithFloat:self.prog.progress +.1];
+        MyManager *sharedManager = [MyManager sharedManager];
+        newScore = [NSNumber numberWithFloat:(self.prog.progress + .1) *100];
+        [sharedManager.score setObject:newScore atIndexedSubscript:[sharedManager.cur_friend_id indexOfObject:self.facebookId]];
+        
+        
+    }
+    [NSTimer scheduledTimerWithTimeInterval:0.1
+                                     target:self
+                                   selector:@selector(targetMethod:)
+                                   userInfo:nil
+                                    repeats:YES];
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"Friendships"];
+    [query whereKey:@"Friend" equalTo:[NSNumber numberWithLongLong:[self.facebookId longLongValue]]];
+    [query whereKey:@"username" equalTo:[[PFUser currentUser] username]];
+    NSLog(@"%@",[NSNumber numberWithLongLong:[self.facebookId longLongValue]]);
+    [query getFirstObjectInBackgroundWithBlock:^(PFObject * userStats, NSError *error) {
+        if (!error) {
+            // Found UserStats
+            [userStats setObject:newScore forKey:@"Score"];
+            
+            // Save
+            [userStats saveInBackground];
+        } else {
+            // Did not find any UserStats for the current user
+            NSLog(@"Error: %@", error);
+        }
+    }];
+
 
 }
 - (void)buttonPressedyea:(UIButton *)senderswag {
@@ -277,9 +340,10 @@
                                                                                           repeats:YES];
                                                           
                                                           PFQuery *query = [PFQuery queryWithClassName:@"Friendships"];
-                                                          [query whereKey:@"Friend" equalTo:[NSNumber numberWithInt:[self.facebookId intValue]]];
+                                                          [query whereKey:@"Friend" equalTo:[NSNumber numberWithLongLong:[self.facebookId longLongValue]]];
+                                                          
                                                           [query whereKey:@"username" equalTo:[[PFUser currentUser] username]];
-                                                          NSLog(@"%@",self.facebookId);
+                                                          NSLog(@"%@",[NSNumber numberWithLongLong:[self.facebookId longLongValue]]);
                                                           [query getFirstObjectInBackgroundWithBlock:^(PFObject * userStats, NSError *error) {
                                                               if (!error) {
                                                                   // Found UserStats

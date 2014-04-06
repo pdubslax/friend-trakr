@@ -13,7 +13,6 @@
 #import "BButton.h"
 #import "MyManger.h"
 #import <FacebookSDK/FacebookSDK.h>
-#import "NSOperationQueue+SharedQueue.h"
 
 
 

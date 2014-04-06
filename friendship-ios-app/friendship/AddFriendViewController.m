@@ -158,7 +158,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    
+    [self.navigationController popViewControllerAnimated:YES];
     MyManager *sharedManager = [MyManager sharedManager];
 
     NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
@@ -189,7 +189,7 @@
             [FBRequestConnection
              startForMeWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
                  if (!error) {
-                     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=small", friend]];
+                     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?width=400&height=400", friend]];
                      NSURL *url2 = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@",friend]];
                      NSData *data = [NSData dataWithContentsOfURL:url];
                      NSData *data2 = [NSData dataWithContentsOfURL:url2];
@@ -203,7 +203,7 @@
                      [sharedManager.cur_friend_id addObject:[friend stringValue]];
                      
                      
-                     [self.navigationController popViewControllerAnimated:YES];
+                     
                      
                  }
              }];

@@ -5,25 +5,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--View Controller - Check In-->
-        <scene sceneID="52B-oY-qzO">
-            <objects>
-                <viewController id="izl-K7-WTb" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Obc-bg-2rb"/>
-                        <viewControllerLayoutGuide type="bottom" id="VQf-76-jTn"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Jap-NU-7Pi">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Check In" image="map-pin.png" id="KKf-wc-aRP"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ZEN-QE-QUG" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="326" y="22"/>
-        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="EBL-Uf-zlD">
             <objects>
@@ -39,8 +20,6 @@
                     <connections>
                         <segue destination="OsQ-f7-O5e" kind="relationship" relationship="viewControllers" id="WPd-vH-lTf"/>
                         <segue destination="W2P-se-pab" kind="relationship" relationship="viewControllers" id="ZgE-If-lZH"/>
-                        <segue destination="FH5-vh-Zrl" kind="relationship" relationship="viewControllers" id="0c3-7C-5hw"/>
-                        <segue destination="izl-K7-WTb" kind="relationship" relationship="viewControllers" id="i3a-qt-2xT"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xmv-dK-5ia" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -191,25 +170,6 @@
             </objects>
             <point key="canvasLocation" x="610" y="3536"/>
         </scene>
-        <!--Test View Controller - Recent-->
-        <scene sceneID="S1r-rk-BP8">
-            <objects>
-                <viewController id="FH5-vh-Zrl" customClass="testViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="oC8-C1-maG"/>
-                        <viewControllerLayoutGuide type="bottom" id="Xdf-BE-Kfa"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="6Vr-v1-n1S">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Recent" image="heart-rate.png" id="mSx-eI-dS8"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yaI-9U-ThW" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-212" y="30"/>
-        </scene>
         <!--Navigation Controller - Me-->
         <scene sceneID="bRc-df-F8R">
             <objects>
@@ -323,10 +283,8 @@
     <resources>
         <image name="arrow-big-01.png" width="30" height="30"/>
         <image name="forbidden.png" width="30" height="30"/>
-        <image name="heart-rate.png" width="29" height="30"/>
         <image name="love.png" width="30" height="30"/>
         <image name="man.png" width="30" height="30"/>
-        <image name="map-pin.png" width="30" height="30"/>
         <image name="search.png" width="30" height="30"/>
     </resources>
     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
