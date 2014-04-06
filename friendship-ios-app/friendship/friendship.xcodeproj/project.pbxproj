@@ -366,6 +366,7 @@
 		8BA7B4DF188D01BC00C72F65 /* smalltile.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BA7B4CF188D01BC00C72F65 /* smalltile.png */; };
 		8BA7B4E0188D01BC00C72F65 /* widetile.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BA7B4D0188D01BC00C72F65 /* widetile.png */; };
 		8BCAE05018E3252F00C4912A /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BCAE04F18E3252F00C4912A /* FacebookSDK.framework */; };
+		8BF1248F18F10E960030B64B /* SelectStartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BF1248E18F10E960030B64B /* SelectStartViewController.m */; };
 		8BF211C318E6B17A003579C0 /* 1_wall.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BF211BD18E6B17A003579C0 /* 1_wall.png */; };
 		8BF211C418E6B17A003579C0 /* 2_wall.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BF211BE18E6B17A003579C0 /* 2_wall.png */; };
 		8BF211C518E6B17A003579C0 /* 3_wall.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BF211BF18E6B17A003579C0 /* 3_wall.png */; };
@@ -763,6 +764,8 @@
 		8BA7B4CF188D01BC00C72F65 /* smalltile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smalltile.png; sourceTree = "<group>"; };
 		8BA7B4D0188D01BC00C72F65 /* widetile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = widetile.png; sourceTree = "<group>"; };
 		8BCAE04F18E3252F00C4912A /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		8BF1248D18F10E960030B64B /* SelectStartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectStartViewController.h; sourceTree = "<group>"; };
+		8BF1248E18F10E960030B64B /* SelectStartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectStartViewController.m; sourceTree = "<group>"; };
 		8BF211BD18E6B17A003579C0 /* 1_wall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1_wall.png; sourceTree = "<group>"; };
 		8BF211BE18E6B17A003579C0 /* 2_wall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2_wall.png; sourceTree = "<group>"; };
 		8BF211BF18E6B17A003579C0 /* 3_wall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3_wall.png; sourceTree = "<group>"; };
@@ -877,6 +880,8 @@
 				8B5D0306188B2918001BED73 /* ViewController.m */,
 				8B5D05BA188B71EA001BED73 /* AddFriendViewController.h */,
 				8B5D05BB188B71EA001BED73 /* AddFriendViewController.m */,
+				8BF1248D18F10E960030B64B /* SelectStartViewController.h */,
+				8BF1248E18F10E960030B64B /* SelectStartViewController.m */,
 				8B5D0308188B2918001BED73 /* Images.xcassets */,
 				8B5D02F7188B2918001BED73 /* Supporting Files */,
 			);
@@ -1741,6 +1746,7 @@
 				8B5D0301188B2918001BED73 /* AppDelegate.m in Sources */,
 				8B5D05BC188B71EA001BED73 /* AddFriendViewController.m in Sources */,
 				8BA7B4B8188C5C4900C72F65 /* MyManger.m in Sources */,
+				8BF1248F18F10E960030B64B /* SelectStartViewController.m in Sources */,
 				8B5D05B9188B6ABA001BED73 /* FriendshipTableViewController.m in Sources */,
 				8B8A00C518DE34CA006317C5 /* FriendshipViewController.m in Sources */,
 				8B5D0348188B3121001BED73 /* BButton.m in Sources */,

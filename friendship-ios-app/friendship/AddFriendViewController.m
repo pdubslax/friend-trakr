@@ -12,6 +12,7 @@
 #import <Parse/Parse.h>
 #import "FriendCell.h"
 #import "MyManger.h"
+#import "SelectStartViewController.h"
 
 @interface AddFriendViewController ()
 
@@ -158,7 +159,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    [self.navigationController popViewControllerAnimated:YES];
+    
     MyManager *sharedManager = [MyManager sharedManager];
 
     NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
@@ -184,6 +185,11 @@
     addfriend[@"Friend"]=friend;
     NSNumber *score = [NSNumber numberWithInteger:100];
     addfriend[@"Score"]=score;
+    SelectStartViewController *newvc = [[SelectStartViewController alloc] init];
+    [self.navigationController presentViewController:newvc animated:NO completion:^(){
+        [self.navigationController popViewControllerAnimated:YES];
+    }];
+    /*
     [addfriend saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (!error){
             [FBRequestConnection
@@ -202,9 +208,12 @@
                      [sharedManager.score addObject:score];
                      [sharedManager.cur_friend_id addObject:[friend stringValue]];
                      
+                     SelectStartViewController *newvc = [[SelectStartViewController alloc] init];
                      
                      
-                     
+                     [self.navigationController presentViewController:newvc animated:NO completion:^(){
+                         [self.navigationController popViewControllerAnimated:YES];
+                     }];
                  }
              }];
             
@@ -212,6 +221,7 @@
             
         }
     }];
+     */
     
     
 }
