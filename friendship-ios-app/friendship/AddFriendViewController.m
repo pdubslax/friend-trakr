@@ -189,8 +189,10 @@
     newvc.thisistheone = addfriend;
     newvc.manger = sharedManager;
     newvc.afvc = self;
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:newvc];
     
-    [self.navigationController presentViewController:newvc animated:NO completion:^(){
+    
+    [self.navigationController presentViewController:navigationController animated:NO completion:^(){
         
         
 
@@ -234,7 +236,6 @@
 }
 
 - (void)shesgone{
-    NSLog(@"SDfsd");
     [self.searchDisplayController setActive:FALSE];
     [self.navigationController popViewControllerAnimated:YES];
 }

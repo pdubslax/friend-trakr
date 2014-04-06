@@ -11,6 +11,7 @@
 #import "BButton.h"
 #import "MyManger.h"
 #import "AddFriendViewController.h"
+#import "blueButton.h"
 
 @interface SelectStartViewController ()
 @property (nonatomic,strong) GRKGradientView *upGradient;
@@ -34,8 +35,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.122 green:0.149 blue:0.232 alpha:1];
     
-    slideme = [[UISlider alloc] initWithFrame:CGRectMake(-40.0,260,400,40)];
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor colorWithRed:0.91 green:0.91 blue:0.91 alpha:1]};
+    self.navigationController.navigationBar.topItem.title = @"Select Current Friendship Level";
+    
+    
+    slideme = [[UISlider alloc] initWithFrame:CGRectMake(10,265,300,40)];
     [self.view setBackgroundColor:[UIColor whiteColor]];
     [slideme setBackgroundColor:[UIColor clearColor]];
     
@@ -45,7 +51,7 @@
     [slideme addTarget:self action:@selector(sliderMoved:) forControlEvents:UIControlEventValueChanged];
     UIImage *guy = [UIImage imageNamed:@"smiley-smile.png"];
     
-    self.upGradient = [[GRKGradientView alloc]initWithFrame:CGRectMake(0, 0, 320, 700)];
+    self.upGradient = [[GRKGradientView alloc]initWithFrame:CGRectMake(0, 20, 320, 700)];
     self.upGradient.gradientColors = [NSArray arrayWithObjects: [UIColor colorWithRed:1.27 green:1.27 blue:0 alpha:1.0],[UIColor whiteColor], nil];
 
 
@@ -59,22 +65,29 @@
     
     [slideme setThumbImage:guy forState:UIControlStateNormal];
     
-    UILabel *bestfriends = [[UILabel alloc] initWithFrame:CGRectMake(0, 30, 320, 50)];
+    UILabel *bestfriends = [[UILabel alloc] initWithFrame:CGRectMake(0, 70, 320, 50)];
     [bestfriends setText:@"Best Friends"];
+    [bestfriends setFont:[UIFont boldSystemFontOfSize:25.0f]];
     [bestfriends setTextAlignment:NSTextAlignmentCenter];
     [self.view addSubview:bestfriends];
     
-    UILabel *worstfriends = [[UILabel alloc] initWithFrame:CGRectMake(0, 480, 320, 50)];
-    [worstfriends setText:@"Worst Enemies"];
-    [worstfriends setTextAlignment:NSTextAlignmentCenter];
-    [self.view addSubview:worstfriends];
+   
     
-    CGRect frame = CGRectMake(0,520,320,50);
-    BButton *btn = [[BButton alloc] initWithFrame:frame type:BButtonTypeDanger style:BButtonStyleBootstrapV3];
+    CGRect frame = CGRectMake(-10, self.view.frame.size.height-60, 340, 60);
+    blueButton *btn = [[blueButton alloc] initWithFrame:frame] ;
+    btn.backgroundColor = [UIColor colorWithRed:0.122 green:0.149 blue:0.232 alpha:1];
+   
     [btn setTitle:@"Submit" forState:UIControlStateNormal];
+    btn.titleLabel.font = [UIFont boldSystemFontOfSize:25.0f];
     [self.view addSubview:btn];
     [btn addTarget:self action:@selector(buttonPressedyea:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn];
+    
+    UILabel *worstfriends = [[UILabel alloc] initWithFrame:CGRectMake(0, btn.frame.origin.y-70, 320, 50)];
+    [worstfriends setText:@"Worst Enemies"];
+    [worstfriends setFont:[UIFont boldSystemFontOfSize:25.0f]];
+    [worstfriends setTextAlignment:NSTextAlignmentCenter];
+    [self.view addSubview:worstfriends];
 
     
 }
