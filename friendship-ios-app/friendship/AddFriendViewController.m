@@ -191,37 +191,39 @@
     newvc.afvc = self;
     
     [self.navigationController presentViewController:newvc animated:NO completion:^(){
-        [addfriend saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-            if (!error){
-                [FBRequestConnection
-                 startForMeWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
-                     if (!error) {
-                         NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?width=400&height=400", friend]];
-                         NSURL *url2 = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@",friend]];
-                         NSData *data = [NSData dataWithContentsOfURL:url];
-                         NSData *data2 = [NSData dataWithContentsOfURL:url2];
-                         id jsonObjects = [NSJSONSerialization JSONObjectWithData:data2 options:NSJSONReadingMutableContainers error:nil];
-                         NSString *profile_name = [jsonObjects objectForKey:@"name"];
-                         
-                         UIImage *profilePic = [[UIImage alloc] initWithData:data];
-                         [sharedManager.array3 addObject:profile_name];
-                         [sharedManager.array4 addObject:profilePic];
-                         
-                         
-                         [sharedManager.cur_friend_id addObject:[friend stringValue]];
-                         
-                         
-                         
-                         
-                     }
-                 }];
-                
-                
-                
-            }
-        }];
+        
         
 
+    }];
+    
+    [addfriend saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (!error){
+            [FBRequestConnection
+             startForMeWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+                 if (!error) {
+                     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?width=400&height=400", friend]];
+                     NSURL *url2 = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@",friend]];
+                     NSData *data = [NSData dataWithContentsOfURL:url];
+                     NSData *data2 = [NSData dataWithContentsOfURL:url2];
+                     id jsonObjects = [NSJSONSerialization JSONObjectWithData:data2 options:NSJSONReadingMutableContainers error:nil];
+                     NSString *profile_name = [jsonObjects objectForKey:@"name"];
+                     
+                     UIImage *profilePic = [[UIImage alloc] initWithData:data];
+                     [sharedManager.array3 addObject:profile_name];
+                     [sharedManager.array4 addObject:profilePic];
+                     
+                     
+                     [sharedManager.cur_friend_id addObject:[friend stringValue]];
+                     
+                     
+                     
+                     
+                 }
+             }];
+            
+            
+            
+        }
     }];
     
 
@@ -233,6 +235,7 @@
 
 - (void)shesgone{
     NSLog(@"SDfsd");
+    [self.searchDisplayController setActive:FALSE];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
