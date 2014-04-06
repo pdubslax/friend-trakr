@@ -14,6 +14,7 @@
 #import "AMGProgressView.h"
 #import <Parse/Parse.h>
 #import "FriendshipViewController.h"
+#import "GRKGradientView.h"
 
 @interface FriendshipTableViewController ()
 
@@ -106,7 +107,23 @@ NSMutableArray *scoreArray;
     [roundtest setMasksToBounds:YES];
     [roundtest setCornerRadius:27.0];
     
-    AMGProgressView * prog = [[AMGProgressView alloc] initWithFrame:CGRectMake(0, 5, 320, 50)];
+    AMGProgressView * prog = [[AMGProgressView alloc] initWithFrame:CGRectMake(0, 0, cell.frame.size.width, cell.frame.size.height)];
+    
+    
+    GRKGradientView * upGradient = [[GRKGradientView alloc]initWithFrame:CGRectMake(-50, 2, cell.frame.size.width+50, cell.frame.size.height-4)];
+    [upGradient setGradientOrientation:GRKGradientOrientationRight];
+    
+    float R=255 - (255*score)/100;
+    float G=255 - (255*(100-score))/100;
+    float B=20;
+    R=R/100;
+    G=G/100;
+    B=B/100;
+    
+    upGradient.gradientColors = [NSArray arrayWithObjects: [UIColor colorWithRed:R green:G blue:B alpha:1.0],[UIColor colorWithRed:R green:G blue:B alpha:1.0],[UIColor whiteColor], nil];
+    
+    //[cell addSubview:upGradient];
+    
     if (score>50) {
         prog.gradientColors = @[[UIColor colorWithRed:0.1f green:0.7f blue:0.1f alpha:1.0f],
                                 [UIColor colorWithRed:0.6f green:0.9f blue:0.6f alpha:1.0f]];
@@ -119,7 +136,9 @@ NSMutableArray *scoreArray;
     num/=100;
     
     prog.progress = num;
-    [cell.contentView insertSubview:prog atIndex:0];
+    [cell.contentView insertSubview:upGradient atIndex:0];
+    cell.selectionStyle=UITableViewCellSelectionStyleBlue;
+
     
     
     

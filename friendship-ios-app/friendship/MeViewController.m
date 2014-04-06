@@ -38,14 +38,23 @@
 -(void)viewDidAppear:(BOOL)animated{
     MyManager *sharedManager = [MyManager sharedManager];
     self.friendometer_label.text = [NSString stringWithFormat:@"%.d", [[sharedManager.score valueForKeyPath:@"@avg.self"] intValue] ];
-    
+    NSLog(@"%@",self.friendometer_label.text);
     self.prog.progress = [[sharedManager.score valueForKeyPath:@"@avg.self"] floatValue]/100;
-    if ([[sharedManager.score valueForKeyPath:@"@avg.self"] intValue]>50) {
-        self.prog.gradientColors = @[[UIColor colorWithRed:0.1f green:0.7f blue:0.1f alpha:1.0f],
-                                     [UIColor colorWithRed:0.6f green:0.9f blue:0.6f alpha:1.0f]];
-    }else{
-        self.prog.gradientColors = @[[UIColor colorWithRed:0.7f green:0.1f blue:0.1f alpha:1.0f],
-                                     [UIColor colorWithRed:0.9f green:0.6f blue:0.6f alpha:1.0f]];
+    float R=255 - (255*self.prog.progress *100)/100;
+    float G=255 - (255*(100-self.prog.progress*100))/100;
+    float B=20;
+    R=R/100;
+    G=G/100;
+    B=B/100;
+    
+    
+    
+    
+    
+    self.prog.gradientColors = @[[UIColor colorWithRed:R green:G blue:B alpha:1.0],
+                                 [UIColor colorWithRed:0.6f green:0.9f blue:0.6f alpha:1.0f]];
+    if ([self.friendometer_label.text isEqual:@""]){
+        self.friendometer_label.text=@"0";
     }
 }
 
@@ -89,19 +98,22 @@
     */
    // [self.view addSubview:self.friendometer_label];
     
+    self.prog.progress = [[sharedManager.score valueForKeyPath:@"@avg.self"] floatValue]/100;
+    float R=255 - (255*self.prog.progress *100)/100;
+    float G=255 - (255*(100-self.prog.progress*100))/100;
+    float B=20;
+    R=R/100;
+    G=G/100;
+    B=B/100;
     
     
     
-    self.prog.gradientColors = @[[UIColor colorWithRed:0.1f green:0.7f blue:0.1f alpha:1.0f],
-                                [UIColor colorWithRed:0.6f green:0.9f blue:0.6f alpha:1.0f]];
     
-    if ([[sharedManager.score valueForKeyPath:@"@avg.self"] intValue]>50) {
-        self.prog.gradientColors = @[[UIColor colorWithRed:0.1f green:0.7f blue:0.1f alpha:1.0f],
-                                [UIColor colorWithRed:0.6f green:0.9f blue:0.6f alpha:1.0f]];
-    }else{
-        self.prog.gradientColors = @[[UIColor colorWithRed:0.7f green:0.1f blue:0.1f alpha:1.0f],
-                                [UIColor colorWithRed:0.9f green:0.6f blue:0.6f alpha:1.0f]];
-    }
+    
+    self.prog.gradientColors = @[[UIColor colorWithRed:R green:G blue:B alpha:1.0],
+                                 [UIColor colorWithRed:0.6f green:0.9f blue:0.6f alpha:1.0f]];
+    
+    
     
     
     self.prog.progress = [[sharedManager.score valueForKeyPath:@"@avg.self"] floatValue]/100;
@@ -117,6 +129,9 @@
     
     UILabel *scoreLabel = [[UILabel alloc]initWithFrame:CGRectMake(240, self.prog.frame.origin.y, 60, 50)];
     scoreLabel.text = [NSString stringWithFormat:@"%.d", [[sharedManager.score valueForKeyPath:@"@avg.self"] intValue] ];
+    if ([scoreLabel.text isEqual:@""]){
+        scoreLabel.text=@"0";
+    }
     scoreLabel.textColor = [UIColor blackColor];
     scoreLabel.font = [UIFont fontWithName:@"HelveticaNeue-UltraLight" size:30];
     [self.view addSubview:scoreLabel];

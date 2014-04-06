@@ -69,15 +69,20 @@
      number_label.textAlignment = NSTextAlignmentCenter;
      */
     //[self.view addSubview:self.friendometer_label];
+    float R=255 - (255*[self.score intValue])/100;
+    float G=255 - (255*(100-[self.score intValue]))/100;
+    float B=20;
+    R=R/100;
+    G=G/100;
+    B=B/100;
     
     
-    if ([self.score intValue]>50) {
-        self.prog.gradientColors = @[[UIColor colorWithRed:0.1f green:0.7f blue:0.1f alpha:1.0f],
+    
+    
+    
+    self.prog.gradientColors = @[[UIColor colorWithRed:R green:G blue:B alpha:1.0],
                                      [UIColor colorWithRed:0.6f green:0.9f blue:0.6f alpha:1.0f]];
-    }else{
-        self.prog.gradientColors = @[[UIColor colorWithRed:0.7f green:0.1f blue:0.1f alpha:1.0f],
-                                     [UIColor colorWithRed:0.9f green:0.6f blue:0.6f alpha:1.0f]];
-    }
+    
     
     self.prog.progress = [self.score floatValue]/100;
     
@@ -370,17 +375,20 @@
 }
 
 - (void) targetMethod:(NSTimer *)timer{
+    
     self.prog.progress = self.prog.progress+.005;
     if (self.prog.progress>[self.stoppoint floatValue]) {
         [timer invalidate];
     }
-    if (self.prog.progress *100>50) {
-        self.prog.gradientColors = @[[UIColor colorWithRed:0.1f green:0.7f blue:0.1f alpha:1.0f],
-                                     [UIColor colorWithRed:0.6f green:0.9f blue:0.6f alpha:1.0f]];
-    }else{
-        self.prog.gradientColors = @[[UIColor colorWithRed:0.7f green:0.1f blue:0.1f alpha:1.0f],
-                                     [UIColor colorWithRed:0.9f green:0.6f blue:0.6f alpha:1.0f]];
-    }
+    float R=255 - (255*self.prog.progress*100)/100;
+    float G=255 - (255*(100-self.prog.progress*100))/100;
+    float B=20;
+    R=R/100;
+    G=G/100;
+    B=B/100;
+    
+    self.prog.gradientColors = @[[UIColor colorWithRed:R green:G blue:B alpha:1.0],
+                                 [UIColor colorWithRed:0.6f green:0.9f blue:0.6f alpha:1.0f]];
     
     self.friendometer_label.text = [NSString stringWithFormat:@"%.d", [[NSNumber numberWithFloat:self.prog.progress*100] intValue]];
     
