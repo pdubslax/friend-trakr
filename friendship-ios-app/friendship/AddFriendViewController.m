@@ -189,6 +189,8 @@
     newvc.thisistheone = addfriend;
     newvc.manger = sharedManager;
     newvc.afvc = self;
+    newvc.facebookid = friend;
+    
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:newvc];
     
     

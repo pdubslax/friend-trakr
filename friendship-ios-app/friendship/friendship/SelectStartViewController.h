@@ -15,6 +15,7 @@
 @property (nonatomic,strong) PFObject *thisistheone;
 @property (nonatomic,strong) MyManager *manger;
 @property (strong,nonatomic) AddFriendViewController *afvc;
+@property (strong,nonatomic) NSNumber *facebookid;
 
 
 @end

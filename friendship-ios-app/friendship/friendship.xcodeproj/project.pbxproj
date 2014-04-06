@@ -344,6 +344,7 @@
 		8B5D05BC188B71EA001BED73 /* AddFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B5D05BB188B71EA001BED73 /* AddFriendViewController.m */; };
 		8B5D05BF188B81FF001BED73 /* FriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B5D05BE188B81FF001BED73 /* FriendCell.m */; };
 		8B5D05C1188B821F001BED73 /* FriendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B5D05C0188B821F001BED73 /* FriendCell.xib */; };
+		8B70B24F18F1BC7C00C3B381 /* UIImage+imageCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B70B24E18F1BC7C00C3B381 /* UIImage+imageCorner.m */; };
 		8B8A00C518DE34CA006317C5 /* FriendshipViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8A00C418DE34CA006317C5 /* FriendshipViewController.m */; };
 		8B9C5AD118E0BC28000BA703 /* JBBarChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C5ACB18E0BC28000BA703 /* JBBarChartView.m */; };
 		8B9C5AD218E0BC28000BA703 /* JBChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C5ACD18E0BC28000BA703 /* JBChartView.m */; };
@@ -740,6 +741,8 @@
 		8B5D05BD188B81FF001BED73 /* FriendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendCell.h; sourceTree = "<group>"; };
 		8B5D05BE188B81FF001BED73 /* FriendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendCell.m; sourceTree = "<group>"; };
 		8B5D05C0188B821F001BED73 /* FriendCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendCell.xib; sourceTree = "<group>"; };
+		8B70B24D18F1BC7C00C3B381 /* UIImage+imageCorner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+imageCorner.h"; sourceTree = "<group>"; };
+		8B70B24E18F1BC7C00C3B381 /* UIImage+imageCorner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+imageCorner.m"; sourceTree = "<group>"; };
 		8B8A00C318DE34CA006317C5 /* FriendshipViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendshipViewController.h; sourceTree = "<group>"; };
 		8B8A00C418DE34CA006317C5 /* FriendshipViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendshipViewController.m; sourceTree = "<group>"; };
 		8B9C5ACA18E0BC28000BA703 /* JBBarChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBBarChartView.h; sourceTree = "<group>"; };
@@ -890,6 +893,8 @@
 				8B5D05BB188B71EA001BED73 /* AddFriendViewController.m */,
 				8BF1248D18F10E960030B64B /* SelectStartViewController.h */,
 				8BF1248E18F10E960030B64B /* SelectStartViewController.m */,
+				8B70B24D18F1BC7C00C3B381 /* UIImage+imageCorner.h */,
+				8B70B24E18F1BC7C00C3B381 /* UIImage+imageCorner.m */,
 				8B5D0308188B2918001BED73 /* Images.xcassets */,
 				8B5D02F7188B2918001BED73 /* Supporting Files */,
 			);
@@ -1763,6 +1768,7 @@
 				8B5D0348188B3121001BED73 /* BButton.m in Sources */,
 				8B5D05AD188B38F1001BED73 /* Comms.m in Sources */,
 				8B9C5AD218E0BC28000BA703 /* JBChartView.m in Sources */,
+				8B70B24F18F1BC7C00C3B381 /* UIImage+imageCorner.m in Sources */,
 				8B5D0353188B33EB001BED73 /* MeViewController.m in Sources */,
 				8B9C5AD118E0BC28000BA703 /* JBBarChartView.m in Sources */,
 				8B5D02FD188B2918001BED73 /* main.m in Sources */,

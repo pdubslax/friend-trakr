@@ -12,6 +12,7 @@
 #import "MyManger.h"
 #import "AddFriendViewController.h"
 #import "blueButton.h"
+#import "UIImage+imageCorner.h"
 
 @interface SelectStartViewController ()
 @property (nonatomic,strong) GRKGradientView *upGradient;
@@ -32,6 +33,7 @@
     return self;
 }
 
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -49,7 +51,16 @@
     [slideme setMinimumTrackImage:[UIImage new] forState:UIControlStateNormal];
     [slideme setMaximumTrackImage:[UIImage new] forState:UIControlStateNormal];
     [slideme addTarget:self action:@selector(sliderMoved:) forControlEvents:UIControlEventValueChanged];
-    UIImage *guy = [UIImage imageNamed:@"smiley-smile.png"];
+    //UIImage *guy = [UIImage imageNamed:@"smiley-smile.png"];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?width=100&height=100", self.facebookid]];
+    NSData *data = [NSData dataWithContentsOfURL:url];
+    UIImage *profilePic = [[UIImage alloc] initWithData:data];
+    UIImage * PortraitImage = [[UIImage alloc] initWithCGImage: profilePic.CGImage
+                                                         scale: 1.0
+                                                   orientation: UIImageOrientationRight];
+    UIImage *rounded = [PortraitImage imageWithRoundedCornersRadius:50.0];
+    
+    
     
     self.upGradient = [[GRKGradientView alloc]initWithFrame:CGRectMake(0, 20, 320, 700)];
     self.upGradient.gradientColors = [NSArray arrayWithObjects: [UIColor colorWithRed:1.27 green:1.27 blue:0 alpha:1.0],[UIColor whiteColor], nil];
@@ -63,9 +74,9 @@
     
     
     
-    [slideme setThumbImage:guy forState:UIControlStateNormal];
+    [slideme setThumbImage:rounded forState:UIControlStateNormal];
     
-    UILabel *bestfriends = [[UILabel alloc] initWithFrame:CGRectMake(0, 70, 320, 50)];
+    UILabel *bestfriends = [[UILabel alloc] initWithFrame:CGRectMake(0, 73, 320, 50)];
     [bestfriends setText:@"Best Friends"];
     [bestfriends setFont:[UIFont boldSystemFontOfSize:25.0f]];
     [bestfriends setTextAlignment:NSTextAlignmentCenter];
@@ -83,7 +94,7 @@
     [btn addTarget:self action:@selector(buttonPressedyea:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn];
     
-    UILabel *worstfriends = [[UILabel alloc] initWithFrame:CGRectMake(0, btn.frame.origin.y-70, 320, 50)];
+    UILabel *worstfriends = [[UILabel alloc] initWithFrame:CGRectMake(0, btn.frame.origin.y-67, 320, 50)];
     [worstfriends setText:@"Worst Enemies"];
     [worstfriends setFont:[UIFont boldSystemFontOfSize:25.0f]];
     [worstfriends setTextAlignment:NSTextAlignmentCenter];
@@ -144,4 +155,5 @@
     
     
 }
+
 @end
