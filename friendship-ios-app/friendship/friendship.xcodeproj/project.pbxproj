@@ -367,6 +367,7 @@
 		8BA7B4E0188D01BC00C72F65 /* widetile.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BA7B4D0188D01BC00C72F65 /* widetile.png */; };
 		8BCAE05018E3252F00C4912A /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BCAE04F18E3252F00C4912A /* FacebookSDK.framework */; };
 		8BF1248F18F10E960030B64B /* SelectStartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BF1248E18F10E960030B64B /* SelectStartViewController.m */; };
+		8BF1249218F1261F0030B64B /* GRKGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BF1249118F1261F0030B64B /* GRKGradientView.m */; };
 		8BF211C318E6B17A003579C0 /* 1_wall.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BF211BD18E6B17A003579C0 /* 1_wall.png */; };
 		8BF211C418E6B17A003579C0 /* 2_wall.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BF211BE18E6B17A003579C0 /* 2_wall.png */; };
 		8BF211C518E6B17A003579C0 /* 3_wall.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BF211BF18E6B17A003579C0 /* 3_wall.png */; };
@@ -766,6 +767,8 @@
 		8BCAE04F18E3252F00C4912A /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		8BF1248D18F10E960030B64B /* SelectStartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectStartViewController.h; sourceTree = "<group>"; };
 		8BF1248E18F10E960030B64B /* SelectStartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectStartViewController.m; sourceTree = "<group>"; };
+		8BF1249018F1261F0030B64B /* GRKGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRKGradientView.h; sourceTree = "<group>"; };
+		8BF1249118F1261F0030B64B /* GRKGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRKGradientView.m; sourceTree = "<group>"; };
 		8BF211BD18E6B17A003579C0 /* 1_wall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1_wall.png; sourceTree = "<group>"; };
 		8BF211BE18E6B17A003579C0 /* 2_wall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2_wall.png; sourceTree = "<group>"; };
 		8BF211BF18E6B17A003579C0 /* 3_wall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3_wall.png; sourceTree = "<group>"; };
@@ -872,6 +875,8 @@
 		8B5D02F6188B2918001BED73 /* friendship */ = {
 			isa = PBXGroup;
 			children = (
+				8BF1249018F1261F0030B64B /* GRKGradientView.h */,
+				8BF1249118F1261F0030B64B /* GRKGradientView.m */,
 				8B5D0302188B2918001BED73 /* Main.storyboard */,
 				8B5D034C188B32D7001BED73 /* MainStoryboard.storyboard */,
 				8B5D02FF188B2918001BED73 /* AppDelegate.h */,
@@ -1738,6 +1743,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B5D034A188B3121001BED73 /* UIColor+BButton.m in Sources */,
+				8BF1249218F1261F0030B64B /* GRKGradientView.m in Sources */,
 				8B5D0349188B3121001BED73 /* NSString+FontAwesome.m in Sources */,
 				8B5D0307188B2918001BED73 /* ViewController.m in Sources */,
 				8B5D05BF188B81FF001BED73 /* FriendCell.m in Sources */,

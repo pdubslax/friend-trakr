@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
+#import "MyManger.h"
+#import "AddFriendViewController.h"
 
 @interface SelectStartViewController : UIViewController
+@property (nonatomic,strong) PFObject *thisistheone;
+@property (nonatomic,strong) MyManager *manger;
+@property (strong,nonatomic) AddFriendViewController *afvc;
+
 
 @end
