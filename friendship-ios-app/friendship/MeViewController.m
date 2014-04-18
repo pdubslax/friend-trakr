@@ -38,7 +38,7 @@
 -(void)viewDidAppear:(BOOL)animated{
     MyManager *sharedManager = [MyManager sharedManager];
     self.friendometer_label.text = [NSString stringWithFormat:@"%.d", [[sharedManager.score valueForKeyPath:@"@avg.self"] intValue] ];
-    NSLog(@"%@",self.friendometer_label.text);
+    //NSLog(@"%@",self.friendometer_label.text);
     self.prog.progress = [[sharedManager.score valueForKeyPath:@"@avg.self"] floatValue]/100;
     float R=255 - (255*self.prog.progress *100)/100;
     float G=255 - (255*(100-self.prog.progress*100))/100;

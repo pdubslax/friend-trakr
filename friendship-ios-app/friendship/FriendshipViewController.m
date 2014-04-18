@@ -14,6 +14,13 @@
 #import "JBChartView.h"
 #import <Parse/Parse.h>
 #import "BButton.h"
+#import <MessageUI/MessageUI.h>
+#import <AddressBookUI/AddressBookUI.h>
+#import "AMBCircularButton.h"
+
+
+
+
 //#import "JBChartHeaderView.m"
 
 
@@ -32,6 +39,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [FBRequestConnection
+     startForMeWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+         if (!error) {
+             NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@", self.facebookId]];
+             NSData *data = [NSData dataWithContentsOfURL:url];
+             NSDictionary *infodic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+             self.firstname = [NSString stringWithFormat:@"%@",infodic[@"first_name"]];
+             self.lastname = [NSString stringWithFormat:@"%@",infodic[@"last_name"]];
+             
+             
+         }
+     }];
     
     
     
@@ -48,7 +67,7 @@
     */
     
     if (self.view.bounds.size.height == 568) {
-        self.prog = [[AMGProgressView alloc] initWithFrame:CGRectMake(20, self.profile_picture.frame.origin.y+self.profile_picture.frame.size.height+10, 280, 50)];
+        self.prog = [[AMGProgressView alloc] initWithFrame:CGRectMake(20, self.profile_picture.frame.origin.y+self.profile_picture.frame.size.height+63, 280, 50)];
     } else {
         self.prog = [[AMGProgressView alloc] initWithFrame:CGRectMake(20, 245, 280, 50)];
     }
@@ -136,7 +155,8 @@
     */
     
     UILabel *scoreLabel = [[UILabel alloc]initWithFrame:CGRectMake(240, self.prog.frame.origin.y, 60, 50)];
-    scoreLabel.text = [[NSNumber numberWithFloat:self.prog.progress*100] stringValue];
+    scoreLabel.text = [NSString stringWithFormat:@"%.d", [[NSNumber numberWithFloat:self.prog.progress*100] intValue]];
+    
     scoreLabel.textColor = [UIColor blackColor];
     scoreLabel.font = [UIFont fontWithName:@"HelveticaNeue-UltraLight" size:30];
     [self.view addSubview:scoreLabel];
@@ -154,32 +174,28 @@
     [self.view addSubview:lineChartView];
     
     
-    CGRect frame = CGRectMake(self.prog.frame.origin.x+10, self.prog.frame.origin.y+self.prog.frame.size.height+10, 80, 40);
-    BButton *btn = [[BButton alloc] initWithFrame:frame type:BButtonTypeFacebook style:BButtonStyleBootstrapV3];
-    [btn setTitle:@"Message" forState:UIControlStateNormal];
+    CGRect frame = CGRectMake(self.prog.frame.origin.x+40-4, 204, 50, 50);
+    AMBCircularButton *btn = [[AMBCircularButton alloc] initWithFrame:frame];
+    [btn setCircularImage:[UIImage imageNamed:@"fbook.png"] forState:UIControlStateNormal];
     [self.view addSubview:btn];
-    CALayer *ummm = [btn layer];
-    [ummm setMasksToBounds:YES];
-    [ummm setCornerRadius:10.0];
     
-    CGRect frame2 = CGRectMake(self.prog.frame.origin.x+10+90, self.prog.frame.origin.y+self.prog.frame.size.height+10, 80, 40);
-    BButton *btn2 = [[BButton alloc] initWithFrame:frame2 type:BButtonTypeSuccess style:BButtonStyleBootstrapV3];
-    [btn2 setTitle:@"Call" forState:UIControlStateNormal];
+    
+    
+    CGRect frame2 = CGRectMake(self.prog.frame.origin.x+120-4,204,50,50);
+    AMBCircularButton *btn2 = [[AMBCircularButton alloc] initWithFrame:frame2];
+    [btn2 setCircularImage:[UIImage imageNamed:@"message.png"] forState:UIControlStateNormal];
     [self.view addSubview:btn2];
-    CALayer *ummm2 = [btn2 layer];
-    [ummm2 setMasksToBounds:YES];
-    [ummm2 setCornerRadius:10.0];
     
-    CGRect frame3 = CGRectMake(self.prog.frame.origin.x+180+10, self.prog.frame.origin.y+self.prog.frame.size.height+10, 80, 40);
-    BButton *btn3 = [[BButton alloc] initWithFrame:frame3 type:BButtonTypeDanger style:BButtonStyleBootstrapV3];
-    [btn3 setTitle:@"Hang Out" forState:UIControlStateNormal];
+    
+    CGRect frame3 = CGRectMake(self.prog.frame.origin.x+200-4,204, 50, 50);
+    AMBCircularButton *btn3= [[AMBCircularButton alloc] initWithFrame:frame3];
+    [btn3 setCircularImage:[UIImage imageNamed:@"hangout.png"] forState:UIControlStateNormal];
     [self.view addSubview:btn3];
-    CALayer *ummm3 = [btn3 layer];
-    [ummm3 setMasksToBounds:YES];
-    [ummm3 setCornerRadius:10.0];
+   
     
     [btn addTarget:self action:@selector(buttonPressedyea:) forControlEvents:UIControlEventTouchUpInside];
     [btn3 addTarget:self action:@selector(hangout:) forControlEvents:UIControlEventTouchUpInside];
+    [btn2 addTarget:self action:@selector(text:) forControlEvents:UIControlEventTouchUpInside];
     
     /*
     
@@ -201,6 +217,114 @@
     
 */
     // Do any additional setup after loading the view.
+}
+
+- (void)prepareMessageView{
+    MFMessageComposeViewController *controller = [[MFMessageComposeViewController alloc] init] ;
+    self.messageView = controller;
+    [controller setMessageComposeDelegate:self];
+    if([MFMessageComposeViewController canSendText])
+    {
+        self.number = @"";
+        NSMutableDictionary *contactInfoDict = [[NSMutableDictionary alloc]
+                                                initWithObjects:@[@"", @"", @"", @"", @"", @"", @"", @"", @""]
+                                                forKeys:@[@"firstName", @"lastName", @"mobileNumber", @"homeNumber", @"homeEmail", @"workEmail", @"address", @"zipCode", @"city"]];
+        
+        ABAddressBookRef addressBookRef = ABAddressBookCreateWithOptions(NULL, NULL);
+        
+        CFArrayRef allPeople = ABAddressBookCopyArrayOfAllPeople( addressBookRef );
+        CFIndex nPeople = ABAddressBookGetPersonCount( addressBookRef );
+        
+        for ( int i = 0; i < nPeople; i++ )
+        {
+            ABRecordRef ref = CFArrayGetValueAtIndex( allPeople, i );
+            CFTypeRef generalCFObject = ABRecordCopyValue(ref, kABPersonFirstNameProperty);
+            if ((__bridge NSString *)generalCFObject!=nil) {
+                [contactInfoDict setObject:(__bridge NSString *)generalCFObject forKey:@"firstName"];
+                CFRelease(generalCFObject);
+            }
+            
+            CFTypeRef lastname = ABRecordCopyValue(ref, kABPersonLastNameProperty);
+            if ((__bridge NSString *)lastname!=nil) {
+                [contactInfoDict setObject:(__bridge NSString *)lastname forKey:@"lastName"];
+                CFRelease(lastname);
+            }
+            
+            
+            ABMultiValueRef phonesRef = ABRecordCopyValue(ref, kABPersonPhoneProperty);
+            for (int i=0; i<ABMultiValueGetCount(phonesRef); i++) {
+                CFStringRef currentPhoneLabel = ABMultiValueCopyLabelAtIndex(phonesRef, i);
+                CFStringRef currentPhoneValue = ABMultiValueCopyValueAtIndex(phonesRef, i);
+                
+                if (CFStringCompare(currentPhoneLabel, kABPersonPhoneMobileLabel, 0) == kCFCompareEqualTo) {
+                    [contactInfoDict setObject:(__bridge NSString *)currentPhoneValue forKey:@"mobileNumber"];
+                }
+                
+                if (CFStringCompare(currentPhoneLabel, kABHomeLabel, 0) == kCFCompareEqualTo) {
+                    [contactInfoDict setObject:(__bridge NSString *)currentPhoneValue forKey:@"homeNumber"];
+                }
+                
+                CFRelease(currentPhoneLabel);
+                CFRelease(currentPhoneValue);
+            }
+            CFRelease(phonesRef);
+            
+            
+            if ([self.firstname isEqualToString:contactInfoDict[@"firstName"]] && [self.lastname isEqualToString:contactInfoDict[@"lastName"]]){
+                NSLog(@"Match");
+                self.number= contactInfoDict[@"mobileNumber"];
+                
+            }
+            if (i==nPeople-1) {
+                controller.body = [NSString stringWithFormat:@"Hey %@!",self.firstname];
+                if ([self.number isEqualToString:@""]) {
+                    controller.recipients = [NSArray arrayWithObjects:nil];
+                }else{
+                    controller.recipients = [NSArray arrayWithObjects:self.number,nil];
+                }
+                controller.messageComposeDelegate = self;
+                
+            }
+        }
+        
+        
+        
+    }
+    
+    //[self.messageView loadView];
+
+}
+
+- (void)text:(UIButton *)senderswag{
+        [self prepareMessageView];
+        [self presentViewController:self.messageView animated:NO completion:nil];
+    
+}
+- (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult) result
+{
+    
+    switch (result) {
+        case MessageComposeResultCancelled:
+            break;
+            
+        case MessageComposeResultFailed:
+        {
+            UIAlertView *warningAlert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Failed to send SMS!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [warningAlert show];
+            break;
+        }
+            
+        case MessageComposeResultSent:
+            
+            [self performSelector:@selector(hangout:) withObject:nil];
+            
+            break;
+            
+        default:
+            break;
+    }
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (UIColor *)lineChartView:(JBLineChartView *)lineChartView colorForLineAtLineIndex:(NSUInteger)lineIndex
 {

@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "JBLineChartView.h"
 #import "AMGProgressView.h"
+#import <MessageUI/MessageUI.h>
 
-@interface FriendshipViewController : UIViewController <JBLineChartViewDataSource,JBLineChartViewDelegate>
+@interface FriendshipViewController : UIViewController <JBLineChartViewDataSource,JBLineChartViewDelegate,MFMessageComposeViewControllerDelegate>
 
 @property (retain,nonatomic) NSNumber *facebookId;
 @property (retain,nonatomic) NSNumber *score;
@@ -18,6 +19,12 @@
 @property (nonatomic, strong) AMGProgressView *prog;
 @property (nonatomic,strong) UILabel *friendometer_label;
 @property (nonatomic,strong) NSNumber *stoppoint;
+@property (nonatomic,strong) NSString *firstname;
+@property (nonatomic,strong) NSString *lastname;
+@property (nonatomic,strong) NSString *number;
+@property (nonatomic,strong, retain) MFMessageComposeViewController *messageView;
+
+
 - (IBAction)backarrow:(id)sender;
 @property (strong, nonatomic) IBOutlet UIImageView *profile_picture;
 @property (strong,nonatomic) UIImage *bigprofpic;
