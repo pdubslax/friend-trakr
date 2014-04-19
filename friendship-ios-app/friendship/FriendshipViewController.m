@@ -235,7 +235,7 @@
         CFArrayRef allPeople = ABAddressBookCopyArrayOfAllPeople( addressBookRef );
         CFIndex nPeople = ABAddressBookGetPersonCount( addressBookRef );
         
-        for ( int i = 0; i < nPeople; i++ )
+        for ( int i = 0; i < nPeople;  )
         {
             ABRecordRef ref = CFArrayGetValueAtIndex( allPeople, i );
             CFTypeRef generalCFObject = ABRecordCopyValue(ref, kABPersonFirstNameProperty);
@@ -260,8 +260,9 @@
                     [contactInfoDict setObject:(__bridge NSString *)currentPhoneValue forKey:@"mobileNumber"];
                 }
                 
-                if (CFStringCompare(currentPhoneLabel, kABHomeLabel, 0) == kCFCompareEqualTo) {
-                    [contactInfoDict setObject:(__bridge NSString *)currentPhoneValue forKey:@"homeNumber"];
+                
+                if (CFStringCompare(currentPhoneLabel, kABPersonPhoneIPhoneLabel, 0) == kCFCompareEqualTo) {
+                    [contactInfoDict setObject:(__bridge NSString *)currentPhoneValue forKey:@"mobileNumber"];
                 }
                 
                 CFRelease(currentPhoneLabel);
@@ -273,9 +274,11 @@
             if ([self.firstname isEqualToString:contactInfoDict[@"firstName"]] && [self.lastname isEqualToString:contactInfoDict[@"lastName"]]){
                 NSLog(@"Match");
                 self.number= contactInfoDict[@"mobileNumber"];
+              
                 
             }
-            if (i==nPeople-1) {
+            i++;
+            if (i==nPeople) {
                 controller.body = [NSString stringWithFormat:@"Hey %@!",self.firstname];
                 if ([self.number isEqualToString:@""]) {
                     controller.recipients = [NSArray arrayWithObjects:nil];
