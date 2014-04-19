@@ -10,6 +10,7 @@
 #import "JBLineChartView.h"
 #import "AMGProgressView.h"
 #import <MessageUI/MessageUI.h>
+#import "JBChartInformationView.h"
 
 @interface FriendshipViewController : UIViewController <JBLineChartViewDataSource,JBLineChartViewDelegate,MFMessageComposeViewControllerDelegate>
 
@@ -23,6 +24,11 @@
 @property (nonatomic,strong) NSString *lastname;
 @property (nonatomic,strong) NSString *number;
 @property (nonatomic,strong, retain) MFMessageComposeViewController *messageView;
+@property (nonatomic, strong) UILabel *informationView;
+@property (nonatomic,strong) NSMutableArray *dataArray;
+@property (nonatomic,strong) JBLineChartView *lineChartView;
+@property (nonatomic,strong) NSNumber *min;
+
 
 
 - (IBAction)backarrow:(id)sender;

@@ -26,7 +26,7 @@
 		8B5CA1B61900C743007A48A5 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B5CA1A81900C743007A48A5 /* UIImageView+WebCache.m */; };
 		8B5CA1BA1900C9EB007A48A5 /* fbook.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B5CA1B71900C9EB007A48A5 /* fbook.png */; };
 		8B5CA1BB1900C9EB007A48A5 /* hangout.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B5CA1B81900C9EB007A48A5 /* hangout.png */; };
-		8B5CA1BE1900D32C007A48A5 /* message.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B5CA1BD1900D32C007A48A5 /* message.png */; };
+		8B5CA1BE1900D32C007A48A5 /* messages.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B5CA1BD1900D32C007A48A5 /* messages.png */; };
 		8B5D02F1188B2918001BED73 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5D02F0188B2918001BED73 /* Foundation.framework */; };
 		8B5D02F3188B2918001BED73 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5D02F2188B2918001BED73 /* CoreGraphics.framework */; };
 		8B5D02F5188B2918001BED73 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5D02F4188B2918001BED73 /* UIKit.framework */; };
@@ -386,15 +386,10 @@
 		8BA7B4DE188D01BC00C72F65 /* mediumtile.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BA7B4CE188D01BC00C72F65 /* mediumtile.png */; };
 		8BA7B4DF188D01BC00C72F65 /* smalltile.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BA7B4CF188D01BC00C72F65 /* smalltile.png */; };
 		8BA7B4E0188D01BC00C72F65 /* widetile.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BA7B4D0188D01BC00C72F65 /* widetile.png */; };
+		8BC1D8FF19024776006D7B79 /* JBChartInformationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BC1D8FE19024776006D7B79 /* JBChartInformationView.m */; };
 		8BCAE05018E3252F00C4912A /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BCAE04F18E3252F00C4912A /* FacebookSDK.framework */; };
 		8BF1248F18F10E960030B64B /* SelectStartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BF1248E18F10E960030B64B /* SelectStartViewController.m */; };
 		8BF1249218F1261F0030B64B /* GRKGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BF1249118F1261F0030B64B /* GRKGradientView.m */; };
-		8BF211C318E6B17A003579C0 /* 1_wall.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BF211BD18E6B17A003579C0 /* 1_wall.png */; };
-		8BF211C418E6B17A003579C0 /* 2_wall.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BF211BE18E6B17A003579C0 /* 2_wall.png */; };
-		8BF211C518E6B17A003579C0 /* 3_wall.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BF211BF18E6B17A003579C0 /* 3_wall.png */; };
-		8BF211C618E6B17A003579C0 /* 4_wall.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BF211C018E6B17A003579C0 /* 4_wall.png */; };
-		8BF211C718E6B17A003579C0 /* 5_wall.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BF211C118E6B17A003579C0 /* 5_wall.png */; };
-		8BF211C818E6B17A003579C0 /* 6_wall.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BF211C218E6B17A003579C0 /* 6_wall.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -411,8 +406,8 @@
 		8B0BE23018F1A3BB0089BDCA /* blueButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = blueButton.h; sourceTree = "<group>"; };
 		8B0BE23118F1A3BB0089BDCA /* blueButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = blueButton.m; sourceTree = "<group>"; };
 		8B5CA18619007DFA007A48A5 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
-		8B5CA1881900C5F5007A48A5 /* AMBCircularButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMBCircularButton.h; path = AMBCircularButton/AMBCircularButton.h; sourceTree = "<group>"; };
-		8B5CA1891900C5F5007A48A5 /* AMBCircularButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMBCircularButton.m; path = AMBCircularButton/AMBCircularButton.m; sourceTree = "<group>"; };
+		8B5CA1881900C5F5007A48A5 /* AMBCircularButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMBCircularButton.h; path = ../AMBCircularButton/AMBCircularButton.h; sourceTree = "<group>"; };
+		8B5CA1891900C5F5007A48A5 /* AMBCircularButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMBCircularButton.m; path = ../AMBCircularButton/AMBCircularButton.m; sourceTree = "<group>"; };
 		8B5CA18C1900C743007A48A5 /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
 		8B5CA18D1900C743007A48A5 /* MKAnnotationView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKAnnotationView+WebCache.m"; sourceTree = "<group>"; };
 		8B5CA18E1900C743007A48A5 /* NSData+ImageContentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+ImageContentType.h"; sourceTree = "<group>"; };
@@ -444,7 +439,7 @@
 		8B5CA1A81900C743007A48A5 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		8B5CA1B71900C9EB007A48A5 /* fbook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fbook.png; sourceTree = "<group>"; };
 		8B5CA1B81900C9EB007A48A5 /* hangout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hangout.png; sourceTree = "<group>"; };
-		8B5CA1BD1900D32C007A48A5 /* message.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = message.png; sourceTree = "<group>"; };
+		8B5CA1BD1900D32C007A48A5 /* messages.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = messages.png; sourceTree = "<group>"; };
 		8B5D02ED188B2918001BED73 /* Friendship.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Friendship.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B5D02F0188B2918001BED73 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8B5D02F2188B2918001BED73 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -824,17 +819,18 @@
 		8BA7B4CE188D01BC00C72F65 /* mediumtile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mediumtile.png; sourceTree = "<group>"; };
 		8BA7B4CF188D01BC00C72F65 /* smalltile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smalltile.png; sourceTree = "<group>"; };
 		8BA7B4D0188D01BC00C72F65 /* widetile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = widetile.png; sourceTree = "<group>"; };
+		8BC1D8FD19024776006D7B79 /* JBChartInformationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBChartInformationView.h; sourceTree = "<group>"; };
+		8BC1D8FE19024776006D7B79 /* JBChartInformationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBChartInformationView.m; sourceTree = "<group>"; };
+		8BC1D90119024876006D7B79 /* JBColorConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBColorConstants.h; sourceTree = "<group>"; };
+		8BC1D90219024876006D7B79 /* JBConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBConstants.h; sourceTree = "<group>"; };
+		8BC1D90319024876006D7B79 /* JBFontConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBFontConstants.h; sourceTree = "<group>"; };
+		8BC1D90419024876006D7B79 /* JBStringConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBStringConstants.h; sourceTree = "<group>"; };
+		8BC1D90519024876006D7B79 /* JBUIConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBUIConstants.h; sourceTree = "<group>"; };
 		8BCAE04F18E3252F00C4912A /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		8BF1248D18F10E960030B64B /* SelectStartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectStartViewController.h; sourceTree = "<group>"; };
 		8BF1248E18F10E960030B64B /* SelectStartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectStartViewController.m; sourceTree = "<group>"; };
 		8BF1249018F1261F0030B64B /* GRKGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRKGradientView.h; sourceTree = "<group>"; };
 		8BF1249118F1261F0030B64B /* GRKGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRKGradientView.m; sourceTree = "<group>"; };
-		8BF211BD18E6B17A003579C0 /* 1_wall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1_wall.png; sourceTree = "<group>"; };
-		8BF211BE18E6B17A003579C0 /* 2_wall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2_wall.png; sourceTree = "<group>"; };
-		8BF211BF18E6B17A003579C0 /* 3_wall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3_wall.png; sourceTree = "<group>"; };
-		8BF211C018E6B17A003579C0 /* 4_wall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 4_wall.png; sourceTree = "<group>"; };
-		8BF211C118E6B17A003579C0 /* 5_wall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 5_wall.png; sourceTree = "<group>"; };
-		8BF211C218E6B17A003579C0 /* 6_wall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 6_wall.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -912,10 +908,10 @@
 		8B5D02E4188B2918001BED73 = {
 			isa = PBXGroup;
 			children = (
+				8BC1D90019024876006D7B79 /* Constants */,
+				8BC1D8FD19024776006D7B79 /* JBChartInformationView.h */,
+				8BC1D8FE19024776006D7B79 /* JBChartInformationView.m */,
 				8B5CA18B1900C743007A48A5 /* SDWebImage */,
-				8B5CA1881900C5F5007A48A5 /* AMBCircularButton.h */,
-				8B5CA1891900C5F5007A48A5 /* AMBCircularButton.m */,
-				8BF211BC18E6B17A003579C0 /* BackgroundPhotos */,
 				8B9C5AC918E0BC28000BA703 /* JBChart */,
 				8B8A00C318DE34CA006317C5 /* FriendshipViewController.h */,
 				8B8A00C418DE34CA006317C5 /* FriendshipViewController.m */,
@@ -976,6 +972,8 @@
 		8B5D02F6188B2918001BED73 /* friendship */ = {
 			isa = PBXGroup;
 			children = (
+				8B5CA1881900C5F5007A48A5 /* AMBCircularButton.h */,
+				8B5CA1891900C5F5007A48A5 /* AMBCircularButton.m */,
 				8BF1249018F1261F0030B64B /* GRKGradientView.h */,
 				8BF1249118F1261F0030B64B /* GRKGradientView.m */,
 				8B5D0302188B2918001BED73 /* Main.storyboard */,
@@ -1391,7 +1389,7 @@
 		8BA7B4C0188D01BC00C72F65 /* your_new_images */ = {
 			isa = PBXGroup;
 			children = (
-				8B5CA1BD1900D32C007A48A5 /* message.png */,
+				8B5CA1BD1900D32C007A48A5 /* messages.png */,
 				8B5CA1B71900C9EB007A48A5 /* fbook.png */,
 				8B5CA1B81900C9EB007A48A5 /* hangout.png */,
 				8BA7B4C3188D01BC00C72F65 /* apple-touch-icon-114x114.png */,
@@ -1414,17 +1412,16 @@
 			path = your_new_images;
 			sourceTree = "<group>";
 		};
-		8BF211BC18E6B17A003579C0 /* BackgroundPhotos */ = {
+		8BC1D90019024876006D7B79 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
-				8BF211BD18E6B17A003579C0 /* 1_wall.png */,
-				8BF211BE18E6B17A003579C0 /* 2_wall.png */,
-				8BF211BF18E6B17A003579C0 /* 3_wall.png */,
-				8BF211C018E6B17A003579C0 /* 4_wall.png */,
-				8BF211C118E6B17A003579C0 /* 5_wall.png */,
-				8BF211C218E6B17A003579C0 /* 6_wall.png */,
+				8BC1D90119024876006D7B79 /* JBColorConstants.h */,
+				8BC1D90219024876006D7B79 /* JBConstants.h */,
+				8BC1D90319024876006D7B79 /* JBFontConstants.h */,
+				8BC1D90419024876006D7B79 /* JBStringConstants.h */,
+				8BC1D90519024876006D7B79 /* JBUIConstants.h */,
 			);
-			path = BackgroundPhotos;
+			path = Constants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1561,14 +1558,12 @@
 				8B5D04E7188B35D7001BED73 /* embed.png in Resources */,
 				8B5D053C188B35D7001BED73 /* phone.png in Resources */,
 				8B5D04D8188B35D7001BED73 /* direction-path.png in Resources */,
-				8BF211C718E6B17A003579C0 /* 5_wall.png in Resources */,
 				8B5D04BC188B35D7001BED73 /* car-battery.png in Resources */,
 				8B5D0546188B35D7001BED73 /* poker.png in Resources */,
 				8B5D057D188B35D7001BED73 /* sun.png in Resources */,
 				8B5D0543188B35D7001BED73 /* plier.png in Resources */,
 				8B5D050E188B35D7001BED73 /* iphone.png in Resources */,
 				8B5D048E188B35D7001BED73 /* arrow-big-10.png in Resources */,
-				8BF211C818E6B17A003579C0 /* 6_wall.png in Resources */,
 				8B5D0579188B35D7001BED73 /* star.png in Resources */,
 				8B5D04F9188B35D7001BED73 /* gear.png in Resources */,
 				8B5D056F188B35D7001BED73 /* snow-flake.png in Resources */,
@@ -1634,7 +1629,6 @@
 				8B5D0482188B35D7001BED73 /* airplane.png in Resources */,
 				8B5D0567188B35D7001BED73 /* shirt.png in Resources */,
 				8B5D050B188B35D7001BED73 /* id-card.png in Resources */,
-				8BF211C618E6B17A003579C0 /* 4_wall.png in Resources */,
 				8B5D051A188B35D7001BED73 /* magic.png in Resources */,
 				8B5D04A4188B35D7001BED73 /* biohazard.png in Resources */,
 				8BA7B4DC188D01BC00C72F65 /* favicon.ico in Resources */,
@@ -1674,7 +1668,7 @@
 				8B5D04DA188B35D7001BED73 /* document.png in Resources */,
 				8B5D059C188B35D7001BED73 /* water-bottle.png in Resources */,
 				8B5D0584188B35D7001BED73 /* tag.png in Resources */,
-				8B5CA1BE1900D32C007A48A5 /* message.png in Resources */,
+				8B5CA1BE1900D32C007A48A5 /* messages.png in Resources */,
 				8B5D055E188B35D7001BED73 /* scissor.png in Resources */,
 				8B5D0545188B35D7001BED73 /* pointer.png in Resources */,
 				8B5D053A188B35D7001BED73 /* pet-dog.png in Resources */,
@@ -1721,7 +1715,6 @@
 				8B5D04CC188B35D7001BED73 /* comb.png in Resources */,
 				8BA7B4D7188D01BC00C72F65 /* apple-touch-icon-57x57.png in Resources */,
 				8B5D0557188B35D7001BED73 /* rooster.png in Resources */,
-				8BF211C318E6B17A003579C0 /* 1_wall.png in Resources */,
 				8B5D04F5188B35D7001BED73 /* folder.png in Resources */,
 				8B5D0561188B35D7001BED73 /* screwdriver.png in Resources */,
 				8B5D0548188B35D7001BED73 /* power-button.png in Resources */,
@@ -1763,7 +1756,6 @@
 				8B5D0581188B35D7001BED73 /* switch.png in Resources */,
 				8B5D05A7188B35D7001BED73 /* woman-figure.png in Resources */,
 				8B5D04A2188B35D7001BED73 /* bell.png in Resources */,
-				8BF211C518E6B17A003579C0 /* 3_wall.png in Resources */,
 				8B5D05A8188B35D7001BED73 /* woman.png in Resources */,
 				8B5D052A188B35D7001BED73 /* music.png in Resources */,
 				8B5D0511188B35D7001BED73 /* knife.png in Resources */,
@@ -1813,7 +1805,6 @@
 				8B5D053D188B35D7001BED73 /* photo.png in Resources */,
 				8B5D057F188B35D7001BED73 /* swap.png in Resources */,
 				8B5D058F188B35D7001BED73 /* tick.png in Resources */,
-				8BF211C418E6B17A003579C0 /* 2_wall.png in Resources */,
 				8B5D0528188B35D7001BED73 /* multiple.png in Resources */,
 				8B5D05A9188B35D7001BED73 /* wooden-picket.png in Resources */,
 				8B5D0522188B35D7001BED73 /* microphone.png in Resources */,
@@ -1873,6 +1864,7 @@
 				8BF1248F18F10E960030B64B /* SelectStartViewController.m in Sources */,
 				8B5D05B9188B6ABA001BED73 /* FriendshipTableViewController.m in Sources */,
 				8B8A00C518DE34CA006317C5 /* FriendshipViewController.m in Sources */,
+				8BC1D8FF19024776006D7B79 /* JBChartInformationView.m in Sources */,
 				8B5D0348188B3121001BED73 /* BButton.m in Sources */,
 				8B5D05AD188B38F1001BED73 /* Comms.m in Sources */,
 				8B5CA18A1900C5F5007A48A5 /* AMBCircularButton.m in Sources */,

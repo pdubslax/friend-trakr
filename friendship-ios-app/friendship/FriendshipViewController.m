@@ -17,6 +17,8 @@
 #import <MessageUI/MessageUI.h>
 #import <AddressBookUI/AddressBookUI.h>
 #import "AMBCircularButton.h"
+#import "JBChartInformationView.h"
+#import "Constants/JBConstants.h"
 
 
 
@@ -26,6 +28,7 @@
 
 
 @implementation FriendshipViewController
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -51,6 +54,8 @@
              
          }
      }];
+    
+    
     
     
     
@@ -158,20 +163,30 @@
     scoreLabel.text = [NSString stringWithFormat:@"%.d", [[NSNumber numberWithFloat:self.prog.progress*100] intValue]];
     
     scoreLabel.textColor = [UIColor blackColor];
-    scoreLabel.font = [UIFont fontWithName:@"HelveticaNeue-UltraLight" size:30];
+    scoreLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:30];
     [self.view addSubview:scoreLabel];
     self.friendometer_label = scoreLabel;
 
-    JBLineChartView *lineChartView = [[JBLineChartView alloc] init];
-    lineChartView.delegate = self;
-    lineChartView.dataSource = self;
+    self.lineChartView = [[JBLineChartView alloc] init];
+    self.lineChartView.delegate = self;
+    self.lineChartView.dataSource = self;
     //lineChartView.headerView = headerView;
     
-    lineChartView.frame = CGRectMake(0, 320, 320, 200);
-    lineChartView.backgroundColor = [UIColor colorWithRed:0.122 green:0.149 blue:0.232 alpha:1];
-    [lineChartView reloadData];
+    self.lineChartView.frame = CGRectMake(0, 340, 320, 180);
+    self.lineChartView.backgroundColor = [UIColor colorWithRed:0.122 green:0.149 blue:0.232 alpha:1];
+    [self.lineChartView reloadData];
     
-    [self.view addSubview:lineChartView];
+    JBChartInformationView *test = [[JBChartInformationView alloc] initWithFrame:CGRectMake(0, 320, 320, 20)];
+    [test setBackgroundColor:[UIColor colorWithRed:0.122 green:0.149 blue:0.232 alpha:1]];
+    [self.view addSubview:test];
+    
+    self.informationView = [[UILabel alloc]initWithFrame:CGRectMake(0,315,320,60)];
+    [self.informationView setBackgroundColor:[UIColor clearColor]];
+    [self.informationView setTextAlignment:NSTextAlignmentCenter];
+    [self.informationView setFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:30]];
+    [self.informationView setTextColor:[UIColor whiteColor]];
+    [self.view addSubview:self.lineChartView];
+    [self.view addSubview:self.informationView];
     
     
     CGRect frame = CGRectMake(self.prog.frame.origin.x+40-4, 204, 50, 50);
@@ -183,7 +198,7 @@
     
     CGRect frame2 = CGRectMake(self.prog.frame.origin.x+120-4,204,50,50);
     AMBCircularButton *btn2 = [[AMBCircularButton alloc] initWithFrame:frame2];
-    [btn2 setCircularImage:[UIImage imageNamed:@"message.png"] forState:UIControlStateNormal];
+    [btn2 setCircularImage:[UIImage imageNamed:@"messages.png"] forState:UIControlStateNormal];
     [self.view addSubview:btn2];
     
     
@@ -217,6 +232,25 @@
     
 */
     // Do any additional setup after loading the view.
+    NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
+    [f setNumberStyle:NSNumberFormatterDecimalStyle];
+    NSNumber * myNumber = [f numberFromString:[NSString stringWithFormat:@"%@",self.facebookId]];
+    
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"Friendships"];
+    [query whereKey:@"username" equalTo:[[PFUser currentUser] username]];
+    [query whereKey:@"Friend" equalTo:myNumber];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            // The find succeeded. The first 100 objects are available in objects
+            for (PFObject *test in objects){
+                
+                self.dataArray  = [test objectForKey:@"history"];
+                int min = [[self.dataArray valueForKeyPath:@"@min.intValue"] intValue];
+                self.min = [NSNumber numberWithInt:min];
+                [self.lineChartView reloadData];
+                
+            }}}];
 }
 
 - (void)prepareMessageView{
@@ -294,7 +328,7 @@
         
     }
     
-    //[self.messageView loadView];
+
 
 }
 
@@ -351,16 +385,15 @@
 
 - (NSUInteger)lineChartView:(JBLineChartView *)lineChartView numberOfVerticalValuesAtLineIndex:(NSUInteger)lineIndex
 {
-    return 10; // number of values for a line
+    return [self.dataArray count];
 }
 
 - (CGFloat)lineChartView:(JBLineChartView *)lineChartView verticalValueForHorizontalIndex:(NSUInteger)horizontalIndex atLineIndex:(NSUInteger)lineIndex
 {
-    if (horizontalIndex%2){
-        return horizontalIndex;
-    }else{
-        return 10-horizontalIndex;
-    }
+    int test =[[self.dataArray objectAtIndex:horizontalIndex] intValue];
+    float returntest = ((test-[self.min intValue])*.01);
+    
+    return returntest;
 }
 
 - (void)didReceiveMemoryWarning
@@ -370,13 +403,23 @@
 }
 - (void)lineChartView:(JBLineChartView *)lineChartView didSelectLineAtIndex:(NSUInteger)lineIndex horizontalIndex:(NSUInteger)horizontalIndex touchPoint:(CGPoint)touchPoint
 {
+    
     NSLog(@"%lu",(unsigned long)horizontalIndex);
-    // Update view
+    NSNumber *valueNumber = [self.dataArray objectAtIndex:horizontalIndex];
+    [self.informationView setText:[NSString stringWithFormat:@"%d", [valueNumber intValue]]];
+    
+    /*
+    [self setTooltipVisible:YES animated:YES atTouchPoint:touchPoint];
+    [self.tooltipView setText:[[self.daysOfWeek objectAtIndex:horizontalIndex] uppercaseString]];d
+    */
+     // Update view
 }
 
 - (void)didUnselectLineInLineChartView:(JBLineChartView *)lineChartView
 {
-    // Update view
+    [self.informationView setText:@""];
+    
+    
 }
 
 
@@ -388,7 +431,7 @@
 
 - (void)hangout:(UIButton *)senderswag {
     NSNumber *newScore;
-    if (self.prog.progress > 90) {
+    if (self.prog.progress >= .9) {
         self.stoppoint = [NSNumber numberWithFloat:1];
         MyManager *sharedManager = [MyManager sharedManager];
         newScore = [NSNumber numberWithFloat:100];
@@ -405,6 +448,7 @@
         
         
     }
+    
     [NSTimer scheduledTimerWithTimeInterval:0.1
                                      target:self
                                    selector:@selector(targetMethod:)
@@ -448,7 +492,7 @@
                                                       if([[resultURL absoluteString] length]> 20){
                                                           NSLog(@"YES! YOU GET POINTS!");
                                                           NSNumber *newScore;
-                                                          if (self.prog.progress > 90) {
+                                                          if (self.prog.progress >= .9) {
                                                               self.stoppoint = [NSNumber numberWithFloat:1];
                                                               MyManager *sharedManager = [MyManager sharedManager];
                                                               newScore = [NSNumber numberWithFloat:100];
