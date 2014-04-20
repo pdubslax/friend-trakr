@@ -117,7 +117,7 @@
         newcell.textLabel.text = [names objectAtIndex:indexPath.row];
     }
 
-  
+    newcell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:20];
     
     return newcell;
 
@@ -184,6 +184,7 @@
     addfriend[@"username"]=[[PFUser currentUser] username];
     addfriend[@"User"]=user;
     addfriend[@"Friend"]=friend;
+    
     
     SelectStartViewController *newvc = [[SelectStartViewController alloc] init];
     newvc.thisistheone = addfriend;

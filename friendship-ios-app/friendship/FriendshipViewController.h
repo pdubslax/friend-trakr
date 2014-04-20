@@ -28,6 +28,7 @@
 @property (nonatomic,strong) NSMutableArray *dataArray;
 @property (nonatomic,strong) JBLineChartView *lineChartView;
 @property (nonatomic,strong) NSNumber *min;
+@property (nonatomic,strong) UILabel *friendsSince;
 
 
 

@@ -26,6 +26,7 @@
 @property (nonatomic,retain) UIImage *meviewImage;
 
 @property (nonatomic,retain) NSNumber *avgScore;
+@property (nonatomic,retain) NSMutableArray *advice;
 
 
 + (id)sharedManager;

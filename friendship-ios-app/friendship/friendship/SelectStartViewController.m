@@ -109,6 +109,8 @@
     NSNumber *score = [NSNumber numberWithInt:(int)(steez*100)];
     
     self.thisistheone[@"Score"]=score;
+    self.thisistheone[@"history"]=[NSArray arrayWithObject:score];
+    
     
     [self.thisistheone saveInBackground];
     

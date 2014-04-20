@@ -62,6 +62,7 @@
     
     [self.tabBarController.tabBar setTintColor:[UIColor whiteColor]];
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.122 green:0.149 blue:0.232 alpha:1];
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor colorWithRed:0.91 green:0.91 blue:0.91 alpha:1], NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue-Thin" size:21.0]};
     
     
     self.navigationController.navigationBar.topItem.title=self.name;
@@ -163,30 +164,57 @@
     scoreLabel.text = [NSString stringWithFormat:@"%.d", [[NSNumber numberWithFloat:self.prog.progress*100] intValue]];
     
     scoreLabel.textColor = [UIColor blackColor];
-    scoreLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:30];
+    scoreLabel.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:30];
     [self.view addSubview:scoreLabel];
     self.friendometer_label = scoreLabel;
 
     self.lineChartView = [[JBLineChartView alloc] init];
     self.lineChartView.delegate = self;
     self.lineChartView.dataSource = self;
+    [self.lineChartView setUserInteractionEnabled:FALSE];
+    
+    
     //lineChartView.headerView = headerView;
     
-    self.lineChartView.frame = CGRectMake(0, 340, 320, 180);
+    self.friendsSince = [[UILabel alloc] initWithFrame:CGRectMake(0, 480, 320, 40)];
+    [self.friendsSince setBackgroundColor:[UIColor colorWithRed:0.122 green:0.149 blue:0.232 alpha:1]];
+    [self.friendsSince setTextAlignment:NSTextAlignmentCenter];
+    [self.friendsSince setTextColor:[UIColor whiteColor]];
+    //[self.friendsSince setFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:30]];
+    
+    
+    self.lineChartView.frame = CGRectMake(14, 350, 295, 130);
+    
+    
     self.lineChartView.backgroundColor = [UIColor colorWithRed:0.122 green:0.149 blue:0.232 alpha:1];
     [self.lineChartView reloadData];
     
-    JBChartInformationView *test = [[JBChartInformationView alloc] initWithFrame:CGRectMake(0, 320, 320, 20)];
-    [test setBackgroundColor:[UIColor colorWithRed:0.122 green:0.149 blue:0.232 alpha:1]];
-    [self.view addSubview:test];
     
-    self.informationView = [[UILabel alloc]initWithFrame:CGRectMake(0,315,320,60)];
-    [self.informationView setBackgroundColor:[UIColor clearColor]];
+    
+    self.informationView = [[UILabel alloc]initWithFrame:CGRectMake(0,320,320,30)];
+    [self.informationView setBackgroundColor:[UIColor colorWithRed:0.122 green:0.149 blue:0.232 alpha:1]];
     [self.informationView setTextAlignment:NSTextAlignmentCenter];
-    [self.informationView setFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:30]];
+    [self.informationView setFont:[UIFont fontWithName:@"HelveticaNeue-Thin" size:30]];
     [self.informationView setTextColor:[UIColor whiteColor]];
+    
+    UIView *lineView2 = [[UIView alloc] initWithFrame:CGRectMake(0, 350, 20, 130)];
+    lineView2.backgroundColor = [UIColor colorWithRed:0.122 green:0.149 blue:0.232 alpha:1];
+    [self.view addSubview:lineView2];
+    UIView *lineView4 = [[UIView alloc] initWithFrame:CGRectMake(295+14, 350, 320-295-14, 130)];
+    lineView4.backgroundColor = [UIColor colorWithRed:0.122 green:0.149 blue:0.232 alpha:1];
+    [self.view addSubview:lineView4];
+    UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(10, 350, 2, 130)];
+    lineView.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:lineView];
+    UIView *lineView3 = [[UIView alloc] initWithFrame:CGRectMake(10, 480, 320-18, 2)];
+    lineView3.backgroundColor = [UIColor whiteColor];
+    
+    
+    
     [self.view addSubview:self.lineChartView];
     [self.view addSubview:self.informationView];
+    [self.view addSubview:self.friendsSince];
+    [self.view addSubview:lineView3];
     
     
     CGRect frame = CGRectMake(self.prog.frame.origin.x+40-4, 204, 50, 50);
@@ -246,9 +274,20 @@
             for (PFObject *test in objects){
                 
                 self.dataArray  = [test objectForKey:@"history"];
+                NSDate *createdAt = test.createdAt;
+                NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+                [dateFormat setDateFormat:@"MMMM dd, yyyy"];
+                
+                NSString *theDate = [dateFormat stringFromDate:createdAt];
+                
+                self.friendsSince.text = [NSString stringWithFormat:@"Traking Since %@",theDate];
+                [self.friendsSince setFont:[UIFont fontWithName:@"HelveticaNeue-Thin" size:17.0]];
+                
                 int min = [[self.dataArray valueForKeyPath:@"@min.intValue"] intValue];
                 self.min = [NSNumber numberWithInt:min];
+                
                 [self.lineChartView reloadData];
+                [self.lineChartView setUserInteractionEnabled:TRUE];
                 
             }}}];
 }
@@ -404,7 +443,7 @@
 - (void)lineChartView:(JBLineChartView *)lineChartView didSelectLineAtIndex:(NSUInteger)lineIndex horizontalIndex:(NSUInteger)horizontalIndex touchPoint:(CGPoint)touchPoint
 {
     
-    NSLog(@"%lu",(unsigned long)horizontalIndex);
+    //NSLog(@"%lu",(unsigned long)horizontalIndex);
     NSNumber *valueNumber = [self.dataArray objectAtIndex:horizontalIndex];
     [self.informationView setText:[NSString stringWithFormat:@"%d", [valueNumber intValue]]];
     

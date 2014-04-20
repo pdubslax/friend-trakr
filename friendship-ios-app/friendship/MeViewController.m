@@ -67,11 +67,11 @@
     
     
     
-    
     [self.tabBarController.tabBar setTintColor:[UIColor whiteColor]];
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.122 green:0.149 blue:0.232 alpha:1];
 
-    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor colorWithRed:0.91 green:0.91 blue:0.91 alpha:1]};
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor colorWithRed:0.91 green:0.91 blue:0.91 alpha:1], NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue-Thin" size:21.0]};
+    
         
     self.settings.tintColor = [UIColor colorWithRed:0.91 green:0.91 blue:0.91 alpha:1];
     
@@ -81,6 +81,14 @@
         self.prog = [[AMGProgressView alloc] initWithFrame:CGRectMake(20, 245, 280, 50)];
     }
     MyManager *sharedManager = [MyManager sharedManager];
+    if (sharedManager.advice[3]!=nil) {
+        self.worstFriend.text = [NSString stringWithFormat:@"%@",sharedManager.advice[0]];
+        self.bestFriend.text = [NSString stringWithFormat:@"%@",sharedManager.advice[2]];
+        [self.bestimage setImage:sharedManager.advice[3]];
+        [self.worstimage setImage:sharedManager.advice[1]];
+
+    }
+    
     /*
     self.friendometer_label = [[UILabel alloc] initWithFrame:CGRectMake(0, self.prog.frame.origin.y-50, 320, 40)];
     
@@ -133,7 +141,8 @@
         scoreLabel.text=@"0";
     }
     scoreLabel.textColor = [UIColor blackColor];
-    scoreLabel.font = [UIFont fontWithName:@"HelveticaNeue-UltraLight" size:30];
+    scoreLabel.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:30];
+    //scoreLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:30];
     [self.view addSubview:scoreLabel];
     self.friendometer_label = scoreLabel;
     
@@ -146,6 +155,16 @@
     CALayer *round = [profile_picture layer];
     [round setMasksToBounds:YES];
     [round setCornerRadius:62.5];
+    
+    [self.bestimage setContentMode:UIViewContentModeScaleAspectFill];
+    CALayer *round2 = [self.bestimage layer];
+    [round2 setMasksToBounds:YES];
+    [round2 setCornerRadius:42.5];
+    
+    [self.worstimage setContentMode:UIViewContentModeScaleAspectFill];
+    CALayer *round3 = [self.worstimage layer];
+    [round3 setMasksToBounds:YES];
+    [round3 setCornerRadius:42.5];
     
     
     
@@ -175,7 +194,7 @@
     
     
 	// Do any additional setup after loading the view.
-    
+    /*
     JBLineChartView *lineChartView = [[JBLineChartView alloc] init];
     lineChartView.delegate = self;
     lineChartView.dataSource = self;
@@ -186,7 +205,7 @@
     
     [self.view addSubview:lineChartView];
     lineChartView.backgroundColor = [UIColor colorWithRed:0.122 green:0.149 blue:0.232 alpha:1];
-    
+    */
     
 }
 

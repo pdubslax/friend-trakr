@@ -31,6 +31,7 @@
     CGRect frame = CGRectMake(20, 405, 280, 50);
     BButton *btn = [[BButton alloc] initWithFrame:frame type:BButtonTypeFacebook style:BButtonStyleBootstrapV3];
     [btn setTitle:@"Login" forState:UIControlStateNormal];
+    [btn.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Thin" size:20.0]];
     [self.view addSubview:btn];
     [btn addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
 	
@@ -225,6 +226,12 @@
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             // The find succeeded. The first 100 objects are available in objects
+            __block int curmin  = 100;
+            __block int curmax = 0;
+            __block int minindex = -1;
+            __block int maxindex = -1;
+            __block int count = 0;
+           
             for (PFObject *test in objects){
                 
                 
@@ -248,11 +255,27 @@
                          [scoreArray addObject:[NSNumber numberWithInt:score]];
                          
                          [curfriendID addObject:[NSString stringWithFormat:@"%@",friendnumber]];
+                         
+                         if (score<=curmin) {
+                             curmin = score;
+                             minindex=count;
+                             [sharedManager.advice setObject:name atIndexedSubscript:0];
+                             [sharedManager.advice setObject:profilePic atIndexedSubscript:1];
+                         }
+                         if (score>=curmax) {
+                             curmax = score;
+                             maxindex = score;
+                             [sharedManager.advice setObject:name atIndexedSubscript:2];
+                             [sharedManager.advice setObject:profilePic atIndexedSubscript:3];
+                         }
                      }
                  }];
-                
+                count+=1;
                 
             }
+            
+            
+            //[sharedManager.advice addObject:badfriend];
             sharedManager.array3 = friendArray;
             sharedManager.array4 = pictureArray;
             sharedManager.score = scoreArray;
