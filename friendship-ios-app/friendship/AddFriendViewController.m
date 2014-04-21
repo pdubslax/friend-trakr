@@ -13,6 +13,7 @@
 #import "FriendCell.h"
 #import "MyManger.h"
 #import "SelectStartViewController.h"
+#import "FriendshipViewController.h"
 
 @interface AddFriendViewController ()
 
@@ -239,8 +240,21 @@
 }
 
 - (void)shesgone{
+    MyManager *sharedManager = [MyManager sharedManager];
+    UINavigationController *navController = self.navigationController;
+    
     [self.searchDisplayController setActive:FALSE];
-    [self.navigationController popViewControllerAnimated:YES];
+    //[self.navigationController popViewControllerAnimated:YES];
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    FriendshipViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"checkmeout"];
+    vc.name = [sharedManager.array3 objectAtIndex:[sharedManager.score count]-1];
+    vc.score = [sharedManager.score objectAtIndex:[sharedManager.score count]-1];
+    vc.facebookId = [sharedManager.cur_friend_id objectAtIndex:[sharedManager.score count]-1];
+    vc.bigprofpic = [sharedManager.array4 objectAtIndex:[sharedManager.score count]-1];
+    
+    [navController popViewControllerAnimated:NO];
+    [navController pushViewController:vc animated:YES];
 }
 
 

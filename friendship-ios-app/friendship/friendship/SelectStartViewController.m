@@ -13,6 +13,7 @@
 #import "AddFriendViewController.h"
 #import "blueButton.h"
 #import "UIImage+imageCorner.h"
+#import "FriendshipViewController.h"
 
 @interface SelectStartViewController ()
 @property (nonatomic,strong) GRKGradientView *upGradient;
@@ -109,14 +110,23 @@
     NSNumber *score = [NSNumber numberWithInt:(int)(steez*100)];
     
     self.thisistheone[@"Score"]=score;
-    self.thisistheone[@"history"]=[NSArray arrayWithObject:score];
+    self.thisistheone[@"history"]=[NSArray arrayWithObjects:score,score,nil];
     
     
     [self.thisistheone saveInBackground];
     
     [self.manger.score addObject:score];
     
-    [self dismissViewControllerAnimated:NO completion:nil];
+    [self dismissViewControllerAnimated:NO completion:^{
+    
+        
+        
+    
+    }];
+    
+    
+    
+    
     
     //[self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
     

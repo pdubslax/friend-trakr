@@ -50,7 +50,7 @@
              NSDictionary *infodic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
              self.firstname = [NSString stringWithFormat:@"%@",infodic[@"first_name"]];
              self.lastname = [NSString stringWithFormat:@"%@",infodic[@"last_name"]];
-             
+             [self prepareMessageView];
              
          }
      }];
@@ -290,9 +290,13 @@
                 [self.lineChartView setUserInteractionEnabled:TRUE];
                 
             }}}];
+    
+    
 }
 
 - (void)prepareMessageView{
+    
+    
     MFMessageComposeViewController *controller = [[MFMessageComposeViewController alloc] init] ;
     self.messageView = controller;
     [controller setMessageComposeDelegate:self];
@@ -304,6 +308,8 @@
                                                 forKeys:@[@"firstName", @"lastName", @"mobileNumber", @"homeNumber", @"homeEmail", @"workEmail", @"address", @"zipCode", @"city"]];
         
         ABAddressBookRef addressBookRef = ABAddressBookCreateWithOptions(NULL, NULL);
+        
+        
         
         CFArrayRef allPeople = ABAddressBookCopyArrayOfAllPeople( addressBookRef );
         CFIndex nPeople = ABAddressBookGetPersonCount( addressBookRef );
@@ -372,7 +378,7 @@
 }
 
 - (void)text:(UIButton *)senderswag{
-        [self prepareMessageView];
+    
         [self presentViewController:self.messageView animated:NO completion:nil];
     
 }
@@ -430,7 +436,7 @@
 - (CGFloat)lineChartView:(JBLineChartView *)lineChartView verticalValueForHorizontalIndex:(NSUInteger)horizontalIndex atLineIndex:(NSUInteger)lineIndex
 {
     int test =[[self.dataArray objectAtIndex:horizontalIndex] intValue];
-    float returntest = ((test-[self.min intValue])*.01);
+    float returntest = ((test-[self.min intValue]*.9)*.01);
     
     return returntest;
 }

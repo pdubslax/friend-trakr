@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8B5D02EC188B2918001BED73"
-               BuildableName = "Friendship.app"
+               BuildableName = "Friend Trakr.app"
                BlueprintName = "friendship"
                ReferencedContainer = "container:friendship.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8B5D02EC188B2918001BED73"
-            BuildableName = "Friendship.app"
+            BuildableName = "Friend Trakr.app"
             BlueprintName = "friendship"
             ReferencedContainer = "container:friendship.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8B5D02EC188B2918001BED73"
-            BuildableName = "Friendship.app"
+            BuildableName = "Friend Trakr.app"
             BlueprintName = "friendship"
             ReferencedContainer = "container:friendship.xcodeproj">
          </BuildableReference>
@@ -80,7 +80,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8B5D02EC188B2918001BED73"
-            BuildableName = "Friendship.app"
+            BuildableName = "Friend Trakr.app"
             BlueprintName = "friendship"
             ReferencedContainer = "container:friendship.xcodeproj">
          </BuildableReference>
