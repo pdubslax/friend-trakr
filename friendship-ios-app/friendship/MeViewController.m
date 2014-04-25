@@ -13,6 +13,8 @@
 #import "BButton.h"
 #import "MyManger.h"
 #import <FacebookSDK/FacebookSDK.h>
+#import "AMBCircularButton.h"
+#import "FriendshipViewController.h"
 
 
 
@@ -80,12 +82,24 @@
     } else {
         self.prog = [[AMGProgressView alloc] initWithFrame:CGRectMake(20, 245, 280, 50)];
     }
+    
+    CGRect frame = CGRectMake(38, 345, 85, 85);
+    self.bestimage = [[AMBCircularButton alloc] initWithFrame:frame];
+    [self.view addSubview:self.bestimage];
+    
+    CGRect frame2 = CGRectMake(198,345,85,85);
+    self.worstimage = [[AMBCircularButton alloc] initWithFrame:frame2];
+    [self.view addSubview:self.worstimage];
+    
+    [self.bestimage addTarget:self action:@selector(bestclick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.worstimage addTarget:self action:@selector(worstclick:) forControlEvents:UIControlEventTouchUpInside];
+    
     MyManager *sharedManager = [MyManager sharedManager];
     if (sharedManager.advice[3]!=nil) {
         self.worstFriend.text = [NSString stringWithFormat:@"%@",sharedManager.advice[0]];
         self.bestFriend.text = [NSString stringWithFormat:@"%@",sharedManager.advice[2]];
-        [self.bestimage setImage:sharedManager.advice[3]];
-        [self.worstimage setImage:sharedManager.advice[1]];
+        [self.bestimage setCircularImage:sharedManager.advice[3] forState:UIControlStateNormal];
+        [self.worstimage setCircularImage:sharedManager.advice[1] forState:UIControlStateNormal];
 
     }
     
@@ -156,15 +170,9 @@
     [round setMasksToBounds:YES];
     [round setCornerRadius:62.5];
     
-    [self.bestimage setContentMode:UIViewContentModeScaleAspectFill];
-    CALayer *round2 = [self.bestimage layer];
-    [round2 setMasksToBounds:YES];
-    [round2 setCornerRadius:42.5];
     
-    [self.worstimage setContentMode:UIViewContentModeScaleAspectFill];
-    CALayer *round3 = [self.worstimage layer];
-    [round3 setMasksToBounds:YES];
-    [round3 setCornerRadius:42.5];
+    
+    
     
     
     
@@ -273,6 +281,37 @@
     }else{
         return 10-horizontalIndex;
     }
+}
+
+- (void)bestclick:(UIButton *)senderswag {
+    MyManager *sharedManager = [MyManager sharedManager];
+    NSUInteger fooIndex = [sharedManager.array3 indexOfObject: sharedManager.advice[2]];
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    FriendshipViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"checkmeout"];
+    
+    vc.name = [sharedManager.array3 objectAtIndex:fooIndex];
+    vc.score = [sharedManager.score objectAtIndex:fooIndex];
+    vc.facebookId = [sharedManager.cur_friend_id objectAtIndex:fooIndex];
+    vc.bigprofpic = [sharedManager.array4 objectAtIndex:fooIndex];
+    
+    [self.navigationController pushViewController:vc animated:NO];
+    
+}
+
+- (void)worstclick:(UIButton *)senderswag {
+    MyManager *sharedManager = [MyManager sharedManager];
+    NSUInteger fooIndex = [sharedManager.array3 indexOfObject: sharedManager.advice[0]];
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    FriendshipViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"checkmeout"];
+    
+    vc.name = [sharedManager.array3 objectAtIndex:fooIndex];
+    vc.score = [sharedManager.score objectAtIndex:fooIndex];
+    vc.facebookId = [sharedManager.cur_friend_id objectAtIndex:fooIndex];
+    vc.bigprofpic = [sharedManager.array4 objectAtIndex:fooIndex];
+    
+    [self.navigationController pushViewController:vc animated:NO];
 }
 
 

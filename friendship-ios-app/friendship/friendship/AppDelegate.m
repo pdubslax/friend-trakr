@@ -17,11 +17,30 @@
     [Parse setApplicationId:@"BuAPmdiV100LOlvsmVq5YHTLUaDATkgInyxCDnpr" clientKey:@"Bz7fwDGevI1NCO0GeyS2Bqyr4qctHeOdjEyIdnV0"];
     [PFFacebookUtils initializeFacebook];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    [application registerForRemoteNotificationTypes:
+     UIRemoteNotificationTypeBadge |
+     UIRemoteNotificationTypeAlert |
+     UIRemoteNotificationTypeSound];
     
     
 
     // Override point for customization after application launch.
     return YES;
+}
+- (void)application:(UIApplication *)application
+didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)newDeviceToken {
+    // Store the deviceToken in the current installation and save it to Parse.
+   
+    NSLog(@"registered:%@",newDeviceToken);
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    [currentInstallation setDeviceTokenFromData:newDeviceToken];
+    //[currentInstallation addUniqueObject:@"user" forKey:@"channels"];
+    [currentInstallation saveInBackground];
+}
+
+- (void)application:(UIApplication *)application
+didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    [PFPush handlePush:userInfo];
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application
