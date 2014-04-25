@@ -34,13 +34,14 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)newDeviceToken {
     NSLog(@"registered:%@",newDeviceToken);
     PFInstallation *currentInstallation = [PFInstallation currentInstallation];
     [currentInstallation setDeviceTokenFromData:newDeviceToken];
-    //[currentInstallation addUniqueObject:@"user" forKey:@"channels"];
+    [currentInstallation addUniqueObject:@"user" forKey:@"channels"];
     [currentInstallation saveInBackground];
 }
 
 - (void)application:(UIApplication *)application
 didReceiveRemoteNotification:(NSDictionary *)userInfo {
     [PFPush handlePush:userInfo];
+    
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application
@@ -64,6 +65,11 @@ didReceiveRemoteNotification:(NSDictionary *)userInfo {
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     [FBAppCall handleDidBecomeActiveWithSession:[PFFacebookUtils session]];
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    if (currentInstallation.badge == 0) {
+        currentInstallation.badge = 2;
+        [currentInstallation saveEventually];
+    }
 
 }
 

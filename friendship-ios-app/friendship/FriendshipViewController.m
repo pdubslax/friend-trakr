@@ -42,6 +42,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    /*
+    PFPush *push = [[PFPush alloc] init];
+    [push setChannel:@"user"];
+    [push setMessage:@"The Giants just scored!"];
+    [push sendPushInBackground];
+    */
+    
     [FBRequestConnection
      startForMeWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
          if (!error) {

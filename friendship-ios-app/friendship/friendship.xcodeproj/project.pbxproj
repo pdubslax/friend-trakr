@@ -472,7 +472,7 @@
 		8B5CA1B71900C9EB007A48A5 /* fbook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fbook.png; sourceTree = "<group>"; };
 		8B5CA1B81900C9EB007A48A5 /* hangout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hangout.png; sourceTree = "<group>"; };
 		8B5CA1BD1900D32C007A48A5 /* messages.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = messages.png; sourceTree = "<group>"; };
-		8B5D02ED188B2918001BED73 /* Friendship.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Friendship.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B5D02ED188B2918001BED73 /* Friend Trakr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Friend Trakr.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B5D02F0188B2918001BED73 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8B5D02F2188B2918001BED73 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		8B5D02F4188B2918001BED73 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -996,7 +996,7 @@
 		8B5D02EE188B2918001BED73 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8B5D02ED188B2918001BED73 /* Friendship.app */,
+				8B5D02ED188B2918001BED73 /* Friend Trakr.app */,
 				8B5D030E188B2918001BED73 /* friendshipTests.xctest */,
 			);
 			name = Products;
@@ -1498,7 +1498,7 @@
 			);
 			name = friendship;
 			productName = friendship;
-			productReference = 8B5D02ED188B2918001BED73 /* Friendship.app */;
+			productReference = 8B5D02ED188B2918001BED73 /* Friend Trakr.app */;
 			productType = "com.apple.product-type.application";
 		};
 		8B5D030D188B2918001BED73 /* friendshipTests */ = {
@@ -2020,7 +2020,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Patrick Wilson (54RDJEVG8R)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Patrick Wilson (54RDJEVG8R)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -2061,7 +2061,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Patrick Wilson (54RDJEVG8R)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Patrick Wilson (54RDJEVG8R)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -2093,7 +2093,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "friendship/friendship-Prefix.pch";
 				INFOPLIST_FILE = "friendship/friendship-Info.plist";
-				PRODUCT_NAME = Friendship;
+				PRODUCT_NAME = "Friend Trakr";
 				PROVISIONING_PROFILE = "4B42BDB3-5DCA-4FAF-876B-6DB62858383B";
 				WRAPPER_EXTENSION = app;
 			};
@@ -2113,7 +2113,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "friendship/friendship-Prefix.pch";
 				INFOPLIST_FILE = "friendship/friendship-Info.plist";
-				PRODUCT_NAME = Friendship;
+				PRODUCT_NAME = "Friend Trakr";
 				PROVISIONING_PROFILE = "4B42BDB3-5DCA-4FAF-876B-6DB62858383B";
 				WRAPPER_EXTENSION = app;
 			};
