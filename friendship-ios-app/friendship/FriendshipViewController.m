@@ -291,9 +291,7 @@
                 [dateFormat setDateFormat:@"MMMM dd, yyyy"];
                 
                 NSString *theDate = [dateFormat stringFromDate:createdAt];
-                if ([self.dataArray count]==0) {
-                    self.dataArray = [NSMutableArray arrayWithObjects:self.score,self.score, nil];
-                }
+                
                 self.friendsSince.text = [NSString stringWithFormat:@"Traking Since %@",theDate];
                 [self.friendsSince setFont:[UIFont fontWithName:@"HelveticaNeue-Thin" size:17.0]];
                 

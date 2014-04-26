@@ -110,11 +110,9 @@
     NSNumber *score = [NSNumber numberWithInt:(int)(steez*100)];
     
     self.thisistheone[@"Score"]=score;
-    if ([score intValue]>5) {
-        self.thisistheone[@"history"]=[NSArray arrayWithObjects:0,1,1,2,3,4,score,score,nil];
-    }else{
-        self.thisistheone[@"history"]=[NSArray arrayWithObjects:score,score,nil];
-    }
+   
+    self.thisistheone[@"history"]=[NSArray arrayWithObjects:[NSNumber numberWithInt:(int)([score intValue]/10)],[NSNumber numberWithInt:(int)([score intValue]/9)],[NSNumber numberWithInt:(int)([score intValue]/8)],[NSNumber numberWithInt:(int)([score intValue]/7)],[NSNumber numberWithInt:(int)([score intValue]/8)],[NSNumber numberWithInt:(int)([score intValue]/7)],[NSNumber numberWithInt:(int)([score intValue]/6)],[NSNumber numberWithInt:(int)([score intValue]/5)],[NSNumber numberWithInt:(int)([score intValue]/4)],[NSNumber numberWithInt:(int)([score intValue]/3)],[NSNumber numberWithInt:(int)([score intValue]/2)],[NSNumber numberWithInt:(int)([score intValue]/1.5)],[NSNumber numberWithInt:(int)([score intValue]/1)],score,score,nil];
+    
     
     
     
