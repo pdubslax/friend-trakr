@@ -66,10 +66,12 @@ didReceiveRemoteNotification:(NSDictionary *)userInfo {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     [FBAppCall handleDidBecomeActiveWithSession:[PFFacebookUtils session]];
     PFInstallation *currentInstallation = [PFInstallation currentInstallation];
-    if (currentInstallation.badge == 0) {
-        currentInstallation.badge = 2;
-        [currentInstallation saveEventually];
+    //currentInstallation[@"username"]=[[PFUser currentUser] username];
+    if (currentInstallation.badge != 0) {
+        currentInstallation.badge = 0;
+        
     }
+    [currentInstallation saveEventually];
 
 }
 

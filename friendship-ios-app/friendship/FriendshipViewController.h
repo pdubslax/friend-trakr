@@ -11,6 +11,7 @@
 #import "AMGProgressView.h"
 #import <MessageUI/MessageUI.h>
 #import "JBChartInformationView.h"
+#import "AMBCircularButton.h"
 
 @interface FriendshipViewController : UIViewController <JBLineChartViewDataSource,JBLineChartViewDelegate,MFMessageComposeViewControllerDelegate>
 
@@ -29,6 +30,7 @@
 @property (nonatomic,strong) JBLineChartView *lineChartView;
 @property (nonatomic,strong) NSNumber *min;
 @property (nonatomic,strong) UILabel *friendsSince;
+@property (nonatomic,strong) AMBCircularButton *tmpbutton;
 
 
 

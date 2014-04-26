@@ -13,6 +13,7 @@
 #import "BButton.h"
 #import "ViewController.h"
 #import "MyManger.h"
+#import <AddressBookUI/AddressBookUI.h>
 
 
 @interface ViewController ()
@@ -28,6 +29,29 @@
     
     [PFUser logOut];
     
+    ABAddressBookRef addressBookRef = ABAddressBookCreateWithOptions(NULL, NULL);
+    
+    if (ABAddressBookGetAuthorizationStatus() == kABAuthorizationStatusNotDetermined) {
+        ABAddressBookRequestAccessWithCompletion(addressBookRef, ^(bool granted, CFErrorRef error) {
+            if (granted) {
+                // First time access has been granted, add the contact
+                
+            } else {
+                // User denied access
+                // Display an alert telling user the contact could not be added
+            }
+        });
+    }
+    else if (ABAddressBookGetAuthorizationStatus() == kABAuthorizationStatusAuthorized) {
+        // The user has previously given access, add the contact
+        
+    }
+    else {
+        // The user has previously denied access
+        // Send an alert telling user to change privacy setting in settings app
+    }
+    
+    
     CGRect frame = CGRectMake(20, 405, 280, 50);
     BButton *btn = [[BButton alloc] initWithFrame:frame type:BButtonTypeFacebook style:BButtonStyleBootstrapV3];
     [btn setTitle:@"Login" forState:UIControlStateNormal];
@@ -35,6 +59,7 @@
     [self.view addSubview:btn];
     [btn addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
 	
+    
     
     // Do any additional setup after loading the view, typically from a nib.
 }
@@ -110,6 +135,11 @@
     
     //www.facebook.com/ajax/typeahead/search/facebar/bootstrap/?viewer=1317841444&__a=1
     NSMutableArray* alreadyFriends = [[NSMutableArray alloc] init];
+    
+    PFObject *test = [PFInstallation currentInstallation];
+    [test setObject:[NSString stringWithFormat:@"%@",[[PFUser currentUser] username]] forKey:@"user"];
+    [test saveInBackground];
+    
     
     PFQuery *query = [PFQuery queryWithClassName:@"Friendships"];
     [query whereKey:@"username" equalTo:[[PFUser currentUser] username]];
@@ -323,6 +353,9 @@
              MyManager *sharedManager = [MyManager sharedManager];
              sharedManager.meviewImage = profilePic;
              sharedManager.meviewName = profile_name;
+             
+             
+             
              
              dispatch_async(dispatch_get_main_queue(), ^ {
                  [self all_done];

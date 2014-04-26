@@ -186,6 +186,8 @@
     addfriend[@"User"]=user;
     addfriend[@"Friend"]=friend;
     
+    addfriend[@"myName"]=sharedManager.meviewName;
+    
     
     SelectStartViewController *newvc = [[SelectStartViewController alloc] init];
     newvc.thisistheone = addfriend;
@@ -213,7 +215,8 @@
                      NSData *data2 = [NSData dataWithContentsOfURL:url2];
                      id jsonObjects = [NSJSONSerialization JSONObjectWithData:data2 options:NSJSONReadingMutableContainers error:nil];
                      NSString *profile_name = [jsonObjects objectForKey:@"name"];
-                     
+                     addfriend[@"theirName"]=profile_name;
+                     [addfriend saveInBackground];
                      UIImage *profilePic = [[UIImage alloc] initWithData:data];
                      [sharedManager.array3 addObject:profile_name];
                      [sharedManager.array4 addObject:profilePic];
@@ -254,7 +257,7 @@
     vc.bigprofpic = [sharedManager.array4 objectAtIndex:[sharedManager.score count]-1];
     
     [navController popViewControllerAnimated:NO];
-    [navController pushViewController:vc animated:YES];
+    [navController pushViewController:vc animated:NO];
 }
 
 

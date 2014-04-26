@@ -95,7 +95,7 @@
     [self.worstimage addTarget:self action:@selector(worstclick:) forControlEvents:UIControlEventTouchUpInside];
     
     MyManager *sharedManager = [MyManager sharedManager];
-    if (sharedManager.advice[3]!=nil) {
+    if ([sharedManager.advice count]!=0) {
         self.worstFriend.text = [NSString stringWithFormat:@"%@",sharedManager.advice[0]];
         self.bestFriend.text = [NSString stringWithFormat:@"%@",sharedManager.advice[2]];
         [self.bestimage setCircularImage:sharedManager.advice[3] forState:UIControlStateNormal];

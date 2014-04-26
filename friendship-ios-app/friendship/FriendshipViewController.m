@@ -48,7 +48,7 @@
     [push setMessage:@"The Giants just scored!"];
     [push sendPushInBackground];
     */
-    
+    [self.lineChartView setUserInteractionEnabled:FALSE];
     [FBRequestConnection
      startForMeWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
          if (!error) {
@@ -168,7 +168,8 @@
     */
     
     UILabel *scoreLabel = [[UILabel alloc]initWithFrame:CGRectMake(240, self.prog.frame.origin.y, 60, 50)];
-    scoreLabel.text = [NSString stringWithFormat:@"%.d", [[NSNumber numberWithFloat:self.prog.progress*100] intValue]];
+    
+    scoreLabel.text = [NSString stringWithFormat:@"%d", [self.score intValue]];
     
     scoreLabel.textColor = [UIColor blackColor];
     scoreLabel.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:30];
@@ -179,7 +180,8 @@
     self.lineChartView.delegate = self;
     self.lineChartView.dataSource = self;
     [self.lineChartView setUserInteractionEnabled:FALSE];
-    
+
+
     
     //lineChartView.headerView = headerView;
     
@@ -194,7 +196,6 @@
     
     
     self.lineChartView.backgroundColor = [UIColor colorWithRed:0.122 green:0.149 blue:0.232 alpha:1];
-    [self.lineChartView reloadData];
     
     
     
@@ -218,10 +219,13 @@
     
     
     
-    [self.view addSubview:self.lineChartView];
+    
+    [self.lineChartView setUserInteractionEnabled:FALSE];
+
     [self.view addSubview:self.informationView];
     [self.view addSubview:self.friendsSince];
     [self.view addSubview:lineView3];
+    [self.view addSubview:self.lineChartView];
     
     
     CGRect frame = CGRectMake(self.prog.frame.origin.x+40-4, 204, 50, 50);
@@ -275,6 +279,7 @@
     PFQuery *query = [PFQuery queryWithClassName:@"Friendships"];
     [query whereKey:@"username" equalTo:[[PFUser currentUser] username]];
     [query whereKey:@"Friend" equalTo:myNumber];
+    
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             // The find succeeded. The first 100 objects are available in objects
@@ -286,7 +291,9 @@
                 [dateFormat setDateFormat:@"MMMM dd, yyyy"];
                 
                 NSString *theDate = [dateFormat stringFromDate:createdAt];
-                
+                if ([self.dataArray count]==0) {
+                    self.dataArray = [NSMutableArray arrayWithObjects:self.score,self.score, nil];
+                }
                 self.friendsSince.text = [NSString stringWithFormat:@"Traking Since %@",theDate];
                 [self.friendsSince setFont:[UIFont fontWithName:@"HelveticaNeue-Thin" size:17.0]];
                 
@@ -294,6 +301,7 @@
                 self.min = [NSNumber numberWithInt:min];
                 
                 [self.lineChartView reloadData];
+                
                 [self.lineChartView setUserInteractionEnabled:TRUE];
                 
             }}}];
@@ -477,16 +485,20 @@
 
 
 - (IBAction)backarrow:(id)sender {
+    self.navigationController.navigationBar.topItem.title=@"Friendships";
     [self.navigationController popViewControllerAnimated:NO];
+    
 
 }
 
 - (void)hangout:(UIButton *)senderswag {
+    [senderswag setEnabled:FALSE];
+    self.tmpbutton = senderswag;
     NSNumber *newScore;
     if (self.prog.progress >= .9) {
         self.stoppoint = [NSNumber numberWithFloat:1];
         MyManager *sharedManager = [MyManager sharedManager];
-        newScore = [NSNumber numberWithFloat:100];
+        newScore = [NSNumber numberWithInt:100];
         [sharedManager.score setObject:newScore atIndexedSubscript:[sharedManager.cur_friend_id indexOfObject:self.facebookId]];
         
         
@@ -495,7 +507,7 @@
     }else{
         self.stoppoint = [NSNumber numberWithFloat:self.prog.progress +.1];
         MyManager *sharedManager = [MyManager sharedManager];
-        newScore = [NSNumber numberWithFloat:(self.prog.progress + .1) *100];
+        newScore = [NSNumber numberWithInt:(int)((self.prog.progress + .1) *100)];
         [sharedManager.score setObject:newScore atIndexedSubscript:[sharedManager.cur_friend_id indexOfObject:self.facebookId]];
         
         
@@ -601,6 +613,7 @@
     
     self.prog.progress = self.prog.progress+.005;
     if (self.prog.progress>[self.stoppoint floatValue]) {
+        [self.tmpbutton setEnabled:TRUE];
         [timer invalidate];
     }
     float R=255 - (255*self.prog.progress*100)/100;

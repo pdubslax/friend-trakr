@@ -110,7 +110,12 @@
     NSNumber *score = [NSNumber numberWithInt:(int)(steez*100)];
     
     self.thisistheone[@"Score"]=score;
-    self.thisistheone[@"history"]=[NSArray arrayWithObjects:score,score,nil];
+    if ([score intValue]>5) {
+        self.thisistheone[@"history"]=[NSArray arrayWithObjects:0,1,1,2,3,4,score,score,nil];
+    }else{
+        self.thisistheone[@"history"]=[NSArray arrayWithObjects:score,score,nil];
+    }
+    
     
     
     [self.thisistheone saveInBackground];

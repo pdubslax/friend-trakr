@@ -286,6 +286,8 @@ NSString * const kJBLineChartViewAnimationPathKey = @"path";
     // Position header and footer
     self.headerView.frame = CGRectMake(self.bounds.origin.x, self.bounds.origin.y, self.bounds.size.width, self.headerView.frame.size.height);
     self.footerView.frame = CGRectMake(self.bounds.origin.x, self.bounds.size.height - self.footerView.frame.size.height, self.bounds.size.width, self.footerView.frame.size.height);
+    
+    
 }
 
 #pragma mark - View Quick Accessors

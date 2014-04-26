@@ -38,6 +38,7 @@ NSMutableArray *scoreArray;
 - (void)viewDidAppear:(BOOL)animated{
     
     [self.friendship_tableView reloadData];
+    self.navigationController.navigationBar.topItem.title=@"Friendships";
 }
 
 - (void)viewDidLoad
@@ -48,6 +49,7 @@ NSMutableArray *scoreArray;
     friendArray = sharedManager.array3;
     pictureArray = sharedManager.array4;
     scoreArray = sharedManager.score;
+    self.navigationController.navigationBar.topItem.title=@"Friendships";
     
     
     
@@ -81,6 +83,8 @@ NSMutableArray *scoreArray;
 {
     return 1;    //count of section
 }
+
+
 
 
 
